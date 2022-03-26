@@ -1,5 +1,5 @@
 // server and backend running in Deno
-import { Application } from 'https://deno.land/x/oak/mod.ts';
+import { Application } from 'https://deno.land/x/oak@v10.2.0/mod.ts';
 
 // import { FsFile } from 'https://deno.land/x/oak@v10.5.1/send.ts';
 
