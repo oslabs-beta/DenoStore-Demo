@@ -45,14 +45,14 @@ module.exports = {
       directory: path.join(__dirname, './build'),
     },
     proxy: {
-      '/*': 'http://localhost:3000',
+      '/graphql': 'http://localhost:3000', // error appeared so changed it to graphql for now
       secure: false,
     },
     host: 'localhost',
     port: 8080,
     hot: true,
     historyApiFallback: true,
-    inline: true,
+    // inline: true, // error appeared. error was that this property was not in the devServer object
     headers: { 'Access-Control-Allow-Origin': '*' },
   },
 };
