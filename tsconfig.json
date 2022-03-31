@@ -9,6 +9,6 @@
     "moduleResolution": "Node",
     "plugins": [{ "name": "typescript-deno-plugin" }]
   },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["**/*.tsx"],
   "exclude": ["node_modules"]
 }
