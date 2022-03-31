@@ -14,7 +14,7 @@ module.exports = {
       {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
-        loader: ['ts-loader'],
+        loader: 'ts-loader',
       },
       {
         test: /\.(js|jsx)$/,
@@ -38,7 +38,7 @@ module.exports = {
     }),
   ],
   resolve: {
-    extensions: ['.tsx', '.ts', '.js', '.jsx'],
+    extensions: ['.tsx', '.ts', '.jsx', '.js'],
   },
   devServer: {
     static: {
