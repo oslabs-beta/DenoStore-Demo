@@ -3,7 +3,11 @@ import * as React from 'react';
 
 //do we need to type what it returns?
 const App: React.FC = () => {
-  return <div>Hello World</div>;
+  return (
+    <div>
+      <h1>React render here</h1>
+    </div>
+  );
 };
 
 export default App;

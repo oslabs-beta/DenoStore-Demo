@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "dev": "concurrently \"denon run --allow-net --allow-read server/server.ts\" \"webpack serve --open\""
   },
   "repository": {
     "type": "git",
@@ -17,15 +18,22 @@
   },
   "homepage": "https://github.com/oslabs-beta/DenoStore-Demo#readme",
   "dependencies": {
+    "concurrently": "^7.0.0",
+    "html-webpack-plugin": "^5.5.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router": "^6.2.2",
+    "typescript": "^4.6.2",
     "webpack": "^5.70.0"
   },
   "devDependencies": {
     "@types/react": "^17.0.42",
     "@types/react-dom": "^17.0.14",
+    "babel-loader": "^8.2.4",
+    "copy-webpack-plugin": "^10.2.4",
     "ts-loader": "^9.2.8",
-    "typescript": "^4.6.2"
+    "typescript-deno-plugin": "^1.31.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
   }
 }
