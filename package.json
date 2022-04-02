@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "dev": "webpack serve --open",
-    "dev-server": "concurrently \"denon run --allow-net --allow-read server/server.ts\" \"webpack serve --open\""
+    "dev": "concurrently \"denon run --allow-net --allow-read server/server.ts\" \"webpack serve --open\""
   },
   "repository": {
     "type": "git",
