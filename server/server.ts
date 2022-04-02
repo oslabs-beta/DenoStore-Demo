@@ -1,8 +1,6 @@
 // server and backend running in Deno
 
-// @ts-ignore
 import { Application } from 'https://deno.land/x/oak@v10.2.0/mod.ts';
-// @ts-ignore
 import router from './router.ts';
 
 const app = new Application();

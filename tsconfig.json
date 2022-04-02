@@ -9,6 +9,6 @@
     "moduleResolution": "Node",
     "plugins": [{ "name": "typescript-deno-plugin" }]
   },
-  "include": ["**/*.tsx"],
+  "include": ["**/*.tsx", "components/bar-chart.js"],
   "exclude": ["node_modules"]
 }
