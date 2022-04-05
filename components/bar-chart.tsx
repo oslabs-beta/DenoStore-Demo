@@ -9,9 +9,6 @@ a new bar added to the chart.
 
 */
 
-// export const Chart: React.FC<ChartPropsData> = ({ data }: ChartPropsData):JSX.Element => {
-// doesn't recognize JSX.Element even though I see it everywhere online. Can't get div return to not lint as "wrong"
-
 export const Chart: React.FC<ChartPropsData> = ({
   data,
   addTime,
