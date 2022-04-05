@@ -2,111 +2,56 @@ import * as React from 'react';
 import * as d3 from 'd3';
 import { ChartPropsData } from '../types';
 
-/*
-we'll need a state hook so that when a new query time is available, it gets passed
-down as data (either prop drilling or using context, probably the latter) to get 
-a new bar added to the chart. 
-
-*/
-
 export const Chart: React.FC<ChartPropsData> = ({
   data,
   addTime,
 }: ChartPropsData) => {
   const [chartData, setChartData] = React.useState(data);
 
-  const svgRef = React.useRef(null);
+  const svgRef = React.useRef<SVGSVGElement | null>(null);
   const width = 600;
-  const height = 300;
+  const height = 400;
   const margin = { top: 20, right: 20, bottom: 20, left: 20 };
 
   const svgWidth = width + margin.left + margin.right;
   const svgHeight = height + margin.top + margin.bottom;
 
+  const x = d3
+    .scaleBand()
+    .domain(chartData.map((d) => d.queryCountName))
+    .range([margin.left, width - margin.right])
+    .padding(0.075);
+
+  const y = d3
+    .scaleLinear()
+    .domain([0, d3.max(chartData, (d) => d.time)])
+    .range([height - margin.bottom, margin.top]);
+
+  const yAxis = d3.axisLeft(y);
+  const xAxis = d3.axisBottom(x);
   /* The useEffect Hook is for running side effects outside of React,
-       for instance inserting elements into the DOM using D3 */
-  React.useEffect(
-    () => {
-      if (chartData && svgRef.current) {
-        const svg = d3.select(svgRef.current);
+    for instance inserting elements into the DOM using D3 */
+  React.useEffect(() => {
+    if (chartData && svgRef.current) {
+      const svg = d3.select(svgRef.current);
 
-        const x = d3
-          .scaleBand()
-          .domain(d3.range(chartData.length))
-          .range([margin.left, width - margin.right])
-          .padding(0.1);
+      const xAxisGroup = svg.append('g').call(xAxis);
 
-        const y = d3
-          .scaleLinear()
-          .domain([0, d3.max(chartData, (d) => d)])
-          .range([height - margin.bottom, margin.top]);
+      const yAxisGroup = svg.append('g').call(yAxis);
 
-        //bind d3 data
-        const update = svg
-          .append('g')
-          .attr('fill', 'royalblue')
-          .selectAll('rect')
-          .data(chartData)
-
-          //enter new d3 elements
-          // update
-          //   .enter()
-          .join('rect')
-          .attr('x', (d, i) => x(i))
-          .attr('y', (d) => y(d))
-          .attr('height', (d) => y(0) - y(d))
-          .attr('width', x.bandwidth());
-
-        // const xAxis = (g: any) => {
-        //   g.attr('transform', `translate(0, ${height - margin.bottom})`).call(
-        //     d3
-        //       .axisBottom(x)
-        //       .tickFormat((i) => `Query ${i}`)
-        //       .attr('font-size', '20px')
-        //   );
-        // };
-        // const yAxis = (g: any) => {
-        //   g.attr('transform', `translate(${margin.left}, 0)`).call(
-        //     d3.axisLeft(y).ticks(null, chartData.format)
-        //   );
-        // };
-
-        // update.append('g').call(xAxis);
-        // update.append('g').call(yAxis);
-
-        //update existing d3 elements and render
-        update.node();
-        // update.exit().remove();
-
-        // // Bind D3 data
-        // const update = svg.append('g').selectAll('text').data(data);
-
-        // // Enter new D3 elements
-        // update
-        //   .enter()
-        //   .append('text')
-        //   .attr('x', (d, i) => i * 25)
-        //   .attr('y', 40)
-        //   .style('font-size', 24)
-        //   .text((d: number) => d);
-
-        // // Update existing D3 elements
-        // update.attr('x', (d, i) => i * 40).text((d: number) => d);
-
-        // // Remove old D3 elements
-        // update.exit().remove();
-      }
-    },
-
-    /*
-            useEffect has a dependency array (below). It's a list of dependency
-            variables for this useEffect block. The block will run after mount
-            and whenever any of these variables change. We still have to check
-            if the variables are valid, but we do not have to compare old props
-            to next props to decide whether to rerender.
-        */
-    [chartData, svgRef.current]
-  );
+      const update = svg
+        .append('g')
+        .attr('transform', `translate(${margin.left}, 0)`)
+        .selectAll('rect')
+        .data(chartData)
+        .enter()
+        .append('rect')
+        .attr('width', x.bandwidth)
+        .attr('x', (d) => x(d.queryCountName))
+        .attr('fill', 'royalblue')
+        .attr('height', (d) => y(0) - y(d.time));
+    }
+  }, [chartData, svgRef.current]);
 
   return (
     <div>
@@ -116,7 +61,7 @@ export const Chart: React.FC<ChartPropsData> = ({
         height={svgHeight}
         ref={svgRef}
       />
-      <button onClick={() => addTime(3)}></button>
+      <button onClick={() => addTime(1.3)}></button>
     </div>
   );
 };
