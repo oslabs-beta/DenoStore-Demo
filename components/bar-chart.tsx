@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as d3 from 'd3';
+import { ChartPropsData } from '../types';
 
 /*
 we'll need a state hook so that when a new query time is available, it gets passed
@@ -8,12 +9,13 @@ a new bar added to the chart.
 
 */
 
-type ChartPropsData = { data?: number[] };
-
 // export const Chart: React.FC<ChartPropsData> = ({ data }: ChartPropsData):JSX.Element => {
 // doesn't recognize JSX.Element even though I see it everywhere online. Can't get div return to not lint as "wrong"
 
-export const Chart: React.FC<ChartPropsData> = ({ data }: ChartPropsData) => {
+export const Chart: React.FC<ChartPropsData> = ({
+  data,
+  addTime,
+}: ChartPropsData) => {
   const [chartData, setChartData] = React.useState(data);
 
   const svgRef = React.useRef(null);
@@ -110,11 +112,14 @@ export const Chart: React.FC<ChartPropsData> = ({ data }: ChartPropsData) => {
   );
 
   return (
-    <svg
-      className="d3-component"
-      width={svgWidth}
-      height={svgHeight}
-      ref={svgRef}
-    />
+    <div>
+      <svg
+        className="d3-component"
+        width={svgWidth}
+        height={svgHeight}
+        ref={svgRef}
+      />
+      <button onClick={() => addTime(3)}></button>
+    </div>
   );
 };
