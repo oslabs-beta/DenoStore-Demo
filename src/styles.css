@@ -1,0 +1,186 @@
+.logo {
+  height: 250px;
+  width: 250px;
+  background-color: #bbb;
+  border-radius: 50%;
+  text-align: center;
+  padding: 15px;
+  border: 3px solid #000;
+  font: 32px Arial;
+  position: relative;
+  left: 300px;
+  bottom: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.graphic {
+  height: 150px;
+  width: 150px;
+  background-color: #bbb;
+  border-radius: 50%;
+  text-align: center;
+  padding: 15px;
+  border: 3px solid #000;
+  font: 16px Arial;
+  position: relative;
+  right: 200px;
+  bottom: 150px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* .flexbox-container1 {
+  display: flex;
+  flex-direction: column;
+}
+
+.flexbox-item {
+  width: 25%;
+  height: 80px;
+  border: 3px solid #000;
+  background-color: rgb(241, 150, 150);
+} */
+
+.problemParagraph {
+  height: 80px;
+  min-width: 300px;
+  width: 25%;
+  border: 3px solid #000;
+  font: 16px Arial;
+  padding: 10px;
+  position: relative;
+  left: 50px;
+  top: 100px;
+}
+
+.solutionParagraph {
+  height: 80px;
+  min-width: 300px;
+  width: 25%;
+  border: 3px solid #000;
+  font: 16px Arial;
+  padding: 10px;
+  position: relative;
+  left: 50px;
+  top: 120px;
+}
+
+.demo {
+  position: relative;
+  height: 1000px;
+  width: 95%;
+  max-width: 3000px;
+  border: 3px solid #000;
+  left: 2.5%;
+  bottom: 100px;
+}
+
+.demoText {
+  font: 60px Arial;
+  text-align: center;
+}
+
+.demoInstructions {
+  font: 16px Arial;
+  position: absolute;
+  left: 40px;
+  top: 100px;
+}
+
+.query {
+  font: 16px Arial;
+  position: relative;
+  left: 40px;
+  top: 80px;
+  height: 550px;
+  max-width: 900px;
+  width: 32%;
+  border: 3px solid #000;
+}
+
+.demoVisualization {
+  font: 16px Arial;
+  position: relative;
+  height: 550px;
+  min-width: 20%;
+  max-width: 1800px;
+  width: 60%;
+  left: 37%;
+  bottom: 476px;
+  border: 3px solid #000;
+}
+
+.queryButton {
+  font: 16px Arial;
+  position: relative;
+  height: 150px;
+  min-width: 100px;
+  width: 32%;
+  left: 40px;
+  bottom: 460px;
+  background-color: lightblue;
+}
+
+.runQuery {
+  font: 16px Arial;
+  position: absolute;
+  height: 150px;
+  min-width: 100px;
+  width: 30%;
+  left: 37%;
+  top: 720px;
+  background-color: lightgreen;
+}
+
+.clearCache {
+  font: 16px Arial;
+  position: absolute;
+  height: 150px;
+  width: 29.5%;
+  left: 68%;
+  top: 720px;
+  background-color: rgb(241, 150, 150);
+}
+
+.team {
+  text-align: justify;
+  border: 3px solid #000;
+  min-width: 600px;
+  padding: 15px;
+  margin: 50px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.teamContainer {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.dsTeam {
+  font: 36px Arial;
+  font-weight: bold;
+  text-align: center;
+}
+
+.teamMember {
+  font: 16px Arial;
+  border-radius: 50%;
+  min-height: 100px;
+  height: 175px;
+  min-width: 100px;
+  width: 175px;
+  border: 3px solid #000;
+}
+
+.teamMemberName {
+  font: 20px Arial;
+  text-align: center;
+}
+
+.github {
+  font: 16px Arial;
+  text-align: center;
+}
