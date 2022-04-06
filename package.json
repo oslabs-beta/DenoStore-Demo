@@ -19,10 +19,12 @@
   "homepage": "https://github.com/oslabs-beta/DenoStore-Demo#readme",
   "dependencies": {
     "concurrently": "^7.0.0",
+    "css-loader": "^6.7.1",
     "html-webpack-plugin": "^5.5.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router": "^6.2.2",
+    "style-loader": "^3.3.1",
     "typescript": "^4.6.2",
     "webpack": "^5.70.0"
   },
