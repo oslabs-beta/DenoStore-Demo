@@ -7,7 +7,7 @@ import '../styles.css';
 const App: React.FC = () => {
   return (
     <div>
-      <h1 className="name">DenoStore</h1>
+      {/* <h1 className="name">DenoStore</h1> */}
       <Homepage />
     </div>
   );

@@ -1,4 +1,7 @@
 import * as React from 'react';
+import { Route, Routes} from 'react-router-dom';
+// import { HashLink } from 'react-router-hash-link';
+
 import ProblemParagraph from './ProblemParagraph';
 import SolutionParagraph from './SolutionParagraph';
 import DenoStoreLogo from './DenoStoreLogo';
@@ -6,19 +9,25 @@ import SlideShowGraphic from './SlideshowGraphic';
 import Demo from './Demo';
 import TeamText from './TeamText';
 import Team from './Team';
+import Footer from './Footer';
+import Header from './Header';
 
 const Homepage: React.FC = () => {
   return (
     <div>
+      <Header/>
+      <h1 className="name">DenoStore</h1>
       <div className="flexbox-container1">
         <ProblemParagraph />
         <SolutionParagraph />
       </div>
       <DenoStoreLogo />
       <SlideShowGraphic />
-      <Demo />
+      <Demo/>
       <TeamText />
+   
       <Team />
+      <Footer />
     </div>
   );
 };
