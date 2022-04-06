@@ -1,5 +1,5 @@
 export type ChartPropsData = {
-  data?: QueryTimeObj[];
+  data?: QueryTimeObj[] | [];
   addTime: addTimeType;
 };
 

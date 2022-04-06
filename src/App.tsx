@@ -6,7 +6,7 @@ import { addTimeType } from '../types';
 //do we need to type what it returns?
 const App: React.FunctionComponent = () => {
   const [data, setData] = React.useState([
-    { time: 7.5, queryCountName: 'Query 1' },
+    // { time: 7.5, queryCountName: 'Query 1' },
     // { time: 0.02, queryCountName: 'Query 2' },
     // { time: 0.03, queryCountName: 'Query 3' },
     // { time: 0.08, queryCountName: 'Query 4' },
