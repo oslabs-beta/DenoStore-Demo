@@ -2,56 +2,104 @@ import * as React from 'react';
 import * as d3 from 'd3';
 import { ChartPropsData } from '../types';
 
+//this component loads a chart based on state handed down from the container component
+//ChartPropsData takes in a queryFetchTime as time and a string of a query number
 export const Chart: React.FC<ChartPropsData> = ({
   data,
   addTime,
 }: ChartPropsData) => {
-  const [chartData, setChartData] = React.useState(data);
-
+  const [selection, setSelection] = React.useState(null);
   const svgRef = React.useRef<SVGSVGElement | null>(null);
+
   const width = 600;
   const height = 400;
-  const margin = { top: 20, right: 20, bottom: 20, left: 20 };
+  const margin = { top: 20, right: 10, bottom: 20, left: 50 };
 
   const svgWidth = width + margin.left + margin.right;
   const svgHeight = height + margin.top + margin.bottom;
 
-  const x = d3
-    .scaleBand()
-    .domain(chartData.map((d) => d.queryCountName))
-    .range([margin.left, width - margin.right])
-    .padding(0.075);
-
-  const y = d3
-    .scaleLinear()
-    .domain([0, d3.max(chartData, (d) => d.time)])
-    .range([height - margin.bottom, margin.top]);
-
-  const yAxis = d3.axisLeft(y);
-  const xAxis = d3.axisBottom(x);
-  /* The useEffect Hook is for running side effects outside of React,
-    for instance inserting elements into the DOM using D3 */
   React.useEffect(() => {
-    if (chartData && svgRef.current) {
-      const svg = d3.select(svgRef.current);
+    if (!selection) {
+      setSelection(d3.select(svgRef.current));
+    } else {
+      const xScale = d3
+        .scaleBand()
+        .domain(data.map((d) => d.queryCountName))
+        .range([margin.left + 5, svgWidth - margin.right - margin.left])
+        .paddingInner(0.1);
 
-      const xAxisGroup = svg.append('g').call(xAxis);
+      const yScale = d3
+        .scaleLinear()
+        .domain([0, d3.max(data, (d) => d.time) + 1])
+        .range([svgHeight + 5, margin.bottom]);
 
-      const yAxisGroup = svg.append('g').call(yAxis);
+      const yAxis = d3.axisLeft(yScale).tickFormat((d) => `${d} secs`);
+      const xAxis = d3.axisBottom(xScale);
 
-      const update = svg
+      const xAxisGroup = selection
+        .append('g')
+        .attr('transform', `translate(0, ${svgHeight})`)
+        .call(xAxis);
+
+      const yAxisGroup = selection
         .append('g')
         .attr('transform', `translate(${margin.left}, 0)`)
+        .call(yAxis);
+
+      const update = selection
         .selectAll('rect')
-        .data(chartData)
+        .data(data)
         .enter()
         .append('rect')
-        .attr('width', x.bandwidth)
-        .attr('x', (d) => x(d.queryCountName))
-        .attr('fill', 'royalblue')
-        .attr('height', (d) => y(0) - y(d.time));
+        .attr('width', xScale.bandwidth)
+        .attr('height', (d) => svgHeight - yScale(d.time))
+        .attr('x', (d) => xScale(d.queryCountName))
+        .attr('y', (d) => yScale(d.time))
+        .attr('fill', 'royalblue');
     }
-  }, [chartData, svgRef.current]);
+  }, [svgRef.current]);
+
+  React.useEffect(() => {
+    if (selection) {
+      const xScale = d3
+        .scaleBand()
+        .domain(data.map((d) => d.queryCountName))
+        .range([margin.left + 5, width - margin.right])
+        .paddingInner(0.1);
+
+      const yScale = d3
+        .scaleLinear()
+        .domain([0, d3.max(data, (d) => d.time) + 1])
+        .range([svgHeight + 5, margin.bottom]);
+
+      const xAxis = d3.axisBottom(xScale);
+
+      const xAxisGroup = selection
+        .append('g')
+        .attr('transform', `translate(0, ${svgHeight})`)
+        .call(xAxis);
+
+      const rects = selection.selectAll('rect').data(data);
+
+      rects.exit().remove();
+
+      rects
+        .attr('width', xScale.bandwidth)
+        .attr('height', (d) => svgHeight - yScale(d.time))
+        .attr('x', (d) => xScale(d.queryCountName))
+        .attr('y', (d) => yScale(d.time))
+        .attr('fill', 'royalblue');
+
+      rects
+        .enter()
+        .append('rect')
+        .attr('width', xScale.bandwidth)
+        .attr('height', (d) => svgHeight - yScale(d.time))
+        .attr('x', (d) => xScale(d.queryCountName))
+        .attr('y', (d) => yScale(d.time))
+        .attr('fill', 'royalblue');
+    }
+  }, [data]);
 
   return (
     <div>
@@ -61,7 +109,8 @@ export const Chart: React.FC<ChartPropsData> = ({
         height={svgHeight}
         ref={svgRef}
       />
-      <button onClick={() => addTime(1.3)}></button>
+      <br />
+      <button onClick={() => addTime(0.8)}></button>
     </div>
   );
 };
