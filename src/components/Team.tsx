@@ -3,7 +3,7 @@ import TeamMember from './TeamMember';
 
 const Team: React.FC = () => {
   return (
-    <div className="team">
+    <div className="team" id= "team">
       <TeamMember
         name="Jake Van Vorhis"
         github="https://github.com/jakedoublev/"

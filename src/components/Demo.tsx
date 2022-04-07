@@ -8,12 +8,11 @@ import Button from './Button';
 
 const Demo: React.FC = () => {
   return (
-    <div className="demo">
+    <div className="demo" id= "demo">
       <DemoText />
       <DemoInstructions />
       <Query />
       <DemoVisualization />
-
       {/* <Button name={'Query Button'} className={'queryButton'} /> */}
       <QueryButtonDropdown />
       <Button name={'Run Query'} className={'runQuery'} />
