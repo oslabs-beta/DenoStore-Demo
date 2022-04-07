@@ -196,6 +196,11 @@
   width: 100%;
 }
 
+.footerBody{
+  display: flex;
+  justify-content: space-around; 
+}
+
 .header{
   margin-top: 1rem;
   padding: 1rem;
@@ -205,4 +210,10 @@
   top: 0;
   left: 0;
   width: 100%;
+}
+
+.headerBody{
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
 }
