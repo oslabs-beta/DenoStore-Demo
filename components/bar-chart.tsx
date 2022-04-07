@@ -20,7 +20,7 @@ export const Chart: React.FC<ChartPropsData> = ({
   const svgHeight = height + margin.top + margin.bottom;
 
   /*
-
+  Sets initial selection and scale empty with no query data yet
   */
   React.useEffect(() => {
     // sets state with the ref to the SVG
@@ -36,7 +36,7 @@ export const Chart: React.FC<ChartPropsData> = ({
 
       const yScale = d3
         .scaleLinear()
-        .domain([0, d3.max(data, (d) => d.time) + 1])
+        .domain([0, d3.max(data, (d) => d.time) + 0.5])
         .nice()
         .range([svgHeight - margin.bottom, margin.top]);
 
@@ -66,7 +66,7 @@ export const Chart: React.FC<ChartPropsData> = ({
         .attr('height', (d) => svgHeight - yScale(d.time) - margin.bottom)
         .attr('x', (d) => xScale(d.queryCountName))
         .attr('y', (d) => yScale(d.time))
-        .attr('fill', 'royalblue');
+        .attr('fill', '#39A2DB');
     }
   }, [svgRef.current]);
 
@@ -116,19 +116,26 @@ export const Chart: React.FC<ChartPropsData> = ({
       // create bars for the chart and append them to the graph
       rects
         .attr('width', xScale.bandwidth)
-        .attr('height', (d) => svgHeight - yScale(d.time) - margin.bottom)
         .attr('x', (d) => xScale(d.queryCountName))
+        .attr('height', (d) => svgHeight - yScale(d.time) - margin.bottom)
         .attr('y', (d) => yScale(d.time))
-        .attr('fill', 'royalblue');
+        .attr('fill', '#39A2DB');
 
       rects
         .enter()
         .append('rect')
         .attr('width', xScale.bandwidth)
-        .attr('height', (d) => svgHeight - yScale(d.time) - margin.bottom)
         .attr('x', (d) => xScale(d.queryCountName))
+        .attr('y', svgHeight - margin.bottom)
+        .attr('height', 0)
+        .attr('fill', '#053742')
+        .transition()
+        .duration(1000)
+        .ease(d3.easeExpIn)
+        .ease(d3.easeBounce)
+        .attr('height', (d) => svgHeight - yScale(d.time) - margin.bottom)
         .attr('y', (d) => yScale(d.time))
-        .attr('fill', 'royalblue');
+        .attr('fill', '#39A2DB');
     }
   }, [data]);
 
