@@ -189,7 +189,8 @@
   margin-top: 1rem;
   padding: 1rem;
   background-color: rgb(235, 195, 64);
-  /* position: fixed; */
+  /* this code makes the footer stay on the page 
+  position: fixed; */
   bottom: 0;
   left: 0;
   width: 100%;
@@ -199,7 +200,8 @@
   margin-top: 1rem;
   padding: 1rem;
   background-color: rgb(235, 195, 64);
-  /* position: fixed; */
+  /* this code makes the header stay on the page 
+  position: fixed; */
   top: 0;
   left: 0;
   width: 100%;

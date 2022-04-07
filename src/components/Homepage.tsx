@@ -1,7 +1,4 @@
 import * as React from 'react';
-import { Route, Routes} from 'react-router-dom';
-// import { HashLink } from 'react-router-hash-link';
-
 import ProblemParagraph from './ProblemParagraph';
 import SolutionParagraph from './SolutionParagraph';
 import DenoStoreLogo from './DenoStoreLogo';
@@ -25,7 +22,6 @@ const Homepage: React.FC = () => {
       <SlideShowGraphic />
       <Demo/>
       <TeamText />
-   
       <Team />
       <Footer />
     </div>

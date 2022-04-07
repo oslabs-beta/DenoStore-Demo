@@ -13,7 +13,6 @@ const Demo: React.FC = () => {
       <DemoInstructions />
       <Query />
       <DemoVisualization />
-
       {/* <Button name={'Query Button'} className={'queryButton'} /> */}
       <QueryButtonDropdown />
       <Button name={'Run Query'} className={'runQuery'} />
