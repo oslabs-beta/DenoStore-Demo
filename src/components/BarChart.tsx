@@ -1,10 +1,10 @@
 import * as React from 'react';
 import * as d3 from 'd3';
-import { ChartPropsData } from '../types';
+import { ChartPropsData } from '../../types';
 
 //this component loads a chart based on state handed down from the container component
 // ChartPropsData takes in a queryFetchTime as time and a string 'Query #'
-export const Chart: React.FC<ChartPropsData> = ({
+const BarChart: React.FC<ChartPropsData> = ({
   data,
   addTime,
 }: ChartPropsData) => {
@@ -152,3 +152,5 @@ export const Chart: React.FC<ChartPropsData> = ({
     </div>
   );
 };
+
+export default BarChart;
