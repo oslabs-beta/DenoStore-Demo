@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const QuerySelectorDropdown = () => {
+const QuerySelectorDropdown: React.FC = () => {
   return (
     <div>
       <select
