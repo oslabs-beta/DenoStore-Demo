@@ -1,9 +1,13 @@
 import * as React from 'react';
 
-const QueryButtonDropdown = () => {
+const QuerySelectorDropdown = () => {
   return (
     <div>
-      <select className="queryButton" name="selectList" id="selectList">
+      <select
+        className="QuerySelectorDropdown"
+        name="selectList"
+        id="selectList"
+      >
         <option value="queryOne">Query 1</option>
         <option value="queryTwo">Query 2</option>
         <option value="queryThree">Query 3</option>
@@ -13,4 +17,4 @@ const QueryButtonDropdown = () => {
   );
 };
 
-export default QueryButtonDropdown;
+export default QuerySelectorDropdown;

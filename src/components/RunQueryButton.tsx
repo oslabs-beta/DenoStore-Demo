@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-const Query: React.FC = () => {
+const RunQueryButton: React.FC = () => {
   return <div className="query">Query here.</div>;
 };
 
-export default Query;
+export default RunQueryButton;

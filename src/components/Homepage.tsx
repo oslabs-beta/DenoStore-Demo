@@ -3,7 +3,7 @@ import ProblemParagraph from './ProblemParagraph';
 import SolutionParagraph from './SolutionParagraph';
 import DenoStoreLogo from './DenoStoreLogo';
 import SlideShowGraphic from './SlideshowGraphic';
-import Demo from './Demo';
+import DemoContainer from './DemoContainer';
 import TeamText from './TeamText';
 import Team from './Team';
 import Footer from './Footer';
@@ -12,7 +12,7 @@ import Header from './Header';
 const Homepage: React.FC = () => {
   return (
     <div>
-      <Header/>
+      <Header />
       <h1 className="name">DenoStore</h1>
       <div className="flexbox-container1">
         <ProblemParagraph />
@@ -20,7 +20,7 @@ const Homepage: React.FC = () => {
       </div>
       <DenoStoreLogo />
       <SlideShowGraphic />
-      <Demo/>
+      <DemoContainer />
       <TeamText />
       <Team />
       <Footer />

@@ -88,7 +88,7 @@
   top: 100px;
 }
 
-.query {
+.queryEditField {
   font: 16px Arial;
   position: relative;
   left: 40px;
@@ -111,7 +111,7 @@
   border: 3px solid #000;
 }
 
-.queryButton {
+.QuerySelectorDropdown {
   font: 16px Arial;
   position: relative;
   height: 150px;
@@ -185,7 +185,7 @@
   text-align: center;
 }
 
-.footer{
+.footer {
   margin-top: 1rem;
   padding: 1rem;
   background-color: rgb(235, 195, 64);
@@ -196,12 +196,12 @@
   width: 100%;
 }
 
-.footerBody{
+.footerBody {
   display: flex;
-  justify-content: space-around; 
+  justify-content: space-around;
 }
 
-.header{
+.header {
   margin-top: 1rem;
   padding: 1rem;
   background-color: rgb(235, 195, 64);
@@ -212,7 +212,7 @@
   width: 100%;
 }
 
-.headerBody{
+.headerBody {
   display: flex;
   justify-content: space-around;
   list-style: none;

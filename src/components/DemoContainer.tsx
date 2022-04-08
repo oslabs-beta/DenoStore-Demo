@@ -1,24 +1,23 @@
 import * as React from 'react';
-import DemoText from './DemoText';
 import DemoInstructions from './DemoInstructions';
-import Query from './Query';
+import QueryEditField from './QueryEditField';
 import DemoVisualization from './DemoVisualization';
-import QueryButtonDropdown from './QueryButtonDropdown';
+import QuerySelectorDropdown from './QuerySelectorDropdown';
 import Button from './Button';
 
-const Demo: React.FC = () => {
+const DemoContainer: React.FC = () => {
   return (
-    <div className="demo" id= "demo">
-      <DemoText />
+    <div className="demo" id="demo">
+      <h1 className="demoText">Demo</h1>
       <DemoInstructions />
-      <Query />
+      <QueryEditField />
       <DemoVisualization />
       {/* <Button name={'Query Button'} className={'queryButton'} /> */}
-      <QueryButtonDropdown />
+      <QuerySelectorDropdown />
       <Button name={'Run Query'} className={'runQuery'} />
       <Button name={'Run Query + Clear Cache'} className={'clearCache'} />
     </div>
   );
 };
 
-export default Demo;
+export default DemoContainer;
