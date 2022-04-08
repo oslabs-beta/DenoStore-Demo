@@ -3,21 +3,15 @@ import { Chart } from '../components/BarChart';
 import { addTimeType } from '../types';
 //this file will contain react-router
 
-//do we need to type what it returns?
 const App: React.FunctionComponent = () => {
-  const [data, setData] = React.useState([]);
+  // const [data, setData] = React.useState([]);
 
-  const addTime: addTimeType = (time: number) => {
-    setData([...data, { time, queryCountName: `Query ${data.length + 1}` }]);
-    console.log(data);
-  };
+  // const addTime: addTimeType = (time: number) => {
+  //   setData([...data, { time, queryCountName: `Query ${data.length + 1}` }]);
+  //   console.log(data);
+  // };
 
-  return (
-    <div>
-      <h1>React render here</h1>
-      <Chart data={data} addTime={addTime}></Chart>
-    </div>
-  );
+  return <div>{/* <Chart data={data} addTime={addTime}></Chart> */}</div>;
 };
 
 export default App;
