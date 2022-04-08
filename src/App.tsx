@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Chart } from '../components/bar-chart';
+import { Chart } from '../components/BarChart';
 import { addTimeType } from '../types';
 //this file will contain react-router
 
