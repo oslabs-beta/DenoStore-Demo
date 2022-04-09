@@ -1,11 +1,6 @@
 import * as React from 'react';
-import ProblemParagraph from './ProblemParagraph';
-import SolutionParagraph from './SolutionParagraph';
-import DenoStoreLogo from './DenoStoreLogo';
-import SlideShowGraphic from './SlideshowGraphic';
 import DemoContainer from './DemoContainer';
-import TeamText from './TeamText';
-import Team from './Team';
+import TeamSection from './TeamSection';
 import Footer from './Footer';
 import Header from './Header';
 
@@ -15,14 +10,17 @@ const Homepage: React.FC = () => {
       <Header />
       <h1 className="name">DenoStore</h1>
       <div className="flexbox-container1">
-        <ProblemParagraph />
-        <SolutionParagraph />
+        <div>
+          <p className="problemParagraph">This is the problem paragraph.</p>
+        </div>
+        <div>
+          <p className="solutionParagraph">This is the solution paragraph.</p>
+        </div>
       </div>
-      <DenoStoreLogo />
-      <SlideShowGraphic />
+      <div className="logo">Logo</div>
+      <div className="graphic">Insert Slideshow Graphic here</div>
       <DemoContainer />
-      <TeamText />
-      <Team />
+      <TeamSection />
       <Footer />
     </div>
   );
