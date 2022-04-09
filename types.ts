@@ -24,6 +24,5 @@ export type possibleQueryType = {
   query: string;
   description: string;
   paragraph: string;
-  queryHTML: string;
   queryComponent: React.FC;
 };

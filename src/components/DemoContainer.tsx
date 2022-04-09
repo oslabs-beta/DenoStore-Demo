@@ -13,7 +13,10 @@ const DemoContainer: React.FC = () => {
     <div className="demo" id="demo">
       <h1 className="demoText">Demo</h1>
       <h2 className="demoInstructions">Demo Explanations and Instructions</h2>
-      <QueryEditField query={possibleQueries[0].queryHTML} />
+      {possibleQueries.map((query, i) => {
+        const Span = query.queryComponent;
+        return <Span />;
+      })}
       <DemoVisualization />
       <QuerySelectorDropdown />
       <button className={'runQuery'}>Run Query</button>
