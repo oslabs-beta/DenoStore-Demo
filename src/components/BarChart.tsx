@@ -7,7 +7,7 @@ import { ChartPropsData } from '../../types';
 const BarChart: React.FC<ChartPropsData> = ({
   data,
   addTime,
-}: ChartPropsData) => {
+}: ChartPropsData | null) => {
   const [selection, setSelection] = React.useState(null);
   const svgRef = React.useRef<SVGSVGElement | null>(null);
 

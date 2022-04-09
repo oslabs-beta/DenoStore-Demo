@@ -1,7 +1,16 @@
 import * as React from 'react';
+import { Markup } from 'interweave';
 
-const QueryEditField: React.FC = () => {
-  return <div className="queryEditField">Query edit here.</div>;
+type queryHTMLType = {
+  query: string;
+};
+
+const QueryEditField: React.FC<queryHTMLType> = ({ query }) => {
+  return (
+    <div className="queryEditField">
+      <Markup content={query} />
+    </div>
+  );
 };
 
 export default QueryEditField;
