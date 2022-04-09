@@ -1,4 +1,3 @@
-import { StringLiteralLike } from 'typescript';
 import * as React from 'react';
 
 export type ChartPropsData = {
