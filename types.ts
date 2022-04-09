@@ -1,4 +1,5 @@
 import { StringLiteralLike } from 'typescript';
+import * as React from 'react';
 
 export type ChartPropsData = {
   data?: QueryTimeObj[] | [];
@@ -24,4 +25,5 @@ export type possibleQueryType = {
   description: string;
   paragraph: string;
   queryHTML: string;
+  queryComponent: React.FC;
 };

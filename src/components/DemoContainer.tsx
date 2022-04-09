@@ -3,8 +3,12 @@ import QueryEditField from './QueryEditField';
 import DemoVisualization from './DemoVisualization';
 import QuerySelectorDropdown from './QuerySelectorDropdown';
 import possibleQueries from '../possibleQueries';
+import { ChartPropsData } from '../../types';
 
 const DemoContainer: React.FC = () => {
+  const [selectedQuery, setSelectedQuery] = React.useState('');
+  const [queryToRun, setQueryToRun] = React.useState('');
+  const [queryResults, setQueryResults] = React.useState<ChartPropsData[]>([]);
   return (
     <div className="demo" id="demo">
       <h1 className="demoText">Demo</h1>
