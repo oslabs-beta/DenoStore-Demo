@@ -3,11 +3,11 @@ import { possibleQueryType } from '../types';
 
 const EditableQuery: React.FC = () => {
   const [spans, setSpans] = React.useState({
-    name: { class: 'active' },
-    height: { class: 'active' },
-    age: { class: 'inactive' },
-    mass: { class: 'active' },
-    hair_color: { class: 'inactive' },
+    name: { isActive: true },
+    height: { isActive: true },
+    age: { isActive: false },
+    mass: { isActive: true },
+    hair_color: { isActive: false },
   });
 
   const toggle = (e) => {
@@ -15,9 +15,7 @@ const EditableQuery: React.FC = () => {
     const results = { ...spans };
     Object.keys(results).forEach((field) => {
       if (field === toggled) {
-        results[field].class === 'active'
-          ? (results[field].class = 'inactive')
-          : (results[field].class = 'active');
+        results[field].isActive = !results[field].isActive;
       }
     });
     setSpans(results);
@@ -35,7 +33,9 @@ const EditableQuery: React.FC = () => {
         <>
           <br />{' '}
           <span
-            className={spans[field].class + ' field'}
+            className={
+              (spans[field].isActive ? 'active' : 'inactive') + ' field'
+            }
             onClick={(e) => toggle(e)}
           >
             {field}
