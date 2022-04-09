@@ -2,13 +2,14 @@ import * as React from 'react';
 import QueryEditField from './QueryEditField';
 import DemoVisualization from './DemoVisualization';
 import QuerySelectorDropdown from './QuerySelectorDropdown';
+import possibleQueries from '../possibleQueries';
 
 const DemoContainer: React.FC = () => {
   return (
     <div className="demo" id="demo">
       <h1 className="demoText">Demo</h1>
       <h2 className="demoInstructions">Demo Explanations and Instructions</h2>
-      <QueryEditField />
+      <QueryEditField query={possibleQueries[0].queryHTML} />
       <DemoVisualization />
       <QuerySelectorDropdown />
       <button className={'runQuery'}>Run Query</button>
