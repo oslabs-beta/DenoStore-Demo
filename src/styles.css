@@ -222,6 +222,10 @@
   margin-left: 17.5%;
 }
 
+.field:hover {
+  cursor: pointer;
+}
+
 .queryName {
   margin-left: 10%;
 }

@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 export type ChartPropsData = {
   data?: QueryTimeObj[] | [];
   addTime: addTimeType;
@@ -20,8 +18,8 @@ export type teamMemberPropsType = {
 export type addTimeType = (time: number) => void;
 
 export type possibleQueryType = {
-  query: string;
+  selectableQuery: string;
   description: string;
   paragraph: string;
-  queryComponent: React.FC;
+  queryFields: {};
 };

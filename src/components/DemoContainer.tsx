@@ -4,6 +4,7 @@ import DemoVisualization from './DemoVisualization';
 import QuerySelectorDropdown from './QuerySelectorDropdown';
 import possibleQueries from '../possibleQueries';
 import { ChartPropsData } from '../../types';
+import EditableQueryInput from './EditableQueryInput';
 
 const DemoContainer: React.FC = () => {
   const [selectedQuery, setSelectedQuery] = React.useState('');
@@ -13,10 +14,7 @@ const DemoContainer: React.FC = () => {
     <div className="demo" id="demo">
       <h1 className="demoText">Demo</h1>
       <h2 className="demoInstructions">Demo Explanations and Instructions</h2>
-      {possibleQueries.map((query, i) => {
-        const Span = query.queryComponent;
-        return <Span />;
-      })}
+      <EditableQueryInput queryFields={possibleQueries[0].queryFields} />
       <DemoVisualization />
       <QuerySelectorDropdown />
       <button className={'runQuery'}>Run Query</button>
