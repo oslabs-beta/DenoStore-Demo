@@ -23,3 +23,10 @@ export type possibleQueryType = {
   paragraph: string;
   queryFields: {};
 };
+
+export type allPossibleQueriesType = possibleQueryType[];
+
+export interface QuerySelectorDropdownProps {
+  possibleQueries: allPossibleQueriesType;
+  handleSelection: (e) => void;
+}

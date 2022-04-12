@@ -25,6 +25,7 @@ const EditableQueryInput: React.FC<{ [key: string]: any }> = ({
             (spansState[field].isActive ? 'active' : 'inactive') + ' field'
           }
           onClick={(e) => toggle(e)}
+          key={Math.floor(Math.random() * 1000)}
         >
           {field}
         </span>
@@ -33,18 +34,22 @@ const EditableQueryInput: React.FC<{ [key: string]: any }> = ({
   };
 
   return (
-    <div className="queryEditField">
-      <span className="active">query {'{'}</span>
+    <div className="queryEditField" key={Math.floor(Math.random() * 1000)}>
+      <span className="active" key={Math.floor(Math.random() * 1000)}>
+        query {'{'}
+      </span>
       <br />
-      <span className="queryName active">
+      <span className="queryName active" key={Math.floor(Math.random() * 1000)}>
         onePerson{'('}id:"2"{')'}
         {'{'}
       </span>
       {renderFieldSpans(fieldSpans)}
       <br />
-      <span className="queryName">{'}'}</span>
+      <span className="queryName" key={Math.floor(Math.random() * 1000)}>
+        {'}'}
+      </span>
       <br />
-      <span>{'}'}</span>
+      <span key={Math.floor(Math.random() * 1000)}>{'}'}</span>
     </div>
   );
 };
