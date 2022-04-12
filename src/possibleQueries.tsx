@@ -11,11 +11,11 @@ const possibleQueries: allPossibleQueriesType = [
               }
             }`,
     queryFields: {
-      name: { isActive: true },
-      height: { isActive: true },
-      age: { isActive: false },
-      mass: { isActive: true },
-      hair_color: { isActive: false },
+      name: true,
+      height: true,
+      age: false,
+      mass: true,
+      hair_color: false,
     },
     description: 'Basic GraphQL query',
     paragraph:
@@ -31,11 +31,11 @@ const possibleQueries: allPossibleQueriesType = [
               }
             }`,
     queryFields: {
-      name: { isActive: true },
-      height: { isActive: true },
-      age: { isActive: false },
-      mass: { isActive: true },
-      hair_color: { isActive: false },
+      name: true,
+      height: true,
+      age: false,
+      mass: true,
+      hair_color: false,
     },
     description: 'Basic GraphQL query',
     paragraph:

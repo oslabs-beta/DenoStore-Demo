@@ -21,7 +21,7 @@ export type possibleQueryType = {
   selectableQuery: string;
   description: string;
   paragraph: string;
-  queryFields: {};
+  queryFields: { [key: string]: boolean };
 };
 
 export type allPossibleQueriesType = possibleQueryType[];

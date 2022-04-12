@@ -17,6 +17,8 @@ const DemoContainer: React.FC = () => {
     console.log(selection);
   };
 
+  const handleEditQueryToRun = (oneFieldName: string) => {};
+
   return (
     <div className="demo" id="demo">
       <h1 className="demoText">Demo</h1>

@@ -10,7 +10,7 @@ const EditableQueryInput: React.FC<{ [key: string]: any }> = ({
     const results = { ...fieldSpans };
     Object.keys(results).forEach((field) => {
       if (field === toggled) {
-        results[field].isActive = !results[field].isActive;
+        results[field] = !results[field];
       }
     });
     setFieldSpans(results);
@@ -21,9 +21,7 @@ const EditableQueryInput: React.FC<{ [key: string]: any }> = ({
       <>
         <br />{' '}
         <span
-          className={
-            (spansState[field].isActive ? 'active' : 'inactive') + ' field'
-          }
+          className={(spansState[field] ? 'active' : 'inactive') + ' field'}
           onClick={(e) => toggle(e)}
           key={Math.floor(Math.random() * 1000)}
         >
