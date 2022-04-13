@@ -1,3 +1,5 @@
+import possibleQueries from './src/possibleQueries';
+
 // adds a string in the middle to an immutable string
 const addToQueryString = (
   string: string,
@@ -37,4 +39,11 @@ const queryCombiner = (
   return result;
 };
 
-export { queryCombiner, addToQueryString };
+const getCurrQueryFields = (currQuery) => {
+  const selected = possibleQueries.find(
+    (obj) => obj.selectableQuery === currQuery
+  );
+  return selected.queryFields;
+};
+
+export { queryCombiner, getCurrQueryFields };
