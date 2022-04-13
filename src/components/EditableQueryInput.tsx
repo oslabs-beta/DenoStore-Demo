@@ -29,7 +29,7 @@ const EditableQueryInput: React.FC<EditableQueryInputPropsInt> = ({
         <span
           className={(spansState[field] ? 'active' : 'inactive') + ' field'}
           onClick={(e) => toggle(e)}
-          key={Math.floor(Math.random() * 1000)}
+          key={Math.floor(Math.random() * 10000)}
         >
           {field}
         </span>
@@ -39,22 +39,25 @@ const EditableQueryInput: React.FC<EditableQueryInputPropsInt> = ({
 
   //right now only the fields are dynamically rendered in spans, the rest is hard coded
   return (
-    <div className="queryEditField" key={Math.floor(Math.random() * 1000)}>
-      <span className="active" key={Math.floor(Math.random() * 1000)}>
+    <div className="queryEditField" key={Math.floor(Math.random() * 10000)}>
+      <span className="active" key={Math.floor(Math.random() * 10000)}>
         query {'{'}
       </span>
       <br />
-      <span className="queryName active" key={Math.floor(Math.random() * 1000)}>
+      <span
+        className="queryName active"
+        key={Math.floor(Math.random() * 10000)}
+      >
         onePerson{'('}id:"2"{')'}
         {'{'}
       </span>
       {renderFieldSpans(fieldSpans)}
       <br />
-      <span className="queryName" key={Math.floor(Math.random() * 1000)}>
+      <span className="queryName" key={Math.floor(Math.random() * 10000)}>
         {'}'}
       </span>
       <br />
-      <span key={Math.floor(Math.random() * 1000)}>{'}'}</span>
+      <span key={Math.floor(Math.random() * 10000)}>{'}'}</span>
     </div>
   );
 };

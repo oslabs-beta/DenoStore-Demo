@@ -20,14 +20,11 @@ const DemoContainer: React.FC = () => {
   //this is the result of the query from the backend and time it took
   const [queryResults, setQueryResults] = React.useState<ChartPropsData[]>([]);
 
-  // when the selected query changes (dropdown is changed), reset the chart and queryToRun state
-  React.useEffect(() => {
-    handleEditQueryToRun(getCurrQueryFields(selectedQuery));
-  }, [selectedQuery]);
-
   // drilled function to set the selected possibleQuery obj from the dropdown menu a level below
+  // also changes queryToRun on selection change
   const handleSelection = (selection: string) => {
     setSelectedQuery(selection);
+    handleEditQueryToRun(getCurrQueryFields(selection));
   };
 
   // drilled function to set the queryToRun state with a combined query string updated with
@@ -42,16 +39,22 @@ const DemoContainer: React.FC = () => {
       <h1 className="demoText">Demo</h1>
       <h2 className="demoInstructions">Demo Explanations and Instructions</h2>
       <p>{`This is the current query:  ${queryToRun}`}</p>
+
       <EditableQueryInput
-        queryFields={getCurrQueryFields(selectedQuery)} // make this dynamic to re-render the editable field on re-select
+        queryFields={getCurrQueryFields(selectedQuery)}
+        key={selectedQuery}
         handleEditQueryToRun={handleEditQueryToRun}
       />
+
       <DemoVisualization />
+
       <QuerySelectorDropdown
         possibleQueries={possibleQueries}
         handleEditQueryToRun={handleEditQueryToRun}
         handleSelection={handleSelection}
+        key={Math.floor(Math.random() * 10000)}
       />
+
       <button className={'runQuery'}>Run Query</button>
       <button className={'clearCache'}>Clear Query / Clear Cache</button>
     </div>
