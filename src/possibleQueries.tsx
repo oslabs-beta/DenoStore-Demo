@@ -3,11 +3,8 @@ import { allPossibleQueriesType } from '../types';
 const possibleQueries: allPossibleQueriesType = [
   {
     selectableQuery: `query{
-              onePerson(id:"2"){
-                name
-                height
-                age
-                hair_color
+              onePerson(id:"1"){
+                      
               }
             }`,
     queryFields: {
@@ -15,7 +12,7 @@ const possibleQueries: allPossibleQueriesType = [
       height: true,
       age: false,
       mass: true,
-      hair_color: false,
+      hair_color: true,
     },
     description: 'Basic GraphQL query',
     paragraph:
@@ -24,17 +21,14 @@ const possibleQueries: allPossibleQueriesType = [
   {
     selectableQuery: `query{
               onePerson(id:"2"){
-                name
-                height
-                age
-                hair_color
+                    
               }
             }`,
     queryFields: {
       name: true,
       height: true,
-      age: false,
-      mass: true,
+      age: true,
+      mass: false,
       hair_color: false,
     },
     description: 'Basic GraphQL query',
