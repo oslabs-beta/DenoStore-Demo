@@ -16,6 +16,7 @@ const EditableQueryInput: React.FC<EditableQueryInputPropsInt> = ({
         results[field] = !results[field];
       }
     });
+    console.log(results);
     setFieldSpans(results);
     handleEditQueryToRun(results);
   };
@@ -48,7 +49,7 @@ const EditableQueryInput: React.FC<EditableQueryInputPropsInt> = ({
         className="queryName active"
         key={Math.floor(Math.random() * 10000)}
       >
-        onePerson{'('}id:"2"{')'}
+        onePerson{'('}id:""{')'}
         {'{'}
       </span>
       {renderFieldSpans(fieldSpans)}

@@ -3,8 +3,8 @@ import { allPossibleQueriesType } from '../types';
 const possibleQueries: allPossibleQueriesType = [
   {
     selectableQuery: `query{
-              onePerson(id:"1"){
-                         
+              onePerson(id:"0"){
+                         _
               }
             }`,
     queryFields: {
@@ -14,14 +14,14 @@ const possibleQueries: allPossibleQueriesType = [
       mass: true,
       hair_color: true,
     },
-    description: 'Basic GraphQL query',
+    description: 'Basic GraphQL query 0',
     paragraph:
       'This query for one person is a basic GraphQL query with no special cases',
   },
   {
     selectableQuery: `query{
-              onePerson(id:"2"){
-                       
+              onePerson(id:"1"){
+                       _
               }
             }`,
     queryFields: {
@@ -31,7 +31,7 @@ const possibleQueries: allPossibleQueriesType = [
       mass: false,
       hair_color: false,
     },
-    description: 'Basic GraphQL query',
+    description: 'Basic GraphQL query 1',
     paragraph:
       'This query for one person is a basic GraphQL query with no special cases',
   },

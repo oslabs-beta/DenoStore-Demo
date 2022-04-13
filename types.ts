@@ -29,7 +29,6 @@ export type allPossibleQueriesType = possibleQueryType[];
 export interface QuerySelectorDropdownProps {
   possibleQueries: allPossibleQueriesType;
   handleSelection: (e) => void;
-  handleEditQueryToRun: (fieldState: { [key: string]: boolean }) => void;
 }
 
 export interface EditableQueryInputPropsInt {

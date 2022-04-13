@@ -6,10 +6,7 @@ const QuerySelectorDropdown: React.FC<QuerySelectorDropdownProps> = ({
   handleSelection,
 }) => {
   const options = possibleQueries.map((queries, i) => (
-    <option
-      value={queries.selectableQuery}
-      key={Math.floor(Math.random() * 10000)}
-    >
+    <option value={i} key={Math.floor(Math.random() * 10000)}>
       {queries.description}
     </option>
   ));
