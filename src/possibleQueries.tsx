@@ -4,7 +4,7 @@ const possibleQueries: allPossibleQueriesType = [
   {
     selectableQuery: `query{
               onePerson(id:"1"){
-                      
+                         
               }
             }`,
     queryFields: {
@@ -21,7 +21,7 @@ const possibleQueries: allPossibleQueriesType = [
   {
     selectableQuery: `query{
               onePerson(id:"2"){
-                    
+                       
               }
             }`,
     queryFields: {

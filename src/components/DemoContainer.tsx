@@ -51,6 +51,7 @@ const DemoContainer: React.FC = () => {
     <div className="demo" id="demo">
       <h1 className="demoText">Demo</h1>
       <h2 className="demoInstructions">Demo Explanations and Instructions</h2>
+      <p>{`This is the current query:  ${queryToRun}`}</p>
       <EditableQueryInput
         queryFields={possibleQueries[0].queryFields} // make this dynamic to re-render the editable field on re-select
         handleEditQueryToRun={handleEditQueryToRun}
