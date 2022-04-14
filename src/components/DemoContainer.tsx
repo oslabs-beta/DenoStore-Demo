@@ -4,7 +4,7 @@ import QuerySelectorDropdown from './QuerySelectorDropdown';
 import possibleQueries from '../possibleQueries';
 import { ChartPropsData } from '../../types';
 import EditableQueryInput from './EditableQueryInput';
-import { queryCombiner } from '../../utils';
+import { queryCombiner, randomKey } from '../../utils';
 
 const DemoContainer: React.FC = () => {
   // this keeps track of which query string we'll be adding fields to (selected in dropdown)
@@ -50,15 +50,15 @@ const DemoContainer: React.FC = () => {
       />
 
       <DemoVisualization />
-
-      <QuerySelectorDropdown
-        possibleQueries={possibleQueries}
-        handleSelection={handleSelection}
-        key={Math.floor(Math.random() * 10000)}
-      />
-
-      <button className={'runQuery'}>Run Query</button>
-      <button className={'clearCache'}>Clear Query / Clear Cache</button>
+      <div className="buttons-row">
+        <QuerySelectorDropdown
+          possibleQueries={possibleQueries}
+          handleSelection={handleSelection}
+          key={randomKey()}
+        />
+        <button className={'runQuery'}>Run Query</button>
+        <button className={'clearCache'}>Clear Query / Clear Cache</button>
+      </div>
     </div>
   );
 };

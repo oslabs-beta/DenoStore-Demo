@@ -9,4 +9,7 @@ const queryCombiner = (
   return restOfQuery.replace('_', trueFields.join(' \n'));
 };
 
-export { queryCombiner };
+const randomKey = (): number =>
+  Math.floor(Math.random() * Math.random() * 1000);
+
+export { queryCombiner, randomKey };

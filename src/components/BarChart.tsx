@@ -148,7 +148,10 @@ const BarChart: React.FC<ChartPropsData> = ({
         ref={svgRef}
       />
       <br />
-      <button onClick={() => addTime((Math.random() * 10) / 2)}></button>
+      <button
+        id="d3-button"
+        onClick={() => addTime((Math.random() * 10) / 2)}
+      ></button>
     </div>
   );
 };

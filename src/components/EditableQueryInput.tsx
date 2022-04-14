@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { EditableQueryInputPropsInt } from '../../types';
+import { randomKey } from '../../utils';
 
 const EditableQueryInput: React.FC<EditableQueryInputPropsInt> = ({
   queryFields,
@@ -16,7 +17,6 @@ const EditableQueryInput: React.FC<EditableQueryInputPropsInt> = ({
         results[field] = !results[field];
       }
     });
-    console.log(results);
     setFieldSpans(results);
     handleEditQueryToRun(results);
   };
@@ -25,7 +25,7 @@ const EditableQueryInput: React.FC<EditableQueryInputPropsInt> = ({
   //active fields to inactive onClick and therefore their CSS classes
   const renderFieldSpans = (spansState: {}): JSX.Element[] => {
     return Object.keys(spansState).map((field) => (
-      <>
+      <div key={randomKey()}>
         <br />{' '}
         <span
           className={(spansState[field] ? 'active' : 'inactive') + ' field'}
@@ -34,31 +34,29 @@ const EditableQueryInput: React.FC<EditableQueryInputPropsInt> = ({
         >
           {field}
         </span>
-      </>
+      </div>
     ));
   };
 
   //right now only the fields are dynamically rendered in spans, the rest is hard coded
   return (
-    <div className="queryEditField" key={Math.floor(Math.random() * 10000)}>
-      <span className="active" key={Math.floor(Math.random() * 10000)}>
+    <div className="queryEditField" key={randomKey()}>
+      <span className="active" key={randomKey()}>
         query {'{'}
       </span>
       <br />
-      <span
-        className="queryName active"
-        key={Math.floor(Math.random() * 10000)}
-      >
+      <br />
+      <span className="queryName active" key={randomKey()}>
         onePerson{'('}id:""{')'}
         {'{'}
       </span>
       {renderFieldSpans(fieldSpans)}
       <br />
-      <span className="queryName" key={Math.floor(Math.random() * 10000)}>
+      <span className="queryName" key={randomKey()}>
         {'}'}
       </span>
       <br />
-      <span key={Math.floor(Math.random() * 10000)}>{'}'}</span>
+      <span key={randomKey()}>{'}'}</span>
     </div>
   );
 };
