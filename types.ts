@@ -29,6 +29,7 @@ export type allPossibleQueriesType = possibleQueryType[];
 export interface QuerySelectorDropdownProps {
   possibleQueries: allPossibleQueriesType;
   handleSelection: (e) => void;
+  currSelectionIdx: number;
 }
 
 export interface EditableQueryInputPropsInt {

@@ -4,12 +4,11 @@ import { QuerySelectorDropdownProps } from '../../types';
 const QuerySelectorDropdown: React.FC<QuerySelectorDropdownProps> = ({
   possibleQueries,
   handleSelection,
+  currSelectionIdx,
 }) => {
-  const [selected, setSelected] = React.useState<number>(0);
-
-  const options = possibleQueries.map((queries, i) => (
-    <option value={i} key={queries.description}>
-      {queries.description}
+  const options = possibleQueries.map(({ description }, i) => (
+    <option value={i} key={description}>
+      {description}
     </option>
   ));
 
@@ -19,13 +18,10 @@ const QuerySelectorDropdown: React.FC<QuerySelectorDropdownProps> = ({
         className="QuerySelectorDropdown"
         name="selectList"
         id="selectList"
-        value={selected}
-        key={selected}
+        value={currSelectionIdx}
+        key={currSelectionIdx}
         onChange={(e) => {
-          const selection = +e.target.value;
-          console.log(selection);
-          handleSelection(selection);
-          setSelected(selection);
+          handleSelection(+e.target.value);
         }}
       >
         {options}

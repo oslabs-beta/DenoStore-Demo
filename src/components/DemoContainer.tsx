@@ -55,6 +55,7 @@ const DemoContainer: React.FC = () => {
           possibleQueries={possibleQueries}
           handleSelection={handleSelection}
           key={randomKey()}
+          currSelectionIdx={currSelectionIdx}
         />
         <button className={'runQuery'}>Run Query</button>
         <button className={'clearCache'}>Clear Query / Clear Cache</button>
