@@ -5,6 +5,7 @@ const QuerySelectorDropdown: React.FC<QuerySelectorDropdownProps> = ({
   possibleQueries,
   handleSelection,
 }) => {
+  const [curr, setCurr] = React.useState(0);
   const options = possibleQueries.map((queries, i) => (
     <option value={i} key={Math.floor(Math.random() * 10000)}>
       {queries.description}
@@ -17,8 +18,11 @@ const QuerySelectorDropdown: React.FC<QuerySelectorDropdownProps> = ({
         className="QuerySelectorDropdown"
         name="selectList"
         id="selectList"
+        value={curr}
         onChange={(e) => {
-          handleSelection(e.target.value);
+          const selection = +e.target.value;
+          setCurr(selection);
+          handleSelection(selection);
         }}
       >
         {options}

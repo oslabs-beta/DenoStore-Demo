@@ -8,13 +8,13 @@ import { queryCombiner } from '../../utils';
 
 const DemoContainer: React.FC = () => {
   // this keeps track of which query string we'll be adding fields to (selected in dropdown)
-  const [selectedQuery, setSelectedQuery] = React.useState(0);
+  const [currSelectionIdx, setCurrSelectionIdx] = React.useState<number>(0);
 
   // this is the final query string (including selected and all true fields before & after edit)
   const [queryToRun, setQueryToRun] = React.useState(
     queryCombiner(
       possibleQueries[0].queryFields,
-      possibleQueries[0].selectableQuery
+      possibleQueries[0].staticQueryString
     )
   );
 
@@ -24,28 +24,28 @@ const DemoContainer: React.FC = () => {
   // drilled function to set the selected possibleQuery obj from the dropdown menu a level below
   // also changes queryToRun on selection change
   const handleSelection = (selection: number) => {
-    const { queryFields, selectableQuery } = possibleQueries[selection];
-    setSelectedQuery(selection);
-    setQueryToRun(queryCombiner(queryFields, selectableQuery));
+    const { queryFields, staticQueryString } = possibleQueries[selection];
+    setCurrSelectionIdx(selection);
+    setQueryToRun(queryCombiner(queryFields, staticQueryString));
   };
 
   // drilled function to set the queryToRun state with a combined query string updated with
   // all the edited fields from the user in the edit field component
   const handleEditQueryToRun = (fieldState: { [key: string]: boolean }) => {
-    const { selectableQuery } = possibleQueries[selectedQuery];
-    setQueryToRun(queryCombiner(fieldState, selectableQuery));
+    const { staticQueryString } = possibleQueries[currSelectionIdx];
+    setQueryToRun(queryCombiner(fieldState, staticQueryString));
   };
 
   return (
     <div className="demo" id="demo">
       <h1 className="demoText">Demo</h1>
       <h2 className="demoInstructions">Demo Explanations and Instructions</h2>
-      <p>{possibleQueries[selectedQuery].paragraph}</p>
+      <p>{possibleQueries[currSelectionIdx].paragraph}</p>
       <p>{`This is the current query:  ${queryToRun}`}</p>
 
       <EditableQueryInput
-        queryFields={possibleQueries[selectedQuery].queryFields}
-        key={possibleQueries[selectedQuery].selectableQuery}
+        queryFields={possibleQueries[currSelectionIdx].queryFields}
+        key={possibleQueries[currSelectionIdx].staticQueryString}
         handleEditQueryToRun={handleEditQueryToRun}
       />
 

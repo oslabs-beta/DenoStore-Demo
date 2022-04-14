@@ -2,7 +2,7 @@ import { allPossibleQueriesType } from '../types';
 
 const possibleQueries: allPossibleQueriesType = [
   {
-    selectableQuery: `query{
+    staticQueryString: `query{
               onePerson(id:"0"){
                          _
               }
@@ -19,7 +19,7 @@ const possibleQueries: allPossibleQueriesType = [
       'This query for one person is a basic GraphQL query with no special cases',
   },
   {
-    selectableQuery: `query{
+    staticQueryString: `query{
               onePerson(id:"1"){
                        _
               }

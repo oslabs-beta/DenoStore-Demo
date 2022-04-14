@@ -30,7 +30,7 @@ const EditableQueryInput: React.FC<EditableQueryInputPropsInt> = ({
         <span
           className={(spansState[field] ? 'active' : 'inactive') + ' field'}
           onClick={(e) => toggle(e)}
-          key={Math.floor(Math.random() * 10000)}
+          key={field}
         >
           {field}
         </span>

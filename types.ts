@@ -18,7 +18,7 @@ export type teamMemberPropsType = {
 export type addTimeType = (time: number) => void;
 
 export type possibleQueryType = {
-  selectableQuery: string;
+  staticQueryString: string;
   description: string;
   paragraph: string;
   queryFields: { [key: string]: boolean };
