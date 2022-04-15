@@ -1,21 +1,56 @@
-body {
-  box-sizing: border-box;
+:root {
+  --darkaqua: #053742;
+  --blue: #39a2db;
+  --lightblue: #a2dbfa;
+  --superlight: #e8f0f2;
 }
 
-.logo {
+body {
+  box-sizing: border-box;
+  background: rgb(57, 162, 219);
+  background: linear-gradient(
+    147deg,
+    var(--blue) 0%,
+    var(--lightblue) 46%,
+    var(--blue) 100%
+  );
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll;
+}
+
+body::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
+
+.DenoStore-title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 4rem;
+  text-align: left;
+  margin-left: 5%;
+}
+
+.homepage-paragraphs-div {
+  width: 40%;
+  height: fit-content;
+}
+
+#main-section {
+  display: flex;
+  width: 100%;
+  height: 400px;
+  justify-content: space-between;
+}
+
+#logo {
   height: 250px;
   width: 250px;
-  background-color: #bbb;
-  border-radius: 50%;
-  text-align: center;
-  padding: 15px;
-  border: 3px solid #000;
-  font: 32px Arial;
-  position: relative;
+  margin-right: 15%;
+  /* position: relative;
   left: 300px;
   bottom: 100px;
   margin-left: auto;
-  margin-right: auto;
+  margin-right: auto; */
 }
 
 .graphic {
@@ -27,50 +62,9 @@ body {
   padding: 15px;
   border: 3px solid #000;
   font: 16px Arial;
-  position: relative;
-  right: 200px;
-  bottom: 150px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-/* .flexbox-container1 {
-  display: flex;
-  flex-direction: column;
-}
-
-.flexbox-item {
-  width: 25%;
-  height: 80px;
-  border: 3px solid #000;
-  background-color: rgb(241, 150, 150);
-} */
-
-.problemParagraph {
-  height: 80px;
-  min-width: 300px;
-  width: 25%;
-  border: 3px solid #000;
-  font: 16px Arial;
-  padding: 10px;
-  position: relative;
-  left: 50px;
-  top: 100px;
-}
-
-.solutionParagraph {
-  height: 80px;
-  min-width: 300px;
-  width: 25%;
-  border: 3px solid #000;
-  font: 16px Arial;
-  padding: 10px;
-  position: relative;
-  left: 50px;
-  top: 120px;
-}
-
-.demo {
+.demoContainer {
   position: relative;
   height: 1000px;
   width: 95%;
@@ -121,13 +115,17 @@ body {
 
 button,
 select {
-  font: 20px Ariel;
+  font: 20px Arial;
   height: 100px;
   width: 200px;
   position: relative;
   bottom: 405px;
   border-radius: 15px;
   border: none;
+}
+span {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
 }
 
 .QuerySelectorDropdown {
@@ -146,7 +144,6 @@ select {
 
 .team {
   text-align: justify;
-  border: 3px solid #000;
   min-width: 600px;
   padding: 15px;
   margin: 50px;
@@ -186,17 +183,6 @@ select {
   text-align: center;
 }
 
-.footer {
-  margin-top: 1rem;
-  padding: 1rem;
-  background-color: rgb(235, 195, 64);
-  /* this code makes the footer stay on the page 
-  position: fixed; */
-  bottom: 0;
-  left: 0;
-  width: 100%;
-}
-
 .footerBody {
   display: flex;
   justify-content: space-around;
@@ -205,11 +191,14 @@ select {
 .header {
   margin-top: 1rem;
   padding: 1rem;
-  background-color: rgb(235, 195, 64);
-  /* this code makes the header stay on the page 
-  position: fixed; */
-  top: 0;
-  left: 0;
+  border-bottom: var(--darkaqua) solid 2px;
+  width: 100%;
+}
+
+.footer {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-top: var(--darkaqua) solid 2px;
   width: 100%;
 }
 
@@ -217,6 +206,20 @@ select {
   display: flex;
   justify-content: space-around;
   list-style: none;
+}
+
+li,
+a {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  font-weight: lighter;
+  color: var(--superlight);
+}
+
+li:hover,
+a:hover {
+  cursor: pointer;
+  color: var(--darkaqua);
 }
 
 span {
@@ -239,7 +242,7 @@ span {
 
 .active {
   opacity: 1;
-  color: darkblue;
+  color: var(--darkaqua);
   font-weight: bold;
 }
 
@@ -260,4 +263,10 @@ br {
   content: '';
   display: block;
   margin: 0.4rem 0;
+}
+
+.homepage-paragraphs {
+  margin-left: 5%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
 }
