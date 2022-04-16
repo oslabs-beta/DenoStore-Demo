@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import DemoContainer from './DemoContainer';
 import TeamSection from './TeamSection';
 import Footer from './Footer';
@@ -9,6 +10,10 @@ const Homepage: React.FC = () => {
     <div>
       <Header />
       <h1 className="name">DenoStore</h1>
+      <nav>
+        Learn more about how to incorporate DenoStore in your application in our{' '}
+        <Link to="/docs">documentation page</Link>.
+      </nav>
       <div className="flexbox-container1">
         <div>
           <p className="problemParagraph">This is the problem paragraph.</p>
