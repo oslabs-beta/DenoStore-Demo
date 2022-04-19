@@ -52,11 +52,13 @@ const EditableQueryInput: React.FC<EditableQueryInputPropsInt> = ({
       </span>
       {renderFieldSpans(fieldSpans)}
       <br />
-      <span className="queryName" key={randomKey()}>
+      <span className="queryName active" key={randomKey()}>
         {'}'}
       </span>
       <br />
-      <span key={randomKey()}>{'}'}</span>
+      <span key={randomKey()} className="active">
+        {'}'}
+      </span>
     </div>
   );
 };

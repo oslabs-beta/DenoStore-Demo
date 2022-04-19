@@ -19,13 +19,6 @@
 body {
   box-sizing: border-box;
   background-color: var(--superlight);
-  /* background: rgb(57, 162, 219);
-  background: linear-gradient(
-    147deg,
-    var(--blue) 0%,
-    var(--lightblue) 46%,
-    var(--blue) 100%
-  ); */
   -ms-overflow-style: none; /* for Internet Explorer, Edge */
   scrollbar-width: none; /* for Firefox */
   overflow-y: scroll;
@@ -56,13 +49,13 @@ span {
 
 .DenoStore-title {
   font-family: 'Hurme Geometric Sans No.3';
-  font-size: 4rem;
+  font-size: 6rem;
   text-align: left;
   margin-left: 5%;
   font-weight: bold;
   background-color: var(--superlight);
-  background-image: linear-gradient(60deg, var(--darkaqua), var(--lightblue));
-  background-size: 25%;
+  background-image: linear-gradient(30deg, var(--darkaqua), var(--lightblue));
+  background-size: 35%;
   -webkit-background-clip: text;
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -92,7 +85,6 @@ span {
 .demoContainer {
   height: 900px;
   width: 95%;
-  border: 3px solid #000;
   display: flex;
   flex-direction: column;
 }
@@ -183,7 +175,6 @@ span {
   height: 175px;
   min-width: 100px;
   width: 175px;
-  border: 3px solid #000;
 }
 
 .teamMemberName {
@@ -203,9 +194,16 @@ span {
 
 .header {
   padding: 1.5rem;
+  margin-left: -1rem;
   padding-top: 2rem;
   border-bottom: var(--darkaqua) solid 2px;
   background-color: var(--superlight);
+  /* background: linear-gradient(
+    147deg,
+    var(--blue) 0%,
+    var(--lightblue) 46%,
+    var(--blue) 100%
+  ); */
   position: fixed;
   top: 0;
   z-index: 1;
@@ -214,7 +212,8 @@ span {
 
 .footer {
   margin-top: 1rem;
-  padding: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   border-top: var(--darkaqua) solid 2px;
   width: 100%;
 }
