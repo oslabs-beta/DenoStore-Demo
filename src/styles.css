@@ -7,13 +7,14 @@
 
 body {
   box-sizing: border-box;
-  background: rgb(57, 162, 219);
+  background-color: var(--superlight);
+  /* background: rgb(57, 162, 219);
   background: linear-gradient(
     147deg,
     var(--blue) 0%,
     var(--lightblue) 46%,
     var(--blue) 100%
-  );
+  ); */
   -ms-overflow-style: none; /* for Internet Explorer, Edge */
   scrollbar-width: none; /* for Firefox */
   overflow-y: scroll;
@@ -105,13 +106,19 @@ span {
 }
 
 .QuerySelectorDropdown {
-  background-color: lightblue;
+  background-color: var(--blue);
   width: 250px;
   text-align: center;
 }
 
 .runQuery {
-  background-color: lightgreen;
+  /* background-color: var(--superlight);
+  background-image: linear-gradient(60deg, var(--blue), var(--lightblue));
+  background-size: 100%; */
+  /* -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent; */
 }
 
 .clearCache {
@@ -189,14 +196,14 @@ li,
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.4rem;
   font-weight: lighter;
-  color: var(--superlight);
+  color: var(--darkaqua);
   text-decoration: none;
 }
 
 li:hover,
 .footer-link:hover {
   cursor: pointer;
-  color: var(--darkaqua);
+  color: var(--blue);
   text-decoration: none;
 }
 

@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Hurme Geometric Sans No.3';
+    src: local('Hurme Geometric Sans No.3 Bold'), local('Hurme-Geometric-Sans-No.3-Bold'),
+        url('HurmeGeometricSans3-Bold.woff2') format('woff2'),
+        url('HurmeGeometricSans3-Bold.woff') format('woff'),
+        url('HurmeGeometricSans3-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+  }
