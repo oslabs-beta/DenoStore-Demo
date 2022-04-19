@@ -1,3 +1,14 @@
+@font-face {
+  font-family: 'Hurme Geometric Sans No.3';
+  src: local('Hurme Geometric Sans No.3 Bold'),
+    local('Hurme-Geometric-Sans-No.3-Bold'),
+    url('./fonts/HurmeGeometricSans3-Bold.woff2') format('woff2'),
+    url('./fonts/HurmeGeometricSans3-Bold.woff') format('woff'),
+    url('./fonts/HurmeGeometricSans3-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
 :root {
   --darkaqua: #053742;
   --blue: #39a2db;
@@ -32,7 +43,7 @@ br {
 
 button,
 select {
-  font: 20px Arial;
+  font: 20px 'Hurme Geometric Sans No.3';
   height: 100px;
   width: 200px;
   border-radius: 15px;
@@ -44,15 +55,27 @@ span {
 }
 
 .DenoStore-title {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Hurme Geometric Sans No.3';
   font-size: 4rem;
   text-align: left;
   margin-left: 5%;
+  font-weight: bold;
+  background-color: var(--superlight);
+  background-image: linear-gradient(60deg, var(--darkaqua), var(--lightblue));
+  background-size: 25%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
 }
 
 .homepage-paragraphs-div {
   width: 40%;
   height: fit-content;
+}
+
+.homepage-without-header {
+  margin-top: 12%;
 }
 
 .graphic {
@@ -63,7 +86,7 @@ span {
   text-align: center;
   padding: 15px;
   border: 3px solid #000;
-  font: 16px Arial;
+  font: 16px 'Hurme Geometric Sans No.3';
 }
 
 .demoContainer {
@@ -75,12 +98,12 @@ span {
 }
 
 .demoTitle {
-  font: 60px Arial;
+  font: 60px 'Hurme Geometric Sans No.3';
   text-align: center;
 }
 
 .demoInstructions {
-  font: 16px Arial;
+  font: 16px 'Hurme Geometric Sans No.3';
   position: absolute;
   left: 40px;
   top: 100px;
@@ -94,7 +117,7 @@ span {
 }
 
 .demoVisualization {
-  font: 16px Arial;
+  font: 16px 'Hurme Geometric Sans No.3';
   height: 450px;
   width: fit-content;
   border: 3px solid #000;
@@ -107,8 +130,14 @@ span {
 
 .QuerySelectorDropdown {
   background-color: var(--blue);
-  width: 250px;
+  width: fit-content;
+  padding: 10%;
   text-align: center;
+  border: none;
+}
+
+.QuerySelectorDropdown:focus {
+  border: 1px solid white;
 }
 
 .runQuery {
@@ -119,6 +148,7 @@ span {
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent; */
+  background-color: var(--lightblue);
 }
 
 .clearCache {
@@ -141,13 +171,13 @@ span {
 }
 
 .dsTeam {
-  font: 36px Arial;
+  font: 36px 'Hurme Geometric Sans No.3';
   font-weight: bold;
   text-align: center;
 }
 
 .teamMember {
-  font: 16px Arial;
+  font: 16px 'Hurme Geometric Sans No.3';
   border-radius: 50%;
   min-height: 100px;
   height: 175px;
@@ -157,12 +187,12 @@ span {
 }
 
 .teamMemberName {
-  font: 20px Arial;
+  font: 20px 'Hurme Geometric Sans No.3';
   text-align: center;
 }
 
 .github {
-  font: 16px Arial;
+  font: 16px 'Hurme Geometric Sans No.3';
   text-align: center;
 }
 
@@ -172,9 +202,13 @@ span {
 }
 
 .header {
-  margin-top: 1rem;
-  padding: 1rem;
+  padding: 1.5rem;
+  padding-top: 2rem;
   border-bottom: var(--darkaqua) solid 2px;
+  background-color: var(--superlight);
+  position: fixed;
+  top: 0;
+  z-index: 1;
   width: 100%;
 }
 
@@ -193,7 +227,7 @@ span {
 
 li,
 .footer-link {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Hurme Geometric Sans No.3';
   font-size: 1.4rem;
   font-weight: lighter;
   color: var(--darkaqua);
@@ -238,13 +272,14 @@ span {
 
 .homepage-paragraphs {
   margin-left: 5%;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Hurme Geometric Sans No.3';
   font-size: 1.5rem;
 }
 
 .demoParagraphs {
   margin-left: 2.5%;
   height: fit-content;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .queries-main-row {
