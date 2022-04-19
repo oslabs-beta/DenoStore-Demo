@@ -38,18 +38,20 @@ const DemoContainer: React.FC = () => {
 
   return (
     <div className="demoContainer" id="demo">
-      <h1 className="demoText">Demo</h1>
-      <h2 className="demoInstructions">Demo Explanations and Instructions</h2>
-      <p>{possibleQueries[currSelectionIdx].paragraph}</p>
-      <p>{`This is the current query:  ${queryToRun}`}</p>
+      <h1 className="demoTitle">Demo</h1>
+      <div className="demoParagraphs">
+        <p>{possibleQueries[currSelectionIdx].paragraph}</p>
+        <p>{`This is the current query:  ${queryToRun}`}</p>
+      </div>
+      <div className="queries-main-row">
+        <EditableQueryInput
+          queryFields={possibleQueries[currSelectionIdx].queryFields}
+          key={possibleQueries[currSelectionIdx].staticQueryString}
+          handleEditQueryToRun={handleEditQueryToRun}
+        />
 
-      <EditableQueryInput
-        queryFields={possibleQueries[currSelectionIdx].queryFields}
-        key={possibleQueries[currSelectionIdx].staticQueryString}
-        handleEditQueryToRun={handleEditQueryToRun}
-      />
-
-      <DemoVisualization />
+        <DemoVisualization />
+      </div>
       <div className="buttons-row">
         <QuerySelectorDropdown
           possibleQueries={possibleQueries}
