@@ -309,3 +309,22 @@ span {
   height: 20px;
   width: 60px;
 }
+
+br {
+  content: '';
+  display: block;
+  margin: 0.4rem 0;
+}
+
+.sectionContainer {
+  position: fixed;
+  top: 10px;
+  border: 2px solid blue;
+  width: 20%;
+  margin-left: 78%;
+  text-align: center;
+}
+
+.textContainer {
+  width: 75%;
+}
