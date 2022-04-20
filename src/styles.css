@@ -206,8 +206,8 @@ select {
   margin-top: 1rem;
   padding: 1rem;
   background-color: rgb(235, 195, 64);
-  /* this code makes the header stay on the page 
-  position: fixed; */
+  /* this code makes the header stay on the page */
+  /* position: fixed; */
   top: 0;
   left: 0;
   width: 100%;
@@ -260,4 +260,17 @@ br {
   content: '';
   display: block;
   margin: 0.4rem 0;
+}
+
+.sectionContainer {
+  position: fixed;
+  top: 10px;
+  border: 2px solid blue;
+  width: 20%;
+  margin-left: 78%;
+  text-align: center;
+}
+
+.textContainer {
+  width: 75%;
 }

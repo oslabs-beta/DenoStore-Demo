@@ -34,7 +34,7 @@ const TeamSection: React.FC = () => {
           name="Ting Xian Ho"
           github="https://github.com/lawauditswe"
           linkedin="https://www.linkedin.com/in/sa201034/"
-          picture="https://media-exp1.licdn.com/dms/image/C5603AQEuoXez3pznkw/profile-displayphoto-shrink_800_800/0/1648497886898?e=2147483647&v=beta&t=FkSPYp7bGf3znroq2Rwhhrxs07xYCwGjsp8p8JoKWrI"
+          picture="https://media-exp1.licdn.com/dms/image/C4D03AQF0jRg_RDMG-A/profile-displayphoto-shrink_800_800/0/1650416608025?e=1655942400&v=beta&t=dKxnghFOA-IvUhuHO9FQxz9wipLpmeBdn68YdZxj8PQ"
         />
       </div>
     </div>
