@@ -37,11 +37,15 @@ br {
 button,
 select {
   font: 20px 'Hurme Geometric Sans No.3';
-  height: 100px;
-  width: 200px;
   border-radius: 15px;
   border: none;
+  margin-top: 10px;
+  height: 75px;
+  width: fit-content;
+  padding-left: 5%;
+  padding-right: 5%;
 }
+
 span {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
@@ -103,8 +107,7 @@ span {
 
 .queryEditField {
   height: 450px;
-  max-width: 900px;
-  width: 32%;
+  width: 450px;
   border: 3px solid #000;
 }
 
@@ -115,15 +118,9 @@ span {
   border: 3px solid #000;
 }
 
-.buttons-row {
-  display: flex;
-  justify-content: space-around;
-}
-
 .QuerySelectorDropdown {
   background-color: var(--blue);
   width: fit-content;
-  padding: 10%;
   text-align: center;
   border: none;
 }
@@ -281,11 +278,23 @@ span {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.queries-main-row {
+.main-queries-row {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   padding-bottom: 2%;
+}
+
+.editable-column,
+.visual-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.buttons-row {
+  display: flex;
+  justify-content: space-around;
 }
 
 #main-section {

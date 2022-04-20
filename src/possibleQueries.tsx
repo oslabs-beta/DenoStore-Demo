@@ -2,72 +2,68 @@ import { allPossibleQueriesType } from '../types';
 
 const possibleQueries: allPossibleQueriesType = [
   {
-    staticQueryString: `query{
-              onePerson(id:"0"){
+    staticQueryString: `query AllRockets {
+      rockets{
                          _
               }
             }`,
     queryFields: {
-      name: true,
-      height: true,
-      age: false,
-      mass: true,
-      hair_color: true,
+      id: true,
+      active: true,
+      rocket_name: true,
+      first_flight: true,
+      country: false,
+      description: false,
+      wikipedia: false,
     },
-    description: 'Basic GraphQL query 0',
+    description: 'Query with Operation Name',
     paragraph:
-      'This query for one person is a basic GraphQL query with no special cases',
+      'This query is for all SpaceX rockets and includes the operation name AllRockets.',
   },
   {
-    staticQueryString: `query{
-              onePerson(id:"1"){
-                       _
-              }
-            }`,
-    queryFields: {
-      name: true,
-      height: true,
-      age: true,
-      mass: false,
-      hair_color: false,
-    },
-    description: 'Basic GraphQL query 1',
-    paragraph:
-      'This query for one person is a basic GraphQL query with no special cases',
-  },
-  {
-    staticQueryString: `query{
-              onePerson(id:"2"){
+    staticQueryString: `query {
+      oneRocket(id:"falcon9"){
                          _
               }
             }`,
     queryFields: {
-      name: true,
-      height: true,
-      age: false,
-      mass: true,
-      hair_color: true,
+      id: false,
+      active: false,
+      rocket_name: true,
+      first_flight: true,
+      country: false,
+      description: true,
+      wikipedia: false,
     },
-    description: 'Basic GraphQL query 2',
+    description: 'Basic Query with Argument',
     paragraph:
-      'This query for one person is a basic GraphQL query with no special cases',
+      'This query is for all data on the single rocket with id Falcon 9.',
   },
   {
-    staticQueryString: `query{
-              onePerson(id:"3"){
-                       _
-              }
+    staticQueryString: `query RocketComparison{\n
+      FalconNine: oneRocket(id:"falcon9") {\n
+        ...comparisonField\n
+      }\n
+        FalconOne: oneRocket(id:"falcon1") {\n
+        ...comparisonField\n
+      }\n
+    \n
+    }\n
+    fragment comparisonField on RocketType {\n
+                         _
             }`,
     queryFields: {
-      name: true,
-      height: true,
-      age: true,
-      mass: false,
-      hair_color: false,
+      id: true,
+      active: true,
+      stages: true,
+      country: true,
+      rocket_name: true,
+      rocket_type: true,
+      description: false,
     },
-    description: 'Basic GraphQL query 3',
+    description: 'Fragment, Aliases, Arguments',
     paragraph:
-      'This query for one person is a basic GraphQL query with no special cases',
+      'This query includes and caches a Fragment (comparisonField), Aliases (FalconNine, FalconeOne), and differing Arguments (id:"falcon9" or id:"falcon1").',
   },
 ];
 

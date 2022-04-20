@@ -5,6 +5,7 @@ import { randomKey } from '../../utils';
 const EditableQueryInput: React.FC<EditableQueryInputPropsInt> = ({
   queryFields,
   handleEditQueryToRun,
+  currSelectionIdx,
 }) => {
   const [fieldSpans, setFieldSpans] = React.useState(queryFields);
 
@@ -38,29 +39,53 @@ const EditableQueryInput: React.FC<EditableQueryInputPropsInt> = ({
     ));
   };
 
-  //right now only the fields are dynamically rendered in spans, the rest is hard coded
-  return (
-    <div className="queryEditField" key={randomKey()}>
-      <span className="active" key={randomKey()}>
-        query {'{'}
-      </span>
-      <br />
-      <br />
-      <span className="queryName active" key={randomKey()}>
-        onePerson{'('}id:""{')'}
-        {'{'}
-      </span>
-      {renderFieldSpans(fieldSpans)}
-      <br />
-      <span className="queryName active" key={randomKey()}>
-        {'}'}
-      </span>
-      <br />
-      <span key={randomKey()} className="active">
-        {'}'}
-      </span>
-    </div>
-  );
+  //this is the html to return for query 0
+
+  if (currSelectionIdx === 0)
+    return (
+      <div className="queryEditField" key={randomKey()}>
+        <span className="active" key={randomKey()}>
+          query {'{'}
+        </span>
+        <br />
+        <br />
+        <span className="queryName active" key={randomKey()}>
+          onePerson{'('}id:""{')'}
+          {'{'}
+        </span>
+        {renderFieldSpans(fieldSpans)}
+        <br />
+        <span className="queryName active" key={randomKey()}>
+          {'}'}
+        </span>
+        <br />
+        <span key={randomKey()} className="active">
+          {'}'}
+        </span>
+      </div>
+    );
+
+  //this is the html to return for query 1
+
+  if (currSelectionIdx === 1)
+    return (
+      <div className="queryEditField" key={randomKey()}>
+        <span className="active" key={randomKey()}>
+          query {'{'}
+        </span>
+      </div>
+    );
+
+  //this is the html to return for query 2
+
+  if (currSelectionIdx === 2)
+    return (
+      <div className="queryEditField" key={randomKey()}>
+        <span className="active" key={randomKey()}>
+          testing {'{'}
+        </span>
+      </div>
+    );
 };
 
 export default EditableQueryInput;

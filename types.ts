@@ -35,4 +35,5 @@ export interface QuerySelectorDropdownProps {
 export interface EditableQueryInputPropsInt {
   queryFields: { [key: string]: boolean };
   handleEditQueryToRun: (fieldState: { [key: string]: boolean }) => void;
+  currSelectionIdx: number;
 }
