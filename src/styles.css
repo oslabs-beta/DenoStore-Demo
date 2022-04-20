@@ -1,3 +1,7 @@
+body {
+  box-sizing: border-box;
+}
+
 .logo {
   height: 250px;
   width: 250px;
@@ -89,57 +93,54 @@
 }
 
 .queryEditField {
-  font: 16px Arial;
   position: relative;
   left: 40px;
-  top: 80px;
-  height: 550px;
+  top: 60px;
+  height: 450px;
   max-width: 900px;
   width: 32%;
   border: 3px solid #000;
+  /* padding-left: 2%; */
 }
 
 .demoVisualization {
   font: 16px Arial;
   position: relative;
-  height: 550px;
-  min-width: 20%;
-  max-width: 1800px;
-  width: 60%;
+  height: 450px;
+  width: fit-content;
+  block-size: fit-content;
   left: 37%;
   bottom: 476px;
   border: 3px solid #000;
 }
 
-.QuerySelectorDropdown {
-  font: 16px Arial;
+.buttons-row {
+  display: flex;
+  justify-content: space-around;
+}
+
+button,
+select {
+  font: 20px Ariel;
+  height: 100px;
+  width: 200px;
   position: relative;
-  height: 150px;
-  min-width: 100px;
-  width: 32%;
-  left: 40px;
-  bottom: 460px;
+  bottom: 405px;
+  border-radius: 15px;
+  border: none;
+}
+
+.QuerySelectorDropdown {
   background-color: lightblue;
+  width: 250px;
+  text-align: center;
 }
 
 .runQuery {
-  font: 16px Arial;
-  position: absolute;
-  height: 150px;
-  min-width: 100px;
-  width: 30%;
-  left: 37%;
-  top: 720px;
   background-color: lightgreen;
 }
 
 .clearCache {
-  font: 16px Arial;
-  position: absolute;
-  height: 150px;
-  width: 29.5%;
-  left: 68%;
-  top: 720px;
   background-color: rgb(241, 150, 150);
 }
 
@@ -216,4 +217,47 @@
   display: flex;
   justify-content: space-around;
   list-style: none;
+}
+
+span {
+  font-size: 18px;
+  margin-top: 2rem;
+  margin-left: 2.5%;
+}
+
+.field {
+  margin-left: 17.5%;
+}
+
+.field:hover {
+  cursor: pointer;
+}
+
+.queryName {
+  margin-left: 10%;
+}
+
+.active {
+  opacity: 1;
+  color: darkblue;
+  font-weight: bold;
+}
+
+.inactive {
+  opacity: 0.7;
+  color: gray;
+}
+
+/* delete this button styling when button is removed from d3 chart */
+#d3-button {
+  bottom: 0;
+  background-color: aqua;
+  height: 20px;
+  width: 60px;
+}
+
+br {
+  content: '';
+  display: block;
+  margin: 0.4rem 0;
 }

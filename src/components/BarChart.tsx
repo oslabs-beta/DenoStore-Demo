@@ -7,7 +7,7 @@ import { ChartPropsData } from '../../types';
 const BarChart: React.FC<ChartPropsData> = ({
   data,
   addTime,
-}: ChartPropsData) => {
+}: ChartPropsData | null) => {
   const [selection, setSelection] = React.useState(null);
   const svgRef = React.useRef<SVGSVGElement | null>(null);
 
@@ -148,7 +148,10 @@ const BarChart: React.FC<ChartPropsData> = ({
         ref={svgRef}
       />
       <br />
-      <button onClick={() => addTime((Math.random() * 10) / 2)}></button>
+      <button
+        id="d3-button"
+        onClick={() => addTime((Math.random() * 10) / 2)}
+      ></button>
     </div>
   );
 };
