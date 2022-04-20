@@ -10,7 +10,7 @@ export const resolvers = {
            { denostore }: any,
            info: any
        ) => {
-        const results = await denostore.cache( 
+        return await denostore.cache( 
         { info },
         async () => {
             const results = await fetch (
@@ -21,7 +21,7 @@ export const resolvers = {
             return results
           }        
         );
-        return results;
+       
     },
      manyRockets: async (
         _parent: any,
@@ -29,7 +29,7 @@ export const resolvers = {
         { denostore }: any,
         info: any 
      ) => {
-        const results = await denostore.cache(
+        return await denostore.cache(
         { info },
          async () => {
             const results = await fetch (
@@ -39,7 +39,7 @@ export const resolvers = {
             return results
         }
     );
-    return results    
+      
     }
   }
 }
