@@ -1,27 +1,46 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import DemoContainer from './DemoContainer';
 import TeamSection from './TeamSection';
 import Footer from './Footer';
 import Header from './Header';
+// @ts-ignore
+import logo from '../logo.png';
 
 const Homepage: React.FC = () => {
   return (
     <div>
       <Header />
-      <h1 className="name">DenoStore</h1>
-      <div className="flexbox-container1">
-        <div>
-          <p className="problemParagraph">This is the problem paragraph.</p>
+      <div className="homepage-without-header">
+        <h1 className="DenoStore-title">DenoStore</h1>
+        <div id="main-section">
+          <div className="homepage-paragraphs-div">
+            <nav
+              className="homepage-paragraphs"
+              id="documentation-homepage-link"
+            >
+              Learn more about how to incorporate DenoStore in your application
+              in our <Link to="/docs">documentation page</Link>.
+            </nav>
+            <p className="homepage-paragraphs">
+              Caching is a necessity at scale, but setting it up for GraphQL can
+              be challenging and time-consuming, even more so in a Deno runtime
+              environment.
+            </p>
+
+            <p className="homepage-paragraphs">
+              DenoStore makes caching GraphQL queries through a Deno/Oak server
+              quick to set up and easy to configure. Get ready for lightning
+              fast GraphQL.
+            </p>
+          </div>
+          <img src={logo} alt="Logo" id="logo" />
+          {/* <div className="graphic">Insert Slideshow Graphic here</div> */}
         </div>
-        <div>
-          <p className="solutionParagraph">This is the solution paragraph.</p>
-        </div>
+        <DemoContainer />
+        <TeamSection />
+        <Footer />
       </div>
-      <div className="logo">Logo</div>
-      <div className="graphic">Insert Slideshow Graphic here</div>
-      <DemoContainer />
-      <TeamSection />
-      <Footer />
     </div>
   );
 };
