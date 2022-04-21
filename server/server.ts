@@ -1,41 +1,14 @@
-// server and backend running in Deno
-
 import { Application } from 'https://deno.land/x/oak@v10.2.0/mod.ts';
-import { connect } from "https://deno.land/x/redis/mod.ts";
 
-//imports needed to instantiate Denostore
-import { Denostore } from 'https://cdn.jsdelivr.net/gh/oslabs-beta/DenoStore/mod.ts';
-import { typeDefs, resolvers } from './schema.ts';
+import router from './routes/router.ts';
+import { denostore } from './routes/denostore.ts';
 
-
-import router from './router.ts';
+const port: number = Number(Deno.env.get('PORT')) || 3000;
 
 const app = new Application();
 
-// set up redis connection
-const redis = await connect({
-  hostname: "127.0.0.1",
-  port: 6379,
-});
-
-//instantiate Denostore
-const denostore = new Denostore({schema: {typeDefs, resolvers}, usePlayground: true, redisClient: redis});
-
-app.use(router.routes());
-app.use(router.allowedMethods());
-
-app.use (denostore.routes(), denostore.allowedMethods());
-
-
-const port = 3000;
-
-app.addEventListener('listen', () => {
-  console.log(`Listening on localhost:${port}`);
-});
-
-// app.use((ctx: Context) => {
-//   ctx.response.body = 'server working';
-// });
+app.use(router.routes(), router.allowedMethods());
+app.use(denostore.routes(), denostore.allowedMethods());
 
 app.addEventListener('error', (event) => {
   console.error(event.error);
@@ -50,9 +23,8 @@ app.use(async (ctx, next) => {
   }
 });
 
+app.addEventListener('listen', () => {
+  console.log(`Listening on localhost:${port}`);
+});
+
 await app.listen({ port });
-
-
-
-
-
