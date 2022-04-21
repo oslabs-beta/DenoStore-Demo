@@ -81,7 +81,7 @@ span {
 }
 
 .demoContainer {
-  height: 900px;
+  height: 1000px;
   width: 95%;
   display: flex;
   flex-direction: column;
@@ -158,6 +158,10 @@ span {
   justify-content: space-evenly;
 }
 
+.teamContainer:nth-child(odd) {
+  margin-top: 5%;
+}
+
 .dsTeam {
   font: 36px 'Hurme Geometric Sans No.3';
   font-weight: bold;
@@ -178,9 +182,9 @@ span {
   text-align: center;
 }
 
-.github {
-  font: 16px 'Hurme Geometric Sans No.3';
+.teamLinks {
   text-align: center;
+  font-size: 1.2rem;
 }
 
 .footerBody {
@@ -221,7 +225,8 @@ span {
 }
 
 li,
-.footer-link {
+.footer-link,
+a {
   font-family: 'Hurme Geometric Sans No.3';
   font-size: 1.4rem;
   font-weight: lighter;
@@ -236,6 +241,12 @@ li:hover,
   text-decoration: none;
   font-size: 1.5rem;
   transition-duration: 30ms;
+}
+
+a:hover {
+  cursor: pointer;
+  color: var(--blue);
+  text-decoration: none;
 }
 
 span {
@@ -253,6 +264,10 @@ span {
 
 .field-indent {
   margin-left: 17.5%;
+}
+
+.nested-field-indent {
+  margin-left: 22.5%;
 }
 
 .field {

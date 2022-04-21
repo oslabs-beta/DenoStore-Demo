@@ -15,6 +15,10 @@ const possibleQueries: allPossibleQueriesType = [
       country: false,
       description: false,
       wikipedia: false,
+      height: {
+        feet: true,
+        meters: false,
+      },
     },
     description: 'Query with Operation Name',
     paragraph:
@@ -34,6 +38,10 @@ const possibleQueries: allPossibleQueriesType = [
       country: false,
       description: true,
       wikipedia: false,
+      height: {
+        feet: true,
+        meters: false,
+      },
     },
     description: 'Basic Query with Argument',
     paragraph:
@@ -60,6 +68,10 @@ const possibleQueries: allPossibleQueriesType = [
       rocket_name: true,
       rocket_type: true,
       description: false,
+      diameter: {
+        feet: false,
+        meters: false,
+      },
     },
     description: 'Fragment, Aliases, Arguments',
     paragraph:

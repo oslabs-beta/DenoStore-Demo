@@ -16,11 +16,20 @@ export type teamMemberPropsType = {
 
 // export type addTimeType = (time: number) => void;
 
+interface fieldType {
+  [key: string]: boolean;
+}
+
+interface nestedFieldType {
+  height?: {};
+  diameter?: {};
+}
+
 export type possibleQueryType = {
   staticQueryString: string;
   description: string;
   paragraph: string;
-  queryFields: { [key: string]: boolean };
+  queryFields: fieldType | nestedFieldType | any;
 };
 
 export type allPossibleQueriesType = possibleQueryType[];

@@ -15,17 +15,20 @@ const TeamMember: React.FC<teamMemberProp> = ({
 }) => {
   return (
     <div className="teamContainer">
-      <img className="teamMember" src={picture} /> <br />
+      <a href={linkedin}>
+        <img className="teamMember" src={picture} />
+      </a>{' '}
+      <br />
       <h1 className="teamMemberName">{name}</h1>
-      <h3 className="github">
-        <a href={github} target="_blank" className="github">
+      <div className="teamLinks">
+        <a href={github} target="_blank" className="teamLinks">
           GitHub
         </a>{' '}
         <br />
-        <a href={linkedin} target="_blank">
+        <a href={linkedin} target="_blank" className="teamLinks">
           LinkedIn
         </a>{' '}
-      </h3>
+      </div>
       <br />
     </div>
   );

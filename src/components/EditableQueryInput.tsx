@@ -13,32 +13,65 @@ const EditableQueryInput: React.FC<EditableQueryInputPropsInt> = ({
   const toggle = (e) => {
     const toggled = e.target.innerText;
     const results = { ...fieldSpans };
-    Object.keys(results).forEach((field) => {
-      if (field === toggled) {
-        results[field] = !results[field];
-      }
-    });
+    (function inner(res: any) {
+      Object.keys(res).forEach((field) => {
+        if (!(typeof res[field] === 'boolean')) {
+          inner(res[field]);
+        }
+        if (field === toggled) {
+          res[field] = !res[field];
+        }
+      });
+    })(results);
     setFieldSpans(results);
     handleEditQueryToRun(results);
   };
 
   //this creates an array of span elements for all fields in state with toggles to change
   //active fields to inactive onClick and therefore their CSS classes
-  const renderFieldSpans = (spansState: {}): JSX.Element[] => {
-    return Object.keys(spansState).map((field) => (
-      <div key={randomKey()}>
-        {/* <br />{' '} */}
-        <span
-          className={
-            (spansState[field] ? 'active' : 'inactive') + ' field field-indent'
-          }
-          onClick={(e) => toggle(e)}
-          key={field}
-        >
-          {field}
-        </span>
-      </div>
-    ));
+  const renderFieldSpans = (spansState: {}): any | JSX.Element[] => {
+    return Object.keys(spansState).map((field) => {
+      if (!(typeof spansState[field] === 'object'))
+        return (
+          <div key={randomKey()}>
+            <span
+              className={
+                (spansState[field] ? 'active' : 'inactive') +
+                ' field field-indent'
+              }
+              onClick={(e) => toggle(e)}
+              key={field}
+            >
+              {field}
+            </span>
+          </div>
+        );
+      else
+        return (
+          <div key={randomKey()}>
+            <span className={'field field-indent'} key={field}>
+              {field} {' {'}
+            </span>
+            {Object.keys(spansState[field]).map((nestedField) => (
+              <div key={randomKey()}>
+                <span
+                  className={
+                    (field[nestedField] ? 'active' : 'inactive') +
+                    ' field nested-field-indent'
+                  }
+                  onClick={(e) => toggle(e)}
+                  key={nestedField}
+                >
+                  {nestedField}
+                </span>
+              </div>
+            ))}
+            <span className="field-indent field" key={randomKey()}>
+              {'}'}
+            </span>
+          </div>
+        );
+    });
   };
 
   //this is the html to return for query 0
