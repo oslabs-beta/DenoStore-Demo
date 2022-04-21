@@ -28,11 +28,11 @@ body::-webkit-scrollbar {
   display: none; /* for Chrome, Safari, and Opera */
 }
 
-br {
+/* br {
   content: '';
   display: block;
   margin: 0.4rem 0;
-}
+} */
 
 button,
 select {
@@ -106,7 +106,9 @@ span {
 }
 
 .queryEditField {
-  height: 450px;
+  height: fit-content;
+  padding-top: 2.5%;
+  padding-bottom: 2.5%;
   width: 450px;
   border: 3px solid #000;
 }
@@ -316,12 +318,6 @@ span {
   background-color: aqua;
   height: 20px;
   width: 60px;
-}
-
-br {
-  content: '';
-  display: block;
-  margin: 0.4rem 0;
 }
 
 .sectionContainer {

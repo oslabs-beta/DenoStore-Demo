@@ -27,7 +27,7 @@ const EditableQueryInput: React.FC<EditableQueryInputPropsInt> = ({
   const renderFieldSpans = (spansState: {}): JSX.Element[] => {
     return Object.keys(spansState).map((field) => (
       <div key={randomKey()}>
-        <br />{' '}
+        {/* <br />{' '} */}
         <span
           className={(spansState[field] ? 'active' : 'inactive') + ' field'}
           onClick={(e) => toggle(e)}
@@ -45,20 +45,23 @@ const EditableQueryInput: React.FC<EditableQueryInputPropsInt> = ({
     return (
       <div className="queryEditField" key={randomKey()}>
         <span className="active" key={randomKey()}>
-          query {'{'}
+          query AllRockets{'{'}
         </span>
         <br />
         <br />
         <span className="queryName active" key={randomKey()}>
-          onePerson{'('}id:""{')'}
-          {'{'}
+          rockets{'{'}
         </span>
+        <br />
+        <br />
         {renderFieldSpans(fieldSpans)}
         <br />
         <span className="queryName active" key={randomKey()}>
           {'}'}
         </span>
         <br />
+        <br />
+
         <span key={randomKey()} className="active">
           {'}'}
         </span>
@@ -73,6 +76,23 @@ const EditableQueryInput: React.FC<EditableQueryInputPropsInt> = ({
         <span className="active" key={randomKey()}>
           query {'{'}
         </span>
+        <br />
+        <br />
+        <span className="queryName active" key={randomKey()}>
+          oneRocket{'('}id:"falcon9"{'){'}
+        </span>
+        <br />
+        <br />
+        {renderFieldSpans(fieldSpans)}
+        <br />
+        <span className="queryName active" key={randomKey()}>
+          {'}'}
+        </span>
+        <br />
+        <br />
+        <span key={randomKey()} className="active">
+          {'}'}
+        </span>
       </div>
     );
 
@@ -82,7 +102,65 @@ const EditableQueryInput: React.FC<EditableQueryInputPropsInt> = ({
     return (
       <div className="queryEditField" key={randomKey()}>
         <span className="active" key={randomKey()}>
-          testing {'{'}
+          query RocketComparison {'{'}
+        </span>
+
+        <br />
+        <br />
+
+        <span className="queryName active" key={randomKey()}>
+          FalconNine: oneRocket{'('}id:"falcon9"{'){'}
+        </span>
+
+        <br />
+
+        <span className="active field">...comparisonField</span>
+
+        <br />
+
+        <span className="queryName active" key={randomKey()}>
+          {'}'}
+        </span>
+
+        <br />
+
+        <span className="queryName active" key={randomKey()}>
+          FalconOne: oneRocket{'('}id:"falcon1"{'){'}
+        </span>
+
+        <br />
+
+        <span className="active field">...comparisonField</span>
+
+        <br />
+
+        <span className="queryName active" key={randomKey()}>
+          {'}'}
+        </span>
+
+        <br />
+        <br />
+
+        <span key={randomKey()} className="active">
+          {'}'}
+        </span>
+
+        <br />
+        <br />
+        <br />
+        <br />
+
+        <span className="active" key={randomKey()}>
+          fragment comparisonField on RocketType {'{'}
+        </span>
+
+        <br />
+        <br />
+        {renderFieldSpans(fieldSpans)}
+        <br />
+
+        <span className="active" key={randomKey()}>
+          {'}'}
         </span>
       </div>
     );
