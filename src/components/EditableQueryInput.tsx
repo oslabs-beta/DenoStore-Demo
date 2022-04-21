@@ -29,7 +29,9 @@ const EditableQueryInput: React.FC<EditableQueryInputPropsInt> = ({
       <div key={randomKey()}>
         {/* <br />{' '} */}
         <span
-          className={(spansState[field] ? 'active' : 'inactive') + ' field'}
+          className={
+            (spansState[field] ? 'active' : 'inactive') + ' field field-indent'
+          }
           onClick={(e) => toggle(e)}
           key={field}
         >
@@ -114,7 +116,7 @@ const EditableQueryInput: React.FC<EditableQueryInputPropsInt> = ({
 
         <br />
 
-        <span className="active field">...comparisonField</span>
+        <span className="active field-indent">...comparisonField</span>
 
         <br />
 
@@ -130,7 +132,7 @@ const EditableQueryInput: React.FC<EditableQueryInputPropsInt> = ({
 
         <br />
 
-        <span className="active field">...comparisonField</span>
+        <span className="active field-indent">...comparisonField</span>
 
         <br />
 

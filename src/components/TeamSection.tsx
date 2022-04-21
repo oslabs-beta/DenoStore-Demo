@@ -9,7 +9,7 @@ const TeamSection: React.FC = () => {
         <TeamMember
           name="Jake Van Vorhis"
           github="https://github.com/jakedoublev/"
-          linkedin="https://www.linkedin.com/in/jvanvorhis/"
+          linkedin="https://www.linkedin.com/in/jakedoublev/"
           picture="https://media-exp1.licdn.com/dms/image/C4E03AQHyl3AaR70Qvw/profile-displayphoto-shrink_800_800/0/1539889311460?e=1654732800&v=beta&t=2hZw6h2B3QVqtdOdHcbgCG3sHWh_9NSGVY79EvWxXzY"
         />
         <TeamMember

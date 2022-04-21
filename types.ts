@@ -1,6 +1,5 @@
 export type ChartPropsData = {
   data?: QueryTimeObj[] | [];
-  addTime: addTimeType;
 };
 
 export type QueryTimeObj = {
@@ -15,7 +14,7 @@ export type teamMemberPropsType = {
   picture: string;
 };
 
-export type addTimeType = (time: number) => void;
+// export type addTimeType = (time: number) => void;
 
 export type possibleQueryType = {
   staticQueryString: string;
