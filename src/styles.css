@@ -281,6 +281,12 @@ span {
   transition-duration: 30ms;
 }
 
+.no-toggle:hover {
+  cursor: revert;
+  font-size: 1.2rem;
+  transition: none;
+}
+
 .queryName {
   margin-left: 10%;
 }

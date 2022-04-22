@@ -49,7 +49,7 @@ const EditableQueryInput: React.FC<EditableQueryInputPropsInt> = ({
       else
         return (
           <div key={randomKey()}>
-            <span className={'field field-indent'} key={field}>
+            <span className={'field field-indent no-toggle'} key={field}>
               {field} {' {'}
             </span>
             {Object.keys(spansState[field]).map((nestedField) => (
