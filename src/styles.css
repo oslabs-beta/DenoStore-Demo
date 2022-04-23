@@ -10,9 +10,9 @@
 }
 
 :root {
-  --darkaqua: #053742;
+  --purpleblue: #0d1842;
   --blue: #39a2db;
-  --lightblue: #a2dbfa;
+  --lightblue: #adeaec;
   --superlight: #e8f0f2;
 }
 
@@ -52,7 +52,7 @@ span {
   margin-left: 5%;
   font-weight: bold;
   background-color: var(--superlight);
-  background-image: linear-gradient(30deg, var(--darkaqua), var(--lightblue));
+  background-image: linear-gradient(30deg, var(--purpleblue), var(--lightblue));
   background-size: 35%;
   -webkit-background-clip: text;
   -moz-background-clip: text;
@@ -196,7 +196,7 @@ span {
   padding: 1.5rem;
   margin-left: -1rem;
   padding-top: 2rem;
-  border-bottom: var(--darkaqua) solid 2px;
+  border-bottom: var(--purpleblue) solid 2px;
   background-color: var(--superlight);
   /* background: linear-gradient(
     147deg,
@@ -214,7 +214,7 @@ span {
   margin-top: 1rem;
   padding-top: 2rem;
   padding-bottom: 2rem;
-  border-top: var(--darkaqua) solid 2px;
+  border-top: var(--purpleblue) solid 2px;
   width: 100%;
 }
 
@@ -230,7 +230,7 @@ a {
   font-family: 'Hurme Geometric Sans No.3';
   font-size: 1.4rem;
   font-weight: lighter;
-  color: var(--darkaqua);
+  color: var(--purpleblue);
   text-decoration: none;
 }
 
@@ -257,7 +257,7 @@ span {
 
 .active {
   opacity: 1;
-  color: var(--darkaqua);
+  color: var(--purpleblue);
   font-weight: bold;
   font-size: 1.2rem;
 }
