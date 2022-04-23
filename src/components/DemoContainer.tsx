@@ -6,6 +6,7 @@ import possibleQueries from '../possibleQueries';
 import { ChartPropsData } from '../../types';
 import EditableQueryInput from './EditableQueryInput';
 import { queryCombiner, randomKey } from '../../utils';
+import { collapseTextChangeRangesAcrossMultipleVersions } from 'typescript';
 
 const DemoContainer: React.FC = () => {
   // this keeps track of which query string we'll be adding fields to (selected in dropdown)
@@ -38,9 +39,14 @@ const DemoContainer: React.FC = () => {
   };
 
   const time = () =>{
-    // set a start time
-    // const start =2000
+    
+    // console.time('')
     console.log(queryToRun)
+    // axios.post("http://localhost:3000", queryToRun)
+    //   .then((response) =>{
+    //     console.log(response.status);
+    //     console.log(response.data);
+    //   })
     // const end =  Date.now()
     // const final = end - start
     // console.log(final)
