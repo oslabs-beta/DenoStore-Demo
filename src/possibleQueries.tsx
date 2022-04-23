@@ -3,7 +3,7 @@ import { allPossibleQueriesType } from '../types';
 const possibleQueries: allPossibleQueriesType = [
   {
     staticQueryString: `query AllRockets {
-      rockets{
+      rockets {
                          _
               }
             }`,
@@ -26,7 +26,7 @@ const possibleQueries: allPossibleQueriesType = [
   },
   {
     staticQueryString: `query {
-      oneRocket(id:"falcon9"){
+      oneRocket(id:"falcon9") {
                          _
               }
             }`,
@@ -48,7 +48,7 @@ const possibleQueries: allPossibleQueriesType = [
       'This query is for all data on the single rocket with id Falcon 9.',
   },
   {
-    staticQueryString: `query RocketComparison{\n
+    staticQueryString: `query RocketComparison {\n
       FalconNine: oneRocket(id:"falcon9") {\n
         ...comparisonField\n
       }\n
