@@ -43,24 +43,29 @@ const DemoContainer: React.FC = () => {
         <p>{possibleQueries[currSelectionIdx].paragraph}</p>
         <p>{`This is the current query:  ${queryToRun}`}</p>
       </div>
-      <div className="queries-main-row">
-        <EditableQueryInput
-          queryFields={possibleQueries[currSelectionIdx].queryFields}
-          key={possibleQueries[currSelectionIdx].staticQueryString}
-          handleEditQueryToRun={handleEditQueryToRun}
-        />
+      <div className="main-queries-row">
+        <div className="editable-column">
+          <EditableQueryInput
+            queryFields={possibleQueries[currSelectionIdx].queryFields}
+            key={possibleQueries[currSelectionIdx].staticQueryString}
+            handleEditQueryToRun={handleEditQueryToRun}
+            currSelectionIdx={currSelectionIdx}
+          />
 
-        <DemoVisualization />
-      </div>
-      <div className="buttons-row">
-        <QuerySelectorDropdown
-          possibleQueries={possibleQueries}
-          handleSelection={handleSelection}
-          key={randomKey()}
-          currSelectionIdx={currSelectionIdx}
-        />
-        <button className={'runQuery'}>Run Query</button>
-        <button className={'clearCache'}>Clear Query / Clear Cache</button>
+          <QuerySelectorDropdown
+            possibleQueries={possibleQueries}
+            handleSelection={handleSelection}
+            key={randomKey()}
+            currSelectionIdx={currSelectionIdx}
+          />
+        </div>
+        <div className="visual-column">
+          <DemoVisualization />
+          <div className="buttons-row">
+            <button className={'runQuery'}>Run Query</button>
+            <button className={'clearCache'}>Clear Query / Clear Cache</button>
+          </div>
+        </div>
       </div>
     </div>
   );

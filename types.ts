@@ -1,6 +1,5 @@
 export type ChartPropsData = {
   data?: QueryTimeObj[] | [];
-  addTime: addTimeType;
 };
 
 export type QueryTimeObj = {
@@ -15,13 +14,22 @@ export type teamMemberPropsType = {
   picture: string;
 };
 
-export type addTimeType = (time: number) => void;
+// export type addTimeType = (time: number) => void;
+
+interface fieldType {
+  [key: string]: boolean;
+}
+
+interface nestedFieldType {
+  height?: {};
+  diameter?: {};
+}
 
 export type possibleQueryType = {
   staticQueryString: string;
   description: string;
   paragraph: string;
-  queryFields: { [key: string]: boolean };
+  queryFields: fieldType | nestedFieldType | any;
 };
 
 export type allPossibleQueriesType = possibleQueryType[];
@@ -35,4 +43,5 @@ export interface QuerySelectorDropdownProps {
 export interface EditableQueryInputPropsInt {
   queryFields: { [key: string]: boolean };
   handleEditQueryToRun: (fieldState: { [key: string]: boolean }) => void;
+  currSelectionIdx: number;
 }
