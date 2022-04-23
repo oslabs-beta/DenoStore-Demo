@@ -1,4 +1,5 @@
 import * as React from 'react';
+import axios from 'axios';
 import DemoVisualization from './DemoVisualization';
 import QuerySelectorDropdown from './QuerySelectorDropdown';
 import possibleQueries from '../possibleQueries';
@@ -36,6 +37,15 @@ const DemoContainer: React.FC = () => {
     setQueryToRun(queryCombiner(fieldState, staticQueryString));
   };
 
+  const time = () =>{
+    // set a start time
+    // const start =2000
+    console.log(queryToRun)
+    // const end =  Date.now()
+    // const final = end - start
+    // console.log(final)
+
+  }
   return (
     <div className="demoContainer" id="demo">
       <h1 className="demoTitle">Demo</h1>
@@ -59,10 +69,10 @@ const DemoContainer: React.FC = () => {
           key={randomKey()}
           currSelectionIdx={currSelectionIdx}
         />
-        <button className={'runQuery'}>Run Query</button>
+        <button className={'runQuery'} onClick={time}>Run Query</button>
         <button className={'clearCache'}>Clear Query / Clear Cache</button>
       </div>
-    </div>
+    </div> 
   );
 };
 
