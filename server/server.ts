@@ -9,7 +9,9 @@ const app = new Application();
 
 app.use(denostore.routes(), denostore.allowedMethods());
 app.use(router.routes(), router.allowedMethods());
-app.use(staticFileMiddleware);
+if (Deno.env.get('DENO_ENV') === 'production') {
+  app.use(staticFileMiddleware);
+}
 
 app.addEventListener('error', (event) => {
   console.error(event.error);
