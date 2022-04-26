@@ -69,7 +69,7 @@ const possibleQueries: allPossibleQueriesType = [
       rocket_type: true,
       description: false,
       diameter: {
-        feet: false,
+        feet: true,
         meters: false,
       },
     },
