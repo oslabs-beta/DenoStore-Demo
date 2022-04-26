@@ -21,12 +21,16 @@ const DemoContainer: React.FC = () => {
   //this is the result of the query from the backend and time it took
   const [queryResults, setQueryResults] = React.useState<ChartPropsData[]>([]);
 
+  // conditional rendering of text when "Clear Cache" button is clicked
+  const [cacheIsClear, setCacheIsClear] = React.useState<Boolean>(false);
+
   // drilled function to set the selected possibleQuery obj from the dropdown menu a level below
   // also changes queryToRun on selection change
   const handleSelection = (selection: number) => {
     const { queryFields, staticQueryString } = possibleQueries[selection];
     setCurrSelectionIdx(selection);
     setQueryToRun(queryCombiner(queryFields, staticQueryString));
+    setCacheIsClear(false);
   };
 
   // drilled function to set the queryToRun state with a combined query string updated with
@@ -34,6 +38,18 @@ const DemoContainer: React.FC = () => {
   const handleEditQueryToRun = (fieldState: { [key: string]: boolean }) => {
     const { staticQueryString } = possibleQueries[currSelectionIdx];
     setQueryToRun(queryCombiner(fieldState, staticQueryString));
+  };
+
+  const clearCache = () => {
+    setQueryResults([]);
+    setCurrSelectionIdx(0);
+    setQueryToRun(
+      queryCombiner(
+        possibleQueries[0].queryFields,
+        possibleQueries[0].staticQueryString
+      )
+    );
+    setCacheIsClear(true);
   };
 
   return (
@@ -63,8 +79,15 @@ const DemoContainer: React.FC = () => {
           <DemoVisualization />
           <div className="buttons-row">
             <button className={'runQuery'}>Run Query</button>
-            <button className={'clearCache'}>Clear Query / Clear Cache</button>
+            <button className={'clearCache'} onClick={clearCache}>
+              Clear Query / Clear Cache
+            </button>
           </div>
+          {cacheIsClear && (
+            <div className="clearCacheText">
+              Cache has been successfully cleared.
+            </div>
+          )}
         </div>
       </div>
     </div>
