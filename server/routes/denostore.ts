@@ -1,6 +1,6 @@
 //imports needed to instantiate Denostore
-import { Denostore } from 'https://cdn.jsdelivr.net/gh/oslabs-beta/DenoStore/mod.ts';
-import { connect } from 'https://deno.land/x/redis@v0.25.4/mod.ts';
+import { Denostore } from '../deps.ts';
+import { connect } from '../deps.ts';
 
 import { typeDefs, resolvers } from './../schema.ts';
 

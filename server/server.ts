@@ -1,5 +1,5 @@
-import { Application } from 'https://deno.land/x/oak@v10.2.0/mod.ts';
-
+import { Application } from './deps.ts';
+import { staticFileMiddleware } from './controllers/staticFileMiddleware.ts';
 import router from './routes/router.ts';
 import { denostore } from './routes/denostore.ts';
 
@@ -7,8 +7,9 @@ const port: number = Number(Deno.env.get('PORT')) || 3000;
 
 const app = new Application();
 
-app.use(router.routes(), router.allowedMethods());
 app.use(denostore.routes(), denostore.allowedMethods());
+app.use(router.routes(), router.allowedMethods());
+app.use(staticFileMiddleware);
 
 app.addEventListener('error', (event) => {
   console.error(event.error);
