@@ -20,7 +20,10 @@ const EditableQueryInput: React.FC<EditableQueryInputPropsInt> = ({
           inner(res[field]);
         }
         if (field === toggled) {
-          res[field] = !res[field];
+          if (toggled === 'feet' || toggled === 'meters') {
+            res['feet'] = !res['feet'];
+            res['meters'] = !res['meters'];
+          } else res[field] = !res[field];
         }
       });
     })(results);

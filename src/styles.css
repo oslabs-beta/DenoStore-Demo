@@ -284,7 +284,6 @@ span {
 .no-toggle:hover {
   cursor: default;
   font-size: 1.2rem;
-  transition: none;
 }
 
 .queryName {
