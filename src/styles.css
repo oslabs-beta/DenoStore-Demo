@@ -282,7 +282,7 @@ span {
 }
 
 .no-toggle:hover {
-  cursor: revert;
+  cursor: default;
   font-size: 1.2rem;
   transition: none;
 }
