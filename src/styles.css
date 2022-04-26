@@ -359,3 +359,10 @@ span {
 .textContainer {
   width: 75%;
 }
+
+.clearCacheText {
+  font-family: 'Hurme Geometric Sans No.3';
+  font-size: 1.5rem;
+  margin-top: 5%;
+  margin-left: 15%;
+}
