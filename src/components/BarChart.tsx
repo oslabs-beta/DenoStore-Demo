@@ -6,7 +6,6 @@ import { ChartPropsData } from '../../types';
 // ChartPropsData takes in a queryFetchTime as time and a string 'Query #'
 const BarChart: React.FC<ChartPropsData> = ({
   data,
-  addTime,
 }: ChartPropsData | null) => {
   const [selection, setSelection] = React.useState(null);
   const svgRef = React.useRef<SVGSVGElement | null>(null);
@@ -147,11 +146,6 @@ const BarChart: React.FC<ChartPropsData> = ({
         height={svgHeight}
         ref={svgRef}
       />
-      <br />
-      <button
-        id="d3-button"
-        onClick={() => addTime((Math.random() * 10) / 2)}
-      ></button>
     </div>
   );
 };

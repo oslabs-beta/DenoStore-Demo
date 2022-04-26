@@ -40,18 +40,24 @@ const DemoContainer: React.FC = () => {
 
   const time = () =>{
     
-    // console.time('')
-    console.log(queryToRun)
-    // axios.post("http://localhost:3000", queryToRun)
-    //   .then((response) =>{
-    //     console.log(response.status);
-    //     console.log(response.data);
-    //   })
-    // const end =  Date.now()
-    // const final = end - start
-    // console.log(final)
+    
+
+   
+    console.log('queryToRun in state: ', queryToRun)
+    console.log('string as it should be: ', 'query AllRockets { rockets { id active rocket_name first_flight } }')
+    
+ 
+    
+    const results =  axios.post('/graphql', {
+      query: queryToRun,
+        // 'query AllRockets { rockets { id active rocket_name first_flight } }',
+       
+    }).then((result) => console.log(result.data))
+
+
 
   }
+
   return (
     <div className="demoContainer" id="demo">
       <h1 className="demoTitle">Demo</h1>
@@ -59,24 +65,29 @@ const DemoContainer: React.FC = () => {
         <p>{possibleQueries[currSelectionIdx].paragraph}</p>
         <p>{`This is the current query:  ${queryToRun}`}</p>
       </div>
-      <div className="queries-main-row">
-        <EditableQueryInput
-          queryFields={possibleQueries[currSelectionIdx].queryFields}
-          key={possibleQueries[currSelectionIdx].staticQueryString}
-          handleEditQueryToRun={handleEditQueryToRun}
-        />
+      <div className="main-queries-row">
+        <div className="editable-column">
+          <EditableQueryInput
+            queryFields={possibleQueries[currSelectionIdx].queryFields}
+            key={possibleQueries[currSelectionIdx].staticQueryString}
+            handleEditQueryToRun={handleEditQueryToRun}
+            currSelectionIdx={currSelectionIdx}
+          />
 
-        <DemoVisualization />
-      </div>
-      <div className="buttons-row">
-        <QuerySelectorDropdown
-          possibleQueries={possibleQueries}
-          handleSelection={handleSelection}
-          key={randomKey()}
-          currSelectionIdx={currSelectionIdx}
-        />
-        <button className={'runQuery'} onClick={time}>Run Query</button>
-        <button className={'clearCache'}>Clear Query / Clear Cache</button>
+          <QuerySelectorDropdown
+            possibleQueries={possibleQueries}
+            handleSelection={handleSelection}
+            key={randomKey()}
+            currSelectionIdx={currSelectionIdx}
+          />
+        </div>
+        <div className="visual-column">
+          <DemoVisualization />
+          <div className="buttons-row">
+            <button className={'runQuery'} onClick = {time}>Run Query</button>
+            <button className={'clearCache'}>Clear Query / Clear Cache</button>
+          </div>
+        </div>
       </div>
     </div> 
   );

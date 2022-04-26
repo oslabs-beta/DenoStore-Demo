@@ -6,7 +6,7 @@ const queryCombiner = (
   const trueFields = Object.keys(fields).filter(
     (fieldName) => fields[fieldName]
   );
-  return restOfQuery.replace('_', trueFields.join(' \n'));
+  return restOfQuery.replace('_', trueFields.join(' '));
 };
 
 const randomKey = (): number =>

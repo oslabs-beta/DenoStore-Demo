@@ -10,22 +10,15 @@
 }
 
 :root {
-  --darkaqua: #053742;
+  --purpleblue: #0d1842;
   --blue: #39a2db;
-  --lightblue: #a2dbfa;
+  --lightblue: #adeaec;
   --superlight: #e8f0f2;
 }
 
 body {
   box-sizing: border-box;
   background-color: var(--superlight);
-  /* background: rgb(57, 162, 219);
-  background: linear-gradient(
-    147deg,
-    var(--blue) 0%,
-    var(--lightblue) 46%,
-    var(--blue) 100%
-  ); */
   -ms-overflow-style: none; /* for Internet Explorer, Edge */
   scrollbar-width: none; /* for Firefox */
   overflow-y: scroll;
@@ -35,20 +28,18 @@ body::-webkit-scrollbar {
   display: none; /* for Chrome, Safari, and Opera */
 }
 
-br {
-  content: '';
-  display: block;
-  margin: 0.4rem 0;
-}
-
 button,
 select {
   font: 20px 'Hurme Geometric Sans No.3';
-  height: 100px;
-  width: 200px;
   border-radius: 15px;
   border: none;
+  margin-top: 10px;
+  height: 75px;
+  width: fit-content;
+  padding-left: 5%;
+  padding-right: 5%;
 }
+
 span {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
@@ -56,13 +47,13 @@ span {
 
 .DenoStore-title {
   font-family: 'Hurme Geometric Sans No.3';
-  font-size: 4rem;
+  font-size: 6rem;
   text-align: left;
   margin-left: 5%;
   font-weight: bold;
   background-color: var(--superlight);
-  background-image: linear-gradient(60deg, var(--darkaqua), var(--lightblue));
-  background-size: 25%;
+  background-image: linear-gradient(30deg, var(--purpleblue), var(--lightblue));
+  background-size: 35%;
   -webkit-background-clip: text;
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -90,9 +81,8 @@ span {
 }
 
 .demoContainer {
-  height: 900px;
+  height: 1000px;
   width: 95%;
-  border: 3px solid #000;
   display: flex;
   flex-direction: column;
 }
@@ -110,28 +100,26 @@ span {
 }
 
 .queryEditField {
-  height: 450px;
-  max-width: 900px;
-  width: 32%;
-  border: 3px solid #000;
+  height: fit-content;
+  padding-top: 2.5%;
+  padding-bottom: 2.5%;
+  width: 450px;
+  background-color: #ffff;
+  border-radius: 2%;
 }
 
 .demoVisualization {
   font: 16px 'Hurme Geometric Sans No.3';
   height: 450px;
   width: fit-content;
-  border: 3px solid #000;
-}
-
-.buttons-row {
-  display: flex;
-  justify-content: space-around;
+  border: 3px solid var(--lightblue);
+  border-radius: 2%;
+  margin-bottom: 5%;
 }
 
 .QuerySelectorDropdown {
   background-color: var(--blue);
   width: fit-content;
-  padding: 10%;
   text-align: center;
   border: none;
 }
@@ -170,6 +158,10 @@ span {
   justify-content: space-evenly;
 }
 
+.teamContainer:nth-child(odd) {
+  margin-top: 5%;
+}
+
 .dsTeam {
   font: 36px 'Hurme Geometric Sans No.3';
   font-weight: bold;
@@ -183,7 +175,6 @@ span {
   height: 175px;
   min-width: 100px;
   width: 175px;
-  border: 3px solid #000;
 }
 
 .teamMemberName {
@@ -191,9 +182,9 @@ span {
   text-align: center;
 }
 
-.github {
-  font: 16px 'Hurme Geometric Sans No.3';
+.teamLinks {
   text-align: center;
+  font-size: 1.2rem;
 }
 
 .footerBody {
@@ -203,9 +194,16 @@ span {
 
 .header {
   padding: 1.5rem;
+  margin-left: -1rem;
   padding-top: 2rem;
-  border-bottom: var(--darkaqua) solid 2px;
+  border-bottom: var(--purpleblue) solid 2px;
   background-color: var(--superlight);
+  /* background: linear-gradient(
+    147deg,
+    var(--blue) 0%,
+    var(--lightblue) 46%,
+    var(--blue) 100%
+  ); */
   position: fixed;
   top: 0;
   z-index: 1;
@@ -214,8 +212,9 @@ span {
 
 .footer {
   margin-top: 1rem;
-  padding: 1rem;
-  border-top: var(--darkaqua) solid 2px;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-top: var(--purpleblue) solid 2px;
   width: 100%;
 }
 
@@ -226,16 +225,25 @@ span {
 }
 
 li,
-.footer-link {
+.footer-link,
+a {
   font-family: 'Hurme Geometric Sans No.3';
   font-size: 1.4rem;
   font-weight: lighter;
-  color: var(--darkaqua);
+  color: var(--purpleblue);
   text-decoration: none;
 }
 
 li:hover,
 .footer-link:hover {
+  cursor: pointer;
+  color: var(--blue);
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition-duration: 30ms;
+}
+
+a:hover {
   cursor: pointer;
   color: var(--blue);
   text-decoration: none;
@@ -247,22 +255,40 @@ span {
   margin-left: 2.5%;
 }
 
-.field {
+.active {
+  opacity: 1;
+  color: var(--purpleblue);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.field-indent {
   margin-left: 17.5%;
+}
+
+.nested-field-indent {
+  margin-left: 22.5%;
+}
+
+.field {
+  color: var(--blue);
+  font-weight: bold;
 }
 
 .field:hover {
   cursor: pointer;
+  font-size: 1.4rem;
+  transition-duration: 30ms;
+}
+
+.no-toggle:hover {
+  cursor: revert;
+  font-size: 1.2rem;
+  transition: none;
 }
 
 .queryName {
   margin-left: 10%;
-}
-
-.active {
-  opacity: 1;
-  color: var(--darkaqua);
-  font-weight: bold;
 }
 
 .inactive {
@@ -282,11 +308,23 @@ span {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.queries-main-row {
+.main-queries-row {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   padding-bottom: 2%;
+}
+
+.editable-column,
+.visual-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.buttons-row {
+  display: flex;
+  justify-content: space-around;
 }
 
 #main-section {
@@ -308,12 +346,6 @@ span {
   background-color: aqua;
   height: 20px;
   width: 60px;
-}
-
-br {
-  content: '';
-  display: block;
-  margin: 0.4rem 0;
 }
 
 .sectionContainer {
