@@ -6,7 +6,7 @@ import possibleQueries from '../possibleQueries';
 import { ChartPropsData } from '../../types';
 import EditableQueryInput from './EditableQueryInput';
 import { queryCombiner, randomKey } from '../../utils';
-import { collapseTextChangeRangesAcrossMultipleVersions } from 'typescript';
+import { collapseTextChangeRangesAcrossMultipleVersions, isVariableDeclaration } from 'typescript';
 
 const DemoContainer: React.FC = () => {
   // this keeps track of which query string we'll be adding fields to (selected in dropdown)
@@ -23,12 +23,16 @@ const DemoContainer: React.FC = () => {
   //this is the result of the query from the backend and time it took
   const [queryResults, setQueryResults] = React.useState<ChartPropsData[]>([]);
 
+  // conditional rendering of text when "Clear Cache" button is clicked
+  const [cacheIsClear, setCacheIsClear] = React.useState<Boolean>(false);
+
   // drilled function to set the selected possibleQuery obj from the dropdown menu a level below
   // also changes queryToRun on selection change
   const handleSelection = (selection: number) => {
     const { queryFields, staticQueryString } = possibleQueries[selection];
     setCurrSelectionIdx(selection);
     setQueryToRun(queryCombiner(queryFields, staticQueryString));
+    setCacheIsClear(false);
   };
 
   // drilled function to set the queryToRun state with a combined query string updated with
@@ -40,23 +44,41 @@ const DemoContainer: React.FC = () => {
 
   const time = () =>{
     
-    
+    /* 
+QueryResults is by default an empty array
+each element will be an object of type QueryTimeObj
+so for example finishing the first query if it took 5000 ms:
+setQueryResults([...queryResults, {time: 5000, queryCountName: `Query ${queryResults.length}`}]
+
+*/
 
    
     console.log('queryToRun in state: ', queryToRun)
     console.log('string as it should be: ', 'query AllRockets { rockets { id active rocket_name first_flight } }')
     
  
-    
+    let time = 0;
     const results =  axios.post('/graphql', {
       query: queryToRun,
         // 'query AllRockets { rockets { id active rocket_name first_flight } }',
        
     }).then((result) => console.log(result.data))
-
-
-
+    // time = 5000
+  //  setQueryResults([...queryResults, {time: variable, queryCountCountName: `Query ${queryResults.length + 1} `}])
+  
   }
+
+  const clearCache = () => {
+    setQueryResults([]);
+    setCurrSelectionIdx(0);
+    setQueryToRun(
+      queryCombiner(
+        possibleQueries[0].queryFields,
+        possibleQueries[0].staticQueryString
+      )
+    );
+    setCacheIsClear(true);
+  };
 
   return (
     <div className="demoContainer" id="demo">
@@ -84,9 +106,16 @@ const DemoContainer: React.FC = () => {
         <div className="visual-column">
           <DemoVisualization />
           <div className="buttons-row">
-            <button className={'runQuery'} onClick = {time}>Run Query</button>
-            <button className={'clearCache'}>Clear Query / Clear Cache</button>
+            <button className={'runQuery'} onClick = {time}>Run Query</button>            
+            <button className={'clearCache'} onClick={clearCache}>
+              Clear Query / Clear Cache
+            </button>
           </div>
+          {cacheIsClear && (
+            <div className="clearCacheText">
+              Cache has been successfully cleared.
+            </div>
+          )}
         </div>
       </div>
     </div> 

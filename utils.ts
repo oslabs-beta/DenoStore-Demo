@@ -2,10 +2,20 @@
 const queryCombiner = (
   fields: { [key: string]: boolean },
   restOfQuery: string
-) => {
-  const trueFields = Object.keys(fields).filter(
-    (fieldName) => fields[fieldName]
-  );
+): string => {
+  const trueFields = [];
+
+  Object.keys(fields).forEach((fieldName) => {
+    //handles nested fields here by iterating through nested queries and adding them to a
+    if (typeof fields[fieldName] === 'object') {
+      const trueNested = [];
+      Object.keys(fields[fieldName]).forEach((nested) => {
+        if (fields[fieldName][nested]) trueNested.push(nested);
+      });
+      trueFields.push(`${fieldName} { ${trueNested.join(' ')} }`);
+    } else if (fields[fieldName]) trueFields.push(fieldName);
+  });
+  // actually combines the strings into a final query that GraphQL can interpret
   return restOfQuery.replace('_', trueFields.join(' '));
 };
 

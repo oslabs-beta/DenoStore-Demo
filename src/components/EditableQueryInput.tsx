@@ -15,7 +15,8 @@ const EditableQueryInput: React.FC<EditableQueryInputPropsInt> = ({
     const results = { ...fieldSpans };
     (function inner(res: any) {
       Object.keys(res).forEach((field) => {
-        if (!(typeof res[field] === 'boolean')) {
+        //uses recursion to toggle nested fields
+        if (typeof res[field] === 'object') {
           inner(res[field]);
         }
         if (field === toggled) {
@@ -27,10 +28,11 @@ const EditableQueryInput: React.FC<EditableQueryInputPropsInt> = ({
     handleEditQueryToRun(results);
   };
 
-  //this creates an array of span elements for all fields in state with toggles to change
-  //active fields to inactive onClick and therefore their CSS classes
+  // this creates an array of span elements for all fields in state with toggles to change
+  // active fields to inactive onClick and therefore their CSS classes
   const renderFieldSpans = (spansState: {}): any | JSX.Element[] => {
     return Object.keys(spansState).map((field) => {
+      // renders the needed span for unnested fields
       if (!(typeof spansState[field] === 'object'))
         return (
           <div key={randomKey()}>
@@ -46,6 +48,7 @@ const EditableQueryInput: React.FC<EditableQueryInputPropsInt> = ({
             </span>
           </div>
         );
+      // renders the nested spans for nested fields
       else
         return (
           <div key={randomKey()}>
@@ -56,7 +59,7 @@ const EditableQueryInput: React.FC<EditableQueryInputPropsInt> = ({
               <div key={randomKey()}>
                 <span
                   className={
-                    (field[nestedField] ? 'active' : 'inactive') +
+                    (spansState[field][nestedField] ? 'active' : 'inactive') +
                     ' field nested-field-indent'
                   }
                   onClick={(e) => toggle(e)}
@@ -66,7 +69,7 @@ const EditableQueryInput: React.FC<EditableQueryInputPropsInt> = ({
                 </span>
               </div>
             ))}
-            <span className="field-indent field" key={randomKey()}>
+            <span className="field-indent field no-toggle" key={randomKey()}>
               {'}'}
             </span>
           </div>
@@ -79,25 +82,25 @@ const EditableQueryInput: React.FC<EditableQueryInputPropsInt> = ({
   if (currSelectionIdx === 0)
     return (
       <div className="queryEditField" key={randomKey()}>
-        <span className="active" key={randomKey()}>
-          query AllRockets{'{'}
+        <span className="active no-toggle" key={randomKey()}>
+          query AllRockets {'{'}
         </span>
         <br />
         <br />
-        <span className="queryName active" key={randomKey()}>
-          rockets{'{'}
+        <span className="queryName active no-toggle" key={randomKey()}>
+          rockets {'{'}
         </span>
         <br />
         <br />
         {renderFieldSpans(fieldSpans)}
         <br />
-        <span className="queryName active" key={randomKey()}>
+        <span className="queryName active no-toggle" key={randomKey()}>
           {'}'}
         </span>
         <br />
         <br />
 
-        <span key={randomKey()} className="active">
+        <span key={randomKey()} className="active no-toggle">
           {'}'}
         </span>
       </div>
@@ -108,24 +111,24 @@ const EditableQueryInput: React.FC<EditableQueryInputPropsInt> = ({
   if (currSelectionIdx === 1)
     return (
       <div className="queryEditField" key={randomKey()}>
-        <span className="active" key={randomKey()}>
+        <span className="active no-toggle" key={randomKey()}>
           query {'{'}
         </span>
         <br />
         <br />
-        <span className="queryName active" key={randomKey()}>
-          oneRocket{'('}id:"falcon9"{'){'}
+        <span className="queryName active no-toggle" key={randomKey()}>
+          oneRocket{'('}id:"falcon9"{') {'}
         </span>
         <br />
         <br />
         {renderFieldSpans(fieldSpans)}
         <br />
-        <span className="queryName active" key={randomKey()}>
+        <span className="queryName active no-toggle" key={randomKey()}>
           {'}'}
         </span>
         <br />
         <br />
-        <span key={randomKey()} className="active">
+        <span key={randomKey()} className="active no-toggle">
           {'}'}
         </span>
       </div>
@@ -136,47 +139,51 @@ const EditableQueryInput: React.FC<EditableQueryInputPropsInt> = ({
   if (currSelectionIdx === 2)
     return (
       <div className="queryEditField" key={randomKey()}>
-        <span className="active" key={randomKey()}>
+        <span className="active no-toggle" key={randomKey()}>
           query RocketComparison {'{'}
         </span>
 
         <br />
         <br />
 
-        <span className="queryName active" key={randomKey()}>
-          FalconNine: oneRocket{'('}id:"falcon9"{'){'}
+        <span className="queryName active no-toggle" key={randomKey()}>
+          FalconNine: oneRocket{'('}id:"falcon9"{') {'}
         </span>
 
         <br />
 
-        <span className="active field-indent">...comparisonField</span>
+        <span className="active field-indent no-toggle">
+          ...comparisonField
+        </span>
 
         <br />
 
-        <span className="queryName active" key={randomKey()}>
+        <span className="queryName active no-toggle" key={randomKey()}>
           {'}'}
         </span>
 
         <br />
 
-        <span className="queryName active" key={randomKey()}>
-          FalconOne: oneRocket{'('}id:"falcon1"{'){'}
+        <span className="queryName active no-toggle" key={randomKey()}>
+          FalconOne: oneRocket{'('}id:"falcon1"{') {'}
         </span>
 
         <br />
 
-        <span className="active field-indent">...comparisonField</span>
+        <span className="active field-indent no-toggle">
+          ...comparisonField
+        </span>
 
         <br />
 
-        <span className="queryName active" key={randomKey()}>
+        <span className="queryName active no-toggle" key={randomKey()}>
           {'}'}
         </span>
 
         <br />
         <br />
 
-        <span key={randomKey()} className="active">
+        <span key={randomKey()} className="active no-toggle">
           {'}'}
         </span>
 
@@ -185,7 +192,7 @@ const EditableQueryInput: React.FC<EditableQueryInputPropsInt> = ({
         <br />
         <br />
 
-        <span className="active" key={randomKey()}>
+        <span className="active no-toggle" key={randomKey()}>
           fragment comparisonField on RocketType {'{'}
         </span>
 
@@ -194,7 +201,7 @@ const EditableQueryInput: React.FC<EditableQueryInputPropsInt> = ({
         {renderFieldSpans(fieldSpans)}
         <br />
 
-        <span className="active" key={randomKey()}>
+        <span className="active no-toggle" key={randomKey()}>
           {'}'}
         </span>
       </div>
