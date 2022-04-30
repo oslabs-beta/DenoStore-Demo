@@ -3,7 +3,7 @@ export type ChartPropsData = {
 };
 
 export type QueryTimeObj = {
-  time: any;
+  time: number;
   queryCountName: string;
 };
 
