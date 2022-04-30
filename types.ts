@@ -45,3 +45,24 @@ export interface EditableQueryInputPropsInt {
   handleEditQueryToRun: (fieldState: { [key: string]: boolean }) => void;
   currSelectionIdx: number;
 }
+
+export type rocketData = {
+  rockets: incomingQueryData[] | [];
+};
+
+export type incomingQueryData = {
+  id?: number;
+  active?: string;
+  stages?: number;
+  first_flight?: string;
+  country?: string;
+  wikipedia?: string;
+  description?: string;
+  rocket_id?: string;
+  rocket_name?: string;
+  rocket_type?: string;
+  height?: any;
+  diameter?: any;
+
+}
+

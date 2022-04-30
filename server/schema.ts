@@ -58,5 +58,5 @@ export const typeDefs = gql`
   type Query {
     oneRocket(id: ID): RocketType
     rockets: [RocketType]!
-  }
-`;
+  }`
+;
