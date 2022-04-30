@@ -46,6 +46,8 @@ const DemoContainer: React.FC = () => {
     setQueryToRun(queryCombiner(fieldState, staticQueryString));
   };
 
+  // when the runQuery button is clicked, it runs the query and sets the state of the time it took for the query
+  // to hit or miss the cache and come back with the results
   const runQuery = async () => {
     setCacheIsClear(false);
 
@@ -82,14 +84,14 @@ const DemoContainer: React.FC = () => {
     }
   };
 
+  //c lears the cache and resets the state when the clear cache button is clicked
   const clearCache = async () => {
     console.log('clearCache fired');
     // clears the cache
     axios
       .post('/graphql', {
-        query: 'clearCacheQuery',
+        query: `query {clearCacheQuery}`,
       })
-      .then((data) => console.log(data))
       .catch((err) => console.log(err));
 
     // resets the state now that the query and cache are cleared
@@ -109,6 +111,7 @@ const DemoContainer: React.FC = () => {
     <div className="demoContainer" id="demo">
       <h1 className="demoTitle">Demo</h1>
 
+      {/* this renders the description of the currently selected query and the state after any user edits */}
       <div className="demoParagraphs">
         <p>{possibleQueries[currSelectionIdx].paragraph}</p>
         <p>
@@ -116,6 +119,8 @@ const DemoContainer: React.FC = () => {
           <span className="active no-toggle">{queryToRun}</span>
         </p>
       </div>
+
+      {/* this renders the editable field and dropdown on the left of the Demo section */}
 
       <div className="main-queries-row">
         <div className="editable-column">
@@ -134,6 +139,7 @@ const DemoContainer: React.FC = () => {
           />
         </div>
 
+        {/* this renders the bar chart and both run/clear buttons on the right of the Demo section */}
         <div className="visual-column">
           <BarChart data={queryTime.data} />
           <div className="buttons-row">
@@ -145,6 +151,7 @@ const DemoContainer: React.FC = () => {
             </button>
           </div>
 
+          {/* this renders the cache is cleared text only when it has been cleared   */}
           {cacheIsClear && (
             <div className="clearCacheText">
               Cache has been successfully cleared.
@@ -153,6 +160,7 @@ const DemoContainer: React.FC = () => {
         </div>
       </div>
 
+      {/* this renders the data received back from user-initiated queries*/}
       {queryData.results.length > 0 ? (
         <div className="query-results-container">
           <span className="active no-toggle">

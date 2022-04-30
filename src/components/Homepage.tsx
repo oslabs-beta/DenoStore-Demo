@@ -35,7 +35,6 @@ const Homepage: React.FC = () => {
             </p>
           </div>
           <img src={logo} alt="Logo" id="logo" />
-          {/* <div className="graphic">Insert Slideshow Graphic here</div> */}
         </div>
         <DemoContainer />
         <TeamSection />
