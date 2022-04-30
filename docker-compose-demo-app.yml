@@ -7,14 +7,12 @@ services:
     build: .
     ports:
       - '3000:3000'
-    networks:
-      - deno
     volumes:
       - .:/usr
-      # - node_modules:/usr/node_modules
+      - node_modules:/usr/node_modules
     depends_on:
       - redis
-    command: deno run --allow-all server/server.ts
+    # command: deno run --allow-all server/server.ts
   redis:
     image: jamesmjkim/redis
     container_name: 'redis-db'
@@ -25,8 +23,6 @@ services:
     volumes:
       - cache:/data
 volumes:
-  # node_modules:
+  node_modules:
   cache:
     driver: local
-networks:
-  deno: {}
