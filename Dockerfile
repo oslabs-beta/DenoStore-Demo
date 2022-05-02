@@ -1,6 +1,5 @@
 FROM denoland/deno:alpine
 WORKDIR /usr/
-USER deno
 COPY server/deps.ts .
 RUN deno cache deps.ts
 COPY . .

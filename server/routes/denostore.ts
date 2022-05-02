@@ -5,8 +5,8 @@ import { typeDefs, resolvers } from './../schema.ts';
 
 // set up redis connection
 const redis = await connect({
-  hostname: 'localhost',
-  port: 6379,
+  hostname: String(Deno.env.get('REDIS_HOST')),
+  port: Deno.env.get('REDIS_PORT'),
 });
 
 //instantiate Denostore
