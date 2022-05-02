@@ -2,11 +2,7 @@ import { allPossibleQueriesType } from '../types';
 
 const possibleQueries: allPossibleQueriesType = [
   {
-    staticQueryString: `query AllRockets {
-      rockets {
-                         _
-              }
-            }`,
+    staticQueryString: `query AllRockets { rockets { _ } }`,
     queryFields: {
       id: true,
       active: true,
@@ -25,11 +21,7 @@ const possibleQueries: allPossibleQueriesType = [
       'This query is for all SpaceX rockets and includes the operation name AllRockets.',
   },
   {
-    staticQueryString: `query {
-      oneRocket(id:"falcon9") {
-                         _
-              }
-            }`,
+    staticQueryString: `query { oneRocket(id:"falcon9") { _ } }`,
     queryFields: {
       id: false,
       active: false,
@@ -48,18 +40,7 @@ const possibleQueries: allPossibleQueriesType = [
       'This query is for all data on the single rocket with id Falcon 9.',
   },
   {
-    staticQueryString: `query RocketComparison {\n
-      FalconNine: oneRocket(id:"falcon9") {\n
-        ...comparisonField\n
-      }\n
-        FalconOne: oneRocket(id:"falcon1") {\n
-        ...comparisonField\n
-      }\n
-    \n
-    }\n
-    fragment comparisonField on RocketType {\n
-                         _
-            }`,
+    staticQueryString: `query RocketComparison { FalconNine: oneRocket(id:"falcon9") { ...comparisonField } FalconOne: oneRocket(id:"falcon1") { ...comparisonField } } fragment comparisonField on RocketType { _ }`,
     queryFields: {
       id: true,
       active: true,
