@@ -1,4 +1,4 @@
-import { gql } from './deps.ts';
+import { gql, Denostore } from './deps.ts';
 
 export const resolvers = {
   Query: {
@@ -12,24 +12,32 @@ export const resolvers = {
         const results = await fetch(
           `https://api.spacexdata.com/v3/rockets/${args.id}`
         ).then((res) => res.json());
-        // console.log('api call');
-
         return results;
       });
     },
+
     rockets: async (
       _parent: any,
       _args: any,
       { denostore }: any,
       info: any
     ) => {
-      return await denostore.cache({ info }, async () => {
+      return await (denostore as Denostore).cache({ info }, async () => {
         const results = await fetch(
           `https://api.spacexdata.com/v3/rockets`
         ).then((res) => res.json());
-        // console.log('api call');
         return results;
       });
+    },
+
+    clearCacheQuery: async (
+      _parent: any,
+      _args: any,
+      { denostore }: any,
+      _info: any
+    ) => {
+      await (denostore as Denostore).clear();
+      return 'Cache cleared';
     },
   },
 };
@@ -58,5 +66,6 @@ export const typeDefs = gql`
   type Query {
     oneRocket(id: ID): RocketType
     rockets: [RocketType]!
-  }`
-;
+    clearCacheQuery: String
+  }
+`;

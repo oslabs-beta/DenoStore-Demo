@@ -13,8 +13,6 @@ if (Deno.env.get('DENO_ENV') === 'production') {
   app.use(staticFileMiddleware);
 }
 
-
-
 app.addEventListener('error', (event) => {
   console.error(event.error);
 });
@@ -23,6 +21,7 @@ app.use(async (ctx, next) => {
   try {
     await next();
   } catch (error) {
+    console.log(error);
     ctx.response.body = 'Internal server error';
     throw error;
   }

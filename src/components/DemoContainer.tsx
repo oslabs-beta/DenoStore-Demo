@@ -1,16 +1,11 @@
 import * as React from 'react';
 import axios from 'axios';
-import DemoVisualization from './DemoVisualization';
 import QuerySelectorDropdown from './QuerySelectorDropdown';
 import possibleQueries from '../possibleQueries';
 import { ChartPropsData } from '../../types';
 import EditableQueryInput from './EditableQueryInput';
+import BarChart from './BarChart';
 import { queryCombiner, randomKey } from '../../utils';
-import { collapseTextChangeRangesAcrossMultipleVersions, isVariableDeclaration } from 'typescript';
-import { incomingQueryData } from '../../types';
-import { rocketData } from '../../types';
-
-
 
 const DemoContainer: React.FC = () => {
   // this keeps track of which query string we'll be adding fields to (selected in dropdown)
@@ -23,21 +18,14 @@ const DemoContainer: React.FC = () => {
       possibleQueries[0].staticQueryString
     )
   );
-  
- 
+
   // show what the results are from each query
-  const [queryData, setQueryData] = React.useState<rocketData>({rockets:[]})
+  const [queryData, setQueryData] = React.useState({ results: [] });
 
-  React.useEffect(() => {
-    console.log('query data object --->', queryData)
-  }, [queryData])
-
-  //this is the result of the query from the backend and time it took
-  const [queryResults, setQueryResults] = React.useState<ChartPropsData>({data:[]});
-
-  React.useEffect(() => {
-    console.log('query results object --->', queryResults)
-  }, [queryResults])
+  // this is the result of the query from the backend and time it took
+  const [queryTime, setQueryTime] = React.useState<ChartPropsData>({
+    data: [],
+  });
 
   // conditional rendering of text when "Clear Cache" button is clicked
   const [cacheIsClear, setCacheIsClear] = React.useState<Boolean>(false);
@@ -58,29 +46,56 @@ const DemoContainer: React.FC = () => {
     setQueryToRun(queryCombiner(fieldState, staticQueryString));
   };
 
-  const runQuery = async () =>{
-    
+  // when the runQuery button is clicked, it runs the query and sets the state of the time it took for the query
+  // to hit or miss the cache and come back with the results
+  const runQuery = async () => {
     setCacheIsClear(false);
-    
+
     let final: number;
     let start: number = Date.now();
-    
-    const results = await axios.post('/graphql', {
-      query: queryToRun,
- 
-      }).then((results) => {
-      final = Date.now() - start; 
-      return results;
-      }); 
 
-    setQueryResults({data:[...queryResults.data, {time: final, queryCountName: `Query ${queryResults.data.length + 1}`}]});
-  
-    setQueryData({rockets:[results.data.data.rockets]});
+    const { data } = await axios
+      .post('/graphql', {
+        query: queryToRun,
+      })
+      .then((data) => {
+        final = Date.now() - start;
+        return data.data;
+      })
+      .catch((err) => console.log(err));
 
+    setQueryTime({
+      data: [
+        ...queryTime.data,
+        {
+          time: final,
+          queryCountName: `Query ${queryTime.data.length + 1}`,
+        },
+      ],
+    });
+
+    // for the rockets query
+    if (data.rockets) {
+      setQueryData({ results: [data.rockets] });
+    }
+    // for the oneRocket query
+    else if (data.oneRocket) {
+      setQueryData({ results: [data.oneRocket] });
+    }
   };
 
-  const clearCache = () => {
-    setQueryResults({data:[]});
+  //c lears the cache and resets the state when the clear cache button is clicked
+  const clearCache = async () => {
+    console.log('clearCache fired');
+    // clears the cache
+    axios
+      .post('/graphql', {
+        query: `query {clearCacheQuery}`,
+      })
+      .catch((err) => console.log(err));
+
+    // resets the state now that the query and cache are cleared
+    setQueryTime({ data: [] });
     setCurrSelectionIdx(0);
     setQueryToRun(
       queryCombiner(
@@ -89,15 +104,24 @@ const DemoContainer: React.FC = () => {
       )
     );
     setCacheIsClear(true);
+    setQueryData({ results: [] });
   };
 
   return (
     <div className="demoContainer" id="demo">
       <h1 className="demoTitle">Demo</h1>
+
+      {/* this renders the description of the currently selected query and the state after any user edits */}
       <div className="demoParagraphs">
         <p>{possibleQueries[currSelectionIdx].paragraph}</p>
-        <p>{`This is the current query:  ${queryToRun}`}</p>              
+        <p>
+          This is the current query:{' '}
+          <span className="active no-toggle">{queryToRun}</span>
+        </p>
       </div>
+
+      {/* this renders the editable field and dropdown on the left of the Demo section */}
+
       <div className="main-queries-row">
         <div className="editable-column">
           <EditableQueryInput
@@ -114,14 +138,20 @@ const DemoContainer: React.FC = () => {
             currSelectionIdx={currSelectionIdx}
           />
         </div>
+
+        {/* this renders the bar chart and both run/clear buttons on the right of the Demo section */}
         <div className="visual-column">
-          <DemoVisualization />
+          <BarChart data={queryTime.data} />
           <div className="buttons-row">
-            <button className={'runQuery'} onClick = {runQuery}>Run Query</button>            
+            <button className={'runQuery'} onClick={runQuery}>
+              Run Query
+            </button>
             <button className={'clearCache'} onClick={clearCache}>
               Clear Query / Clear Cache
             </button>
           </div>
+
+          {/* this renders the cache is cleared text only when it has been cleared   */}
           {cacheIsClear && (
             <div className="clearCacheText">
               Cache has been successfully cleared.
@@ -129,7 +159,16 @@ const DemoContainer: React.FC = () => {
           )}
         </div>
       </div>
-    </div> 
+
+      {/* this renders the data received back from user-initiated queries*/}
+      {queryData.results.length > 0 ? (
+        <div className="query-results-container">
+          <span className="active no-toggle">
+            {JSON.stringify(queryData.results)}
+          </span>
+        </div>
+      ) : null}
+    </div>
   );
 };
 
