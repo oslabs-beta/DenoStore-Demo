@@ -40,7 +40,7 @@ const BarChart: React.FC<ChartPropsData> = ({
         .range([svgHeight - margin.bottom, margin.top]);
 
       // scales X and Y axis and adds each to chart
-      const yAxis = d3.axisLeft(yScale).tickFormat((d) => `${d} secs`);
+      const yAxis = d3.axisLeft(yScale).tickFormat((d) => `${d} ms`);
       const xAxis = d3.axisBottom(xScale);
 
       const xAxisGroup = selection
@@ -93,7 +93,7 @@ const BarChart: React.FC<ChartPropsData> = ({
 
       // create a new xAxis scale and add the axis to the chart
       const xAxis = d3.axisBottom(xScale);
-      const yAxis = d3.axisLeft(yScale).tickFormat((d) => `${d} secs`);
+      const yAxis = d3.axisLeft(yScale).tickFormat((d) => `${d} ms`);
 
       const xAxisGroup = selection
         .append('g')
@@ -139,7 +139,7 @@ const BarChart: React.FC<ChartPropsData> = ({
   }, [data]);
 
   return (
-    <div>
+    <div className="demoVisualization">
       <svg
         className="d3-component"
         width={svgWidth}
