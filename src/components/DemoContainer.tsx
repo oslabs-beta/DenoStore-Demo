@@ -109,14 +109,18 @@ const DemoContainer: React.FC = () => {
 
   return (
     <div className="demoContainer" id="demo">
-      <h1 className="demoTitle">Demo</h1>
+      <h1 className="subTitle">Demo</h1>
 
       {/* this renders the description of the currently selected query and the state after any user edits */}
       <div className="demoParagraphs">
         <p>{possibleQueries[currSelectionIdx].paragraph}</p>
         <p>
-          This is the current query:{' '}
-          <span className="active no-toggle">{queryToRun}</span>
+          This is the current query as edited below:
+          <br />
+          <br />
+          <span className="active no-toggle" id="queryToRun">
+            {queryToRun}
+          </span>
         </p>
       </div>
 

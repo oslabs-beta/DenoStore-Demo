@@ -10,10 +10,10 @@
 }
 
 :root {
-  --purpleblue: #0d1842;
-  --blue: #39a2db;
+  --purpleblue: #130080;
+  --blue: #43d1f4;
   --lightblue: #adeaec;
-  --superlight: #e8f0f2;
+  --superlight: #e7f6fa;
 }
 
 body {
@@ -52,8 +52,8 @@ span {
   margin-left: 5%;
   font-weight: bold;
   background-color: var(--superlight);
-  background-image: linear-gradient(30deg, var(--purpleblue), var(--lightblue));
-  background-size: 35%;
+  background-image: linear-gradient(30deg, var(--purpleblue), var(--blue));
+  background-size: 480px;
   -webkit-background-clip: text;
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -61,7 +61,7 @@ span {
 }
 
 .homepage-paragraphs-div {
-  width: 40%;
+  width: 60%;
   height: fit-content;
 }
 
@@ -81,15 +81,18 @@ span {
 }
 
 .demoContainer {
-  height: 1000px;
+  min-height: 1000px;
+  height: max-content;
   width: 95%;
   display: flex;
   flex-direction: column;
 }
 
-.demoTitle {
-  font: 60px 'Hurme Geometric Sans No.3';
+.subTitle {
+  font: 50px 'Hurme Geometric Sans No.3';
   text-align: center;
+  color: var(--purpleblue);
+  text-shadow: 0 0 3px var(--blue);
 }
 
 .demoInstructions {
@@ -110,7 +113,7 @@ span {
 
 .demoVisualization {
   font: 16px 'Hurme Geometric Sans No.3';
-  height: 450px;
+  height: 435px;
   width: fit-content;
   border: 3px solid var(--lightblue);
   border-radius: 2%;
@@ -122,10 +125,20 @@ span {
   width: fit-content;
   text-align: center;
   border: none;
+  margin-top: 40px;
+}
+
+.QuerySelectorDropdown:hover {
+  color: white;
+  transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
 }
 
 .QuerySelectorDropdown:focus {
   border: 1px solid white;
+  color: white;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
 }
 
 .runQuery {
@@ -140,17 +153,26 @@ span {
 }
 
 .runQuery:hover {
-  background-color: #5cbbbf;
+  background-color: var(--blue);
   color: white;
+  border: 1px solid white;
+  width: 175px;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.43s ease;
 }
 
 .clearCache {
-  background-color: rgb(241, 150, 150);
+  background-color: rgb(255, 81, 81);
+  color: white;
 }
 
 .clearCache:hover {
-  background-color: rgb(207, 105, 105);
-  color: white;
+  background-color: white;
+  color: rgb(255, 81, 81);
+  width: 333px;
+  border: 1px solid white;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
 }
 
 .team {
@@ -172,19 +194,23 @@ span {
   margin-top: 5%;
 }
 
-.dsTeam {
-  font: 36px 'Hurme Geometric Sans No.3';
-  font-weight: bold;
-  text-align: center;
-}
-
-.teamMember {
+.teamMemberImg {
   font: 16px 'Hurme Geometric Sans No.3';
   border-radius: 50%;
   min-height: 100px;
   height: 175px;
   min-width: 100px;
   width: 175px;
+}
+
+.teamMemberImg:hover {
+  min-height: 110px;
+  height: 180px;
+  min-width: 110px;
+  width: 180px;
+  box-shadow: 0 0 12.5px var(--purpleblue);
+  transition: all 0.25s ease;
+  -webkit-transition: all 0.25s ease;
 }
 
 .teamMemberName {
@@ -200,38 +226,46 @@ span {
 .footerBody {
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  margin-top: 1rem;
 }
 
 .header {
-  padding: 1.5rem;
-  margin-left: -1rem;
-  padding-top: 2rem;
-  border-bottom: var(--purpleblue) solid 2px;
-  background-color: var(--superlight);
-  /* background: linear-gradient(
-    147deg,
-    var(--blue) 0%,
-    var(--lightblue) 46%,
-    var(--blue) 100%
-  ); */
+  background-image: linear-gradient(0deg, transparent, white 20%);
+  height: 10vh;
   position: fixed;
   top: 0;
   z-index: 1;
-  width: 100%;
-}
-
-.footer {
-  margin-top: 1rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  border-top: var(--purpleblue) solid 2px;
-  width: 100%;
+  width: 100vw;
+  margin-left: -0.5rem;
 }
 
 .headerBody {
+  margin-top: 4vh;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   list-style: none;
+}
+
+/* this is for a background gradient if we want one anywhere
+background: linear-gradient(
+  147deg,
+  var(--blue) 0%,
+  var(--lightblue) 46%,
+  var(--blue) 100%
+); */
+
+.footer {
+  margin-top: 1rem;
+  height: 100px;
+  width: 100vw;
+  margin-left: -1rem;
+  margin-bottom: -1rem;
+  border-top: 1px solid white;
+  background-image: linear-gradient(to top, white, transparent 120%);
+  padding-top: 2rem;
+  z-index: 1;
 }
 
 li,
@@ -242,6 +276,7 @@ a {
   font-weight: lighter;
   color: var(--purpleblue);
   text-decoration: none;
+  text-shadow: 0 0 5px var(--lightblue);
 }
 
 li:hover,
@@ -249,14 +284,17 @@ li:hover,
   cursor: pointer;
   color: var(--blue);
   text-decoration: none;
-  font-size: 1.5rem;
-  transition-duration: 30ms;
+  font-size: 1.6rem;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
 }
 
 a:hover {
   cursor: pointer;
   color: var(--blue);
   text-decoration: none;
+  transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
 }
 
 span {
@@ -372,4 +410,10 @@ span {
   font-size: 1.5rem;
   margin-top: 5%;
   margin-left: 15%;
+}
+
+#queryToRun {
+  background-color: white;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  border-radius: 0.5rem;
 }
