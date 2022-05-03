@@ -12,6 +12,12 @@ if (Deno.env.get('DENO_ENV') === 'production') {
   app.use(staticFileMiddleware);
 }
 
+app.use((ctx) => {
+  ctx.response.body = 'Not Found';
+  ctx.response.status = 404;
+  return;
+});
+
 app.addEventListener('error', (event) => {
   console.error(event.error);
 });
