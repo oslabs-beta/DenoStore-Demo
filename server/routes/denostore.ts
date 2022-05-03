@@ -1,13 +1,15 @@
 //imports needed to instantiate Denostore
-import { Denostore } from '../deps.ts';
-import { connect } from '../deps.ts';
+import { Denostore, connect, parseURL } from '../deps.ts';
 import { typeDefs, resolvers } from './../schema.ts';
 
 // set up redis connection
-const redis = await connect({
-  hostname: String(Deno.env.get('REDIS_HOST')),
-  port: Deno.env.get('REDIS_PORT'),
-});
+// const redis = await connect({
+//   hostname: 'localhost',
+//   port: 6379,
+// });
+
+// for heroku deployment
+const redis = await connect(parseURL(String(Deno.env.get('REDIS_URL'))));
 
 //instantiate Denostore
 export const denostore = new Denostore({
