@@ -2,8 +2,8 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import DemoContainer from './DemoContainer';
 import TeamSection from './TeamSection';
-import Footer from './Footer';
 import Header from './Header';
+import Footer from './Footer';
 // @ts-ignore
 import logo from '../logo.png';
 

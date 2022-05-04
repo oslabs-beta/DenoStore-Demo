@@ -9,8 +9,19 @@
   font-style: normal;
 }
 
+/* @font-face {
+  font-family: 'Hurme Geometric Sans No.3 light';
+  src: local('Hurme Geometric Sans No.3'),
+    local('Hurme-Geometric-Sans-No.3-Bold'),
+    url('./fonts/HurmeGeometricSans3-Bold.woff2') format('woff2'),
+    url('./fonts/HurmeGeometricSans3-Bold.woff') format('woff'),
+    url('./fonts/HurmeGeometricSans3-Bold.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+} */
+
 :root {
-  --purpleblue: #0d1842;
+  --purpleblue: #40455a;
   --blue: #39a2db;
   --lightblue: #adeaec;
   --superlight: #e8f0f2;
@@ -38,11 +49,6 @@ select {
   width: fit-content;
   padding-left: 5%;
   padding-right: 5%;
-}
-
-span {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1rem;
 }
 
 .DenoStore-title {
@@ -162,10 +168,17 @@ span {
   justify-content: space-evenly;
 }
 
-.teamContainer {
+/* .teamContainer {
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
+  max-width: 20%;
+} */
+
+.teamContainer {
+  flex-direction: column;
+  justify-content: center;
+  width: 20%;
 }
 
 .teamContainer:nth-child(odd) {
@@ -363,13 +376,40 @@ span {
   text-align: center;
 }
 
-.textContainer {
+/* .textContainer {
   width: 75%;
-}
+} */
 
 .clearCacheText {
   font-family: 'Hurme Geometric Sans No.3';
   font-size: 1.5rem;
   margin-top: 5%;
   margin-left: 15%;
+}
+
+.memberParagraph {
+  text-align: center;
+  font-family: 'Arial';
+  font-weight: 100;
+}
+
+#github {
+  margin-right: 3px;
+}
+
+#linkedin {
+  margin-left: 3px;
+}
+
+#info {
+  animation: open 0.5s ease-in-out;
+}
+
+@keyframes open {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

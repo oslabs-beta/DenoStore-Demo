@@ -1,10 +1,16 @@
 import * as React from 'react';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import InfoIcon from '@mui/icons-material/Info';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 
 type teamMemberProp = {
   name: string;
   github: string;
   linkedin: string;
   picture: string;
+  teamMemberInfo: string;
 };
 
 const TeamMember: React.FC<teamMemberProp> = ({
@@ -12,23 +18,53 @@ const TeamMember: React.FC<teamMemberProp> = ({
   github,
   linkedin,
   picture,
+  teamMemberInfo,
 }) => {
+  const [teamInfo, setTeamInfo] = React.useState(false);
+
+  const showTeamInfo = () => {
+    if (teamInfo) {
+      setTeamInfo(false);
+    } else {
+      setTeamInfo(true);
+    }
+    console.log(teamInfo);
+  };
+
   return (
     <div className="teamContainer">
-      <a href={linkedin}>
-        <img className="teamMember" src={picture} />
-      </a>{' '}
-      <br />
-      <h1 className="teamMemberName">{name}</h1>
       <div className="teamLinks">
-        <a href={github} target="_blank" className="teamLinks">
-          GitHub
+        <a href={linkedin}>
+          <img className="teamMember" src={picture} />
+        </a>
+        <br />
+        <h1 className="teamMemberName">{name}</h1>
+        <a href={github} target="_blank" className="teamLinks" id="github">
+          <GitHubIcon />
+        </a>{' '}
+        <a href={linkedin} target="_blank" className="teamLinks" id="linkedin">
+          <LinkedInIcon />
         </a>{' '}
         <br />
-        <a href={linkedin} target="_blank" className="teamLinks">
-          LinkedIn
-        </a>{' '}
+        <InfoIcon
+          onClick={showTeamInfo}
+          sx={{ '&:hover': { color: 'rgb(110,206,250)' } }}
+        />
       </div>
+      {teamInfo && (
+        <div>
+          <p className="memberParagraph" id="info">
+            {teamMemberInfo}
+            <br />
+            <br />
+            <ArrowUpwardIcon
+              onClick={showTeamInfo}
+              sx={{ '&:hover': { color: 'rgb(110,206,250)' } }}
+            />
+          </p>
+          <br />
+        </div>
+      )}
       <br />
     </div>
   );
