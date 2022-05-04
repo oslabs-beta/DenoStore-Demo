@@ -4,7 +4,7 @@ import TeamMember from './TeamMember';
 const TeamSection: React.FC = () => {
   return (
     <div>
-      <h1 className="dsTeam">DenoStore Team</h1>
+      <h1 className="subTitle">DenoStore Team</h1>
       <div className="team" id="team">
         <TeamMember
           name="Jake Van Vorhis"

@@ -18,7 +18,7 @@ const possibleQueries: allPossibleQueriesType = [
     },
     description: 'Query with Operation Name',
     paragraph:
-      'This query is for all SpaceX rockets and includes the operation name AllRockets.',
+      'The current selected query is for all SpaceX rockets and includes the operation name AllRockets.',
   },
   {
     staticQueryString: `query { oneRocket(id:"falcon9") { _ } }`,
@@ -37,7 +37,7 @@ const possibleQueries: allPossibleQueriesType = [
     },
     description: 'Basic Query with Argument',
     paragraph:
-      'This query is for all data on the single rocket with id Falcon 9.',
+      'The current selected query is for all data on the single rocket with id Falcon 9.',
   },
   {
     staticQueryString: `query RocketComparison { FalconNine: oneRocket(id:"falcon9") { ...comparisonField } FalconOne: oneRocket(id:"falcon1") { ...comparisonField } } fragment comparisonField on RocketType { _ }`,
@@ -56,7 +56,7 @@ const possibleQueries: allPossibleQueriesType = [
     },
     description: 'Fragment, Aliases, Arguments',
     paragraph:
-      'This query includes and caches a Fragment (comparisonField), Aliases (FalconNine, FalconeOne), and differing Arguments (id:"falcon9" or id:"falcon1").',
+      'The current selected query includes and caches a Fragment (comparisonField), Aliases (FalconNine, FalconeOne), and differing Arguments (id:"falcon9" or id:"falcon1").',
   },
 ];
 

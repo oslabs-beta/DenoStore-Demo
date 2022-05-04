@@ -12,7 +12,7 @@ const BarChart: React.FC<ChartPropsData> = ({
 
   // needed scaling info for d3
   const width = 600;
-  const height = 400;
+  const height = 385;
   const margin = { top: 20, right: 10, bottom: 20, left: 50 };
 
   const svgWidth = width + margin.left + margin.right;

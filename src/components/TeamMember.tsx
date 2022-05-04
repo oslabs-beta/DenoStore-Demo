@@ -35,7 +35,7 @@ const TeamMember: React.FC<teamMemberProp> = ({
     <div className="teamContainer">
       <div className="teamLinks">
         <a href={linkedin}>
-          <img className="teamMember" src={picture} />
+          <img className="teamMemberImg" src={picture} />
         </a>
         <br />
         <h1 className="teamMemberName">{name}</h1>
