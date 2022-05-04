@@ -154,7 +154,6 @@ span {
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent; */
   background-color: var(--lightblue);
-  color: white;
 }
 
 .runQuery:hover {
