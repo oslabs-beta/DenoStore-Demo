@@ -319,6 +319,7 @@ span {
   font-size: 18px;
   margin-top: 2rem;
   margin-left: 2.5%;
+  font-family: 'Hurme Geometric Sans No.3';
 }
 
 .active {
@@ -354,6 +355,7 @@ span {
 
 .queryName {
   margin-left: 10%;
+  font-family: 'Hurme Geometric Sans No.3';
 }
 
 .inactive,
@@ -371,12 +373,12 @@ span {
 .demoParagraphs {
   margin-left: 2.5vw;
   height: fit-content;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .demoParagraphs p {
-  font-family: 'Hurme Geometric Sans No.3';
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1.3rem;
+  /* font-weight: bolder; */
 }
 
 .main-queries-row {

@@ -30,13 +30,25 @@ const DemoContainer: React.FC = () => {
   // conditional rendering of text when "Clear Cache" button is clicked
   const [cacheIsClear, setCacheIsClear] = React.useState<Boolean>(false);
 
+  // Function runs the DenoStore.clear() method in the GraphQL resolver to clear the cache
+  const runClearCacheQuery = async (): Promise<void> => {
+    await axios
+      .post('/graphql', {
+        query: `query {clearCacheQuery}`,
+      })
+      .catch((err) => console.log(err));
+  };
+
   // drilled function to set the selected possibleQuery obj from the dropdown menu a level below
   // also changes queryToRun on selection change
-  const handleSelection = (selection: number) => {
+  const handleSelection = async (selection: number): Promise<void> => {
     const { queryFields, staticQueryString } = possibleQueries[selection];
     setCurrSelectionIdx(selection);
     setQueryToRun(queryCombiner(queryFields, staticQueryString));
-    setCacheIsClear(false);
+    setCacheIsClear(true);
+    setQueryTime({ data: [] });
+    await runClearCacheQuery();
+    setQueryData({ results: [] });
   };
 
   // drilled function to set the queryToRun state with a combined query string updated with
@@ -48,7 +60,7 @@ const DemoContainer: React.FC = () => {
 
   // when the runQuery button is clicked, it runs the query and sets the state of the time it took for the query
   // to hit or miss the cache and come back with the results
-  const runQuery = async () => {
+  const runQuery = async (): Promise<void> => {
     setCacheIsClear(false);
 
     let final: number;
@@ -74,26 +86,14 @@ const DemoContainer: React.FC = () => {
       ],
     });
 
-    // for the rockets query
-    if (data.rockets) {
-      setQueryData({ results: [data.rockets] });
-    }
-    // for the oneRocket query
-    else if (data.oneRocket) {
-      setQueryData({ results: [data.oneRocket] });
-    }
+    // for the rockets query or oneRocket query
+    if (data.rockets) setQueryData({ results: [data.rockets] });
+    else if (data.oneRocket) setQueryData({ results: [data.oneRocket] });
   };
 
-  //c lears the cache and resets the state when the clear cache button is clicked
+  // clears the cache and resets the state when the clear cache button is clicked
   const clearCache = async () => {
-    console.log('clearCache fired');
-    // clears the cache
-    axios
-      .post('/graphql', {
-        query: `query {clearCacheQuery}`,
-      })
-      .catch((err) => console.log(err));
-
+    runClearCacheQuery();
     // resets the state now that the query and cache are cleared
     setQueryTime({ data: [] });
     setCurrSelectionIdx(0);
@@ -121,10 +121,11 @@ const DemoContainer: React.FC = () => {
           <span className="in-p-spans" id="off">
             off
           </span>{' '}
-          with a click. When the Run Query button is clicked, the current query
-          with all active fields is sent via GraphQL to the demo's server in
-          Deno. From there, the data is either returned back from an external
-          call to the SpaceX API or from the DenoStore cache.
+          with a click. When the <span className="in-p-spans">Run Query</span>{' '}
+          button is clicked, the current query with all active fields is sent
+          via GraphQL to the demo's server in Deno. From there, the data is
+          either returned back from an external call to the SpaceX API or from
+          the DenoStore cache.
         </p>
         <p>
           The time it takes to return back the data is registered in the bar
