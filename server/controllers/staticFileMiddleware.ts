@@ -1,20 +1,32 @@
-import { Context, send } from '../deps.ts';
+import { Context } from '../deps.ts';
 
 export const staticFileMiddleware = async (ctx: Context, next: Function) => {
   try {
-    // console.log('staticMW');
-    let path;
     if (ctx.request.url.pathname === '/docs') {
-      path = '';
-    } else {
-      path = ctx.request.url.pathname;
+      ctx.request.url.pathname = '/';
     }
-    await send(ctx, path, {
-      root: `${Deno.cwd()}/build`,
-      index: 'index.html',
-    });
+    if (
+      (await fileExists(`${Deno.cwd()}/build${ctx.request.url.pathname}`)) ||
+      ctx.request.url.pathname === '/'
+    ) {
+      await ctx.send({
+        root: `${Deno.cwd()}/build`,
+        index: 'index.html',
+      });
+    } else await next();
   } catch (err) {
     console.log(err);
     await next();
   }
 };
+
+async function fileExists(path: string) {
+  try {
+    const stats = await Deno.lstat(path);
+    return stats && stats.isFile;
+  } catch (err) {
+    if (err && err instanceof Deno.errors.NotFound) {
+      return false;
+    } else throw err;
+  }
+}
