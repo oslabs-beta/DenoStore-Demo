@@ -28,6 +28,10 @@ body::-webkit-scrollbar {
   display: none; /* for Chrome, Safari, and Opera */
 }
 
+pre {
+  margin-left: 2.5%;
+}
+
 button,
 select {
   font: 20px 'Hurme Geometric Sans No.3';
@@ -108,7 +112,7 @@ span {
   padding-bottom: 2.5%;
   width: 450px;
   background-color: #ffff;
-  border-radius: 2%;
+  border-radius: 15px;
 }
 
 .demoVisualization {
@@ -116,7 +120,7 @@ span {
   height: 435px;
   width: fit-content;
   border: 3px solid var(--lightblue);
-  border-radius: 2%;
+  border-radius: 15px;
   margin-bottom: 5%;
 }
 
@@ -150,13 +154,13 @@ span {
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent; */
   background-color: var(--lightblue);
+  color: white;
 }
 
 .runQuery:hover {
   background-color: var(--blue);
   color: white;
   border: 1px solid white;
-  width: 175px;
   transition: all 0.3s ease;
   -webkit-transition: all 0.43s ease;
 }
@@ -169,7 +173,6 @@ span {
 .clearCache:hover {
   background-color: white;
   color: rgb(255, 81, 81);
-  width: 333px;
   border: 1px solid white;
   transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
@@ -211,6 +214,16 @@ span {
   box-shadow: 0 0 12.5px var(--purpleblue);
   transition: all 0.25s ease;
   -webkit-transition: all 0.25s ease;
+}
+
+.in-p-spans {
+  font: 1.2rem 'Hurme Geometric Sans No.3';
+  background-color: white;
+  color: var(--blue);
+  border-radius: 2px;
+  margin-top: 0;
+  margin-left: 0;
+  padding: 0.25rem 0.25rem 0.25rem 0.25rem;
 }
 
 .teamMemberName {
@@ -338,7 +351,8 @@ span {
   margin-left: 10%;
 }
 
-.inactive {
+.inactive,
+#off {
   opacity: 0.7;
   color: gray;
 }
@@ -379,19 +393,6 @@ span {
   justify-content: space-around;
 }
 
-#main-section {
-  display: flex;
-  width: 100%;
-  height: 400px;
-  justify-content: space-between;
-}
-
-#logo {
-  height: 250px;
-  width: 250px;
-  margin-right: 15%;
-}
-
 .sectionContainer {
   position: fixed;
   top: 10px;
@@ -412,8 +413,35 @@ span {
   margin-left: 15%;
 }
 
+.query-results-container {
+  width: 95%;
+  height: 15vw;
+  overflow-y: scroll;
+  margin-left: 5%;
+  background-color: white;
+  color: var(--purpleblue);
+  border-radius: 15px;
+}
+
+#main-section {
+  display: flex;
+  width: 100%;
+  height: 400px;
+  justify-content: space-between;
+}
+
+#logo {
+  height: 250px;
+  width: 250px;
+  margin-right: 15%;
+}
+
 #queryToRun {
   background-color: white;
   padding: 0.5rem 0.5rem 0.5rem 0.5rem;
   border-radius: 0.5rem;
+}
+
+#current-selected-p {
+  margin-top: 20px;
 }
