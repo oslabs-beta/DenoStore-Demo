@@ -16,7 +16,7 @@ const TeamMember: React.FC<teamMemberProp> = ({
   return (
     <div className="teamContainer">
       <a href={linkedin}>
-        <img className="teamMember" src={picture} />
+        <img className="teamMemberImg" src={picture} />
       </a>{' '}
       <br />
       <h1 className="teamMemberName">{name}</h1>

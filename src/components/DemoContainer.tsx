@@ -109,14 +109,37 @@ const DemoContainer: React.FC = () => {
 
   return (
     <div className="demoContainer" id="demo">
-      <h1 className="demoTitle">Demo</h1>
+      <h1 className="subTitle">Demo</h1>
 
       {/* this renders the description of the currently selected query and the state after any user edits */}
       <div className="demoParagraphs">
-        <p>{possibleQueries[currSelectionIdx].paragraph}</p>
         <p>
-          This is the current query:{' '}
-          <span className="active no-toggle">{queryToRun}</span>
+          Welcome to the DenoStore demonstration! There are some GraphQL queries
+          available below with varying complexity and{' '}
+          <span className="in-p-spans">light blue fields</span> that you are
+          able to toggle <span className="in-p-spans">on</span> and{' '}
+          <span className="in-p-spans" id="off">
+            off
+          </span>{' '}
+          with a click. When the Run Query button is clicked, the current query
+          with all active fields is sent via GraphQL to the demo's server in
+          Deno. From there, the data is either returned back from an external
+          call to the SpaceX API or from the DenoStore cache.
+        </p>
+        <p>
+          The time it takes to return back the data is registered in the bar
+          chart on the right, and you'll notice subsequent calls for the same
+          query (even with differing fields) come back significantly faster once
+          cached.
+        </p>
+        <p>
+          Note: This demonstration also takes advantage of the default
+          expiration option in DenoStore to only cache any data for 10 seconds.
+        </p>
+        <p id="current-selected-p">
+          {possibleQueries[currSelectionIdx].paragraph}
+          <br />
+          <br />
         </p>
       </div>
 
@@ -163,9 +186,7 @@ const DemoContainer: React.FC = () => {
       {/* this renders the data received back from user-initiated queries*/}
       {queryData.results.length > 0 ? (
         <div className="query-results-container">
-          <span className="active no-toggle">
-            {JSON.stringify(queryData.results)}
-          </span>
+          <pre>{JSON.stringify(queryData.results, null, 2)}</pre>
         </div>
       ) : null}
     </div>
