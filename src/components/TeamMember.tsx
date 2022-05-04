@@ -2,7 +2,6 @@ import * as React from 'react';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InfoIcon from '@mui/icons-material/Info';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 
 type teamMemberProp = {
@@ -20,7 +19,7 @@ const TeamMember: React.FC<teamMemberProp> = ({
   picture,
   teamMemberInfo,
 }) => {
-  const [teamInfo, setTeamInfo] = React.useState(false);
+  const [teamInfo, setTeamInfo] = React.useState<Boolean>(false);
 
   const showTeamInfo = () => {
     if (teamInfo) {
@@ -28,7 +27,6 @@ const TeamMember: React.FC<teamMemberProp> = ({
     } else {
       setTeamInfo(true);
     }
-    console.log(teamInfo);
   };
 
   return (

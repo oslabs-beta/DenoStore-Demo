@@ -438,6 +438,14 @@ span {
   animation: open 0.5s ease-in-out;
 }
 
+#demoInfo {
+  margin-left: 49.5%;
+}
+
+#hideInfo {
+  margin-left: 48%;
+}
+
 @keyframes open {
   0% {
     opacity: 0;
@@ -478,4 +486,20 @@ span {
 
 #current-selected-p {
   margin-top: 20px;
+}
+
+/* button.demoExplanationButton {
+  background: none;
+  border: none;
+} */
+
+.demoExplanationButton {
+  margin-left: 38%;
+  background: none;
+  border: none;
+}
+
+.demoExplanationButton:hover {
+  background-color: var(--blue);
+  cursor: pointer;
 }

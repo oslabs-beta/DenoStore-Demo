@@ -15,13 +15,6 @@ const Homepage: React.FC = () => {
         <h1 className="DenoStore-title">DenoStore</h1>
         <div id="main-section">
           <div className="homepage-paragraphs-div">
-            <nav
-              className="homepage-paragraphs"
-              id="documentation-homepage-link"
-            >
-              Learn more about how to incorporate DenoStore in your application
-              in our <Link to="/docs">documentation page</Link>.
-            </nav>
             <p className="homepage-paragraphs">
               Caching is a necessity at scale, but setting it up for GraphQL can
               be challenging and time-consuming, even more so in a Deno runtime
@@ -33,6 +26,13 @@ const Homepage: React.FC = () => {
               quick to set up and easy to configure. Get ready for lightning
               fast GraphQL.
             </p>
+            <nav
+              className="homepage-paragraphs"
+              id="documentation-homepage-link"
+            >
+              Learn more about how to incorporate DenoStore in your application
+              in our <Link to="/docs">documentation page</Link>.
+            </nav>
           </div>
           <img src={logo} alt="Logo" id="logo" />
         </div>
