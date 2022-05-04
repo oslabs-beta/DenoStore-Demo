@@ -7,12 +7,18 @@ const Header: React.FC = () => {
     <div className="header">
       <ul className="headerBody">
         <li>
-          <Link activeClass="active" to="home" spy={true} smooth={true}>
+          <Link
+            activeClass="active"
+            to="main"
+            spy={true}
+            smooth={true}
+            offset={-100}
+          >
             Home
           </Link>
         </li>
         <li>
-          <Link to="demo" spy={true} smooth={true}>
+          <Link to="demo" spy={true} smooth={true} offset={-100}>
             Demo
           </Link>
         </li>
