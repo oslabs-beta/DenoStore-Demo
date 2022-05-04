@@ -1,0 +1,17 @@
+FROM alpine:3.15.4 as builder
+RUN apk add --update nodejs npm
+WORKDIR /
+COPY package.json /
+RUN npm install
+COPY . .
+RUN npm run build
+
+FROM denoland/deno:1.21.0
+WORKDIR /usr/
+COPY server/deps.ts .
+RUN deno cache deps.ts
+COPY --from=builder / /usr/
+RUN deno cache server/server.ts
+EXPOSE 3000
+ENTRYPOINT [ "deno"]
+CMD [ "run", "--allow-all", "server/server.ts"] 
