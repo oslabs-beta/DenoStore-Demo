@@ -48,6 +48,7 @@ const DemoContainer: React.FC = () => {
     setCacheIsClear(true);
     setQueryTime({ data: [] });
     await runClearCacheQuery();
+    setQueryData({ results: [] });
   };
 
   // drilled function to set the queryToRun state with a combined query string updated with
@@ -120,10 +121,11 @@ const DemoContainer: React.FC = () => {
           <span className="in-p-spans" id="off">
             off
           </span>{' '}
-          with a click. When the Run Query button is clicked, the current query
-          with all active fields is sent via GraphQL to the demo's server in
-          Deno. From there, the data is either returned back from an external
-          call to the SpaceX API or from the DenoStore cache.
+          with a click. When the <span className="in-p-spans">Run Query</span>{' '}
+          button is clicked, the current query with all active fields is sent
+          via GraphQL to the demo's server in Deno. From there, the data is
+          either returned back from an external call to the SpaceX API or from
+          the DenoStore cache.
         </p>
         <p>
           The time it takes to return back the data is registered in the bar
