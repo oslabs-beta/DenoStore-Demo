@@ -22,4 +22,9 @@ const queryCombiner = (
 const randomKey = (): number =>
   Math.floor(Math.random() * Math.random() * 1000);
 
-export { queryCombiner, randomKey };
+const call = async (fetchCall: Function) => {
+  await new Promise((r) => setTimeout(r, 300));
+  return await fetchCall();
+};
+
+export { queryCombiner, randomKey, call };

@@ -1,11 +1,18 @@
 import { gql } from './deps.ts';
+// import { call } from '../utils.ts';
+
+const call = async (fetchCall: Function): Promise<any> => {
+  await new Promise((r) => setTimeout(r, 300));
+  return await fetchCall();
+};
 
 export const resolvers = {
   Query: {
     oneRocket: async (_parent: any, args: any, { ds }: any, info: any) => {
       return await ds.cache({ info }, async () => {
-        const results = await fetch(
-          `https://api.spacexdata.com/v3/rockets/${args.id}`
+        const results = await call(
+          async () =>
+            await fetch(`https://api.spacexdata.com/v3/rockets/${args.id}`)
         ).then((res) => res.json());
         return results;
       });
@@ -13,8 +20,8 @@ export const resolvers = {
 
     rockets: async (_parent: any, _args: any, { ds }: any, info: any) => {
       return await ds.cache({ info }, async () => {
-        const results = await fetch(
-          `https://api.spacexdata.com/v3/rockets`
+        const results = await call(
+          async () => await fetch(`https://api.spacexdata.com/v3/rockets`)
         ).then((res) => res.json());
         return results;
       });

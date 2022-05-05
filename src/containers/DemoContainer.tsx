@@ -6,7 +6,6 @@ import { ChartPropsData } from '../../types';
 import EditableQueryInput from '../components/EditableQueryInput';
 import BarChart from '../components/BarChart';
 import { queryCombiner, randomKey } from '../../utils';
-import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 
 const DemoContainer: React.FC = () => {
   // this keeps track of which query string we'll be adding fields to (selected in dropdown)
@@ -93,7 +92,7 @@ const DemoContainer: React.FC = () => {
 
     // for the rockets query or oneRocket query
     if (data.rockets) setQueryData({ results: [data.rockets] });
-    else if (data.oneRocket) setQueryData({ results: [data.oneRocket] });
+    else setQueryData({ results: [data] });
   };
 
   // clears the cache and resets the state when the clear cache button is clicked
