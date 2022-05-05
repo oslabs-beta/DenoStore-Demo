@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link as Route } from 'react-router-dom';
 import { Link } from 'react-scroll';
 import './../styles.css';
 
@@ -12,18 +13,16 @@ const Header: React.FC = () => {
           </Link>
         </li>
         <li>
+          <Route to="docs">Documentation</Route>
+        </li>
+        <li>
           <Link to="demo" spy={true} smooth={true}>
             Demo
           </Link>
         </li>
         <li>
           <Link to="team" spy={true} smooth={true}>
-            Team
-          </Link>
-        </li>
-        <li>
-          <Link to="moreLinks" spy={true} smooth={true}>
-            More Links
+            About
           </Link>
         </li>
       </ul>

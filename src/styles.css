@@ -164,13 +164,13 @@ select {
 }
 
 .clearCache {
-  background-color: rgb(255, 81, 81);
-  color: white;
+  background-color: white;
+  color: rgb(255, 81, 81);
 }
 
 .clearCache:hover {
-  background-color: white;
-  color: rgb(255, 81, 81);
+  background-color: rgb(255, 81, 81);
+  color: white;
   border: 1px solid white;
   transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
@@ -488,13 +488,8 @@ span {
   margin-top: 20px;
 }
 
-/* button.demoExplanationButton {
-  background: none;
-  border: none;
-} */
-
 .demoExplanationButton {
-  margin-left: 38%;
+  margin-left: 40%;
   background: none;
   border: none;
 }
@@ -502,4 +497,24 @@ span {
 .demoExplanationButton:hover {
   background-color: var(--blue);
   cursor: pointer;
+  color: white;
+  border: 1px solid white;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+}
+
+.infoIcon {
+  color: var(--purpleblue);
+}
+
+.infoIcon:hover {
+  color: var(--blue);
+}
+
+.arrowUpwardIcon {
+  color: var(--purpleblue);
+}
+
+.arrowUpwardIcon:hover {
+  color: var(--blue);
 }

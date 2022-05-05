@@ -44,10 +44,7 @@ const TeamMember: React.FC<teamMemberProp> = ({
           <LinkedInIcon />
         </a>{' '}
         <br />
-        <InfoIcon
-          onClick={showTeamInfo}
-          sx={{ '&:hover': { color: 'rgb(110,206,250)' } }}
-        />
+        {!teamInfo && <InfoIcon className="infoIcon" onClick={showTeamInfo} />}
       </div>
       {teamInfo && (
         <div>
@@ -56,8 +53,8 @@ const TeamMember: React.FC<teamMemberProp> = ({
             <br />
             <br />
             <ArrowUpwardIcon
+              className="arrowUpwardIcon"
               onClick={showTeamInfo}
-              sx={{ '&:hover': { color: 'rgb(110,206,250)' } }}
             />
           </p>
           <br />

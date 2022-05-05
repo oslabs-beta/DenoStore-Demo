@@ -6,7 +6,6 @@ import { ChartPropsData } from '../../types';
 import EditableQueryInput from './EditableQueryInput';
 import BarChart from './BarChart';
 import { queryCombiner, randomKey } from '../../utils';
-import InfoIcon from '@mui/icons-material/Info';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 
 const DemoContainer: React.FC = () => {
@@ -131,13 +130,6 @@ const DemoContainer: React.FC = () => {
     <div className="demoContainer" id="demo">
       <h1 className="subTitle">Demo</h1>
 
-      {/* <p id="demoInfo">
-        <InfoIcon
-          onClick={showDemoParagraph}
-          sx={{ '&:hover': { color: 'rgb(110,206,250)' } }}
-        />
-      </p> */}
-
       <button className="demoExplanationButton" onClick={showDemoParagraph}>
         {demoExplanationClicked
           ? 'Hide Demo Explanation'
@@ -174,12 +166,6 @@ const DemoContainer: React.FC = () => {
               expiration option in DenoStore to only cache any data for 10
               seconds.
             </p>
-          </div>
-          <div id="hideInfo">
-            <ArrowUpwardIcon
-              onClick={showDemoParagraph}
-              sx={{ '&:hover': { color: 'rgb(110,206,250)' } }}
-            />
           </div>
         </div>
       )}
