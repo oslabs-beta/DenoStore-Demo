@@ -19,7 +19,7 @@ const Header: React.FC = () => {
           </Link>
         </li>
         <li>
-          <Route to="docs">Documentation</Route>
+          <a href="/docs">Documentation</a>
         </li>
         <li>
           <Link to="demo" spy={true} smooth={true} offset={-100}>

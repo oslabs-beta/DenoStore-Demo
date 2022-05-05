@@ -33,7 +33,7 @@ const Homepage: React.FC = () => {
               id="documentation-homepage-link"
             >
               Learn more about how to incorporate DenoStore in your application
-              in our <Link to="/docs">documentation page</Link>.
+              in our <a href="/docs">documentation page</a>.
             </nav>
           </div>
           <img src={logo} alt="Logo" id="logo" />
