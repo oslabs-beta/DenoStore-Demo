@@ -6,7 +6,7 @@ const DocumentationPage: React.FC = () => {
   return (
     <div>
       <header>
-        <section id="">
+        <section>
           <h1>DenoStore Documentation</h1>
         </section>
       </header>

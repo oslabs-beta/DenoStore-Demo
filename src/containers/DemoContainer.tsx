@@ -6,6 +6,7 @@ import { ChartPropsData } from '../../types';
 import EditableQueryInput from '../components/EditableQueryInput';
 import BarChart from '../components/BarChart';
 import { queryCombiner, randomKey } from '../../utils';
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 
 const DemoContainer: React.FC = () => {
   // this keeps track of which query string we'll be adding fields to (selected in dropdown)
@@ -29,6 +30,15 @@ const DemoContainer: React.FC = () => {
 
   // conditional rendering of text when "Clear Cache" button is clicked
   const [cacheIsClear, setCacheIsClear] = React.useState<Boolean>(false);
+
+  // conditional rendering of DenoStore demonstration paragraph and the button text when info icon is clicked
+  const [demoExplanationOpen, setDemoExplanationOpen] =
+    React.useState<Boolean>(false);
+
+  // onclick function to show DenoStore demonstration paragraph when info icon is clicked
+  const showDemoParagraph = () => {
+    setDemoExplanationOpen(!demoExplanationOpen);
+  };
 
   // Function runs the DenoStore.clear() method in the GraphQL resolver to clear the cache
   const runClearCacheQuery = async (): Promise<void> => {
@@ -111,32 +121,47 @@ const DemoContainer: React.FC = () => {
     <div className="demoContainer" id="demo">
       <h1 className="subTitle">Demo</h1>
 
+      <button className="demoExplanationButton" onClick={showDemoParagraph}>
+        {demoExplanationOpen
+          ? 'Hide Demo Explanation'
+          : 'Show Demo Explanation'}
+      </button>
+
       {/* this renders the description of the currently selected query and the state after any user edits */}
+      {demoExplanationOpen && (
+        <div className="demoParagraphs" id="info">
+          <div>
+            <p>
+              Welcome to the DenoStore demonstration! There are some GraphQL
+              queries available below with varying complexity and{' '}
+              <span className="in-p-spans">light blue fields</span> that you are
+              able to toggle <span className="in-p-spans">on</span> and{' '}
+              <span className="in-p-spans" id="off">
+                off
+              </span>{' '}
+              with a click. When the{' '}
+              <span className="in-p-spans">Run Query</span> button is clicked,
+              the current query with all active fields is sent via GraphQL to
+              the demo's server in Deno. From there, the data is either returned
+              back from an external call to the SpaceX API or from the DenoStore
+              cache.
+            </p>
+            <p>
+              The time it takes to return back the data is registered in the bar
+              chart on the right, and you'll notice subsequent calls for the
+              same query (even with differing fields) come back significantly
+              faster once cached.
+            </p>
+            <p>
+              Note: This demonstration also takes advantage of the default
+              expiration option in DenoStore to only cache any data for 10
+              seconds.
+            </p>
+          </div>
+        </div>
+      )}
+
       <div className="demoParagraphs">
-        <p>
-          Welcome to the DenoStore demonstration! There are some GraphQL queries
-          available below with varying complexity and{' '}
-          <span className="in-p-spans">light blue fields</span> that you are
-          able to toggle <span className="in-p-spans">on</span> and{' '}
-          <span className="in-p-spans" id="off">
-            off
-          </span>{' '}
-          with a click. When the <span className="in-p-spans">Run Query</span>{' '}
-          button is clicked, the current query with all active fields is sent
-          via GraphQL to the demo's server in Deno. From there, the data is
-          either returned back from an external call to the SpaceX API or from
-          the DenoStore cache.
-        </p>
-        <p>
-          The time it takes to return back the data is registered in the bar
-          chart on the right, and you'll notice subsequent calls for the same
-          query (even with differing fields) come back significantly faster once
-          cached.
-        </p>
-        <p>
-          Note: This demonstration also takes advantage of the default
-          expiration option in DenoStore to only cache any data for 10 seconds.
-        </p>
         <p id="current-selected-p">
           {possibleQueries[currSelectionIdx].paragraph}
           <br />
