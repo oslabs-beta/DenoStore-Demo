@@ -3,7 +3,7 @@ import { Context } from '../deps.ts';
 export const staticFileMiddleware = async (ctx: Context, next: Function) => {
   try {
     if (ctx.request.url.pathname === '/docs') {
-      ctx.request.url.pathname = '/';
+      ctx.request.url.pathname = '/docs.html ';
     }
     if (
       (await fileExists(`${Deno.cwd()}/build${ctx.request.url.pathname}`)) ||

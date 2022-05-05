@@ -22,7 +22,7 @@ const Homepage: React.FC = () => {
               id="documentation-homepage-link"
             >
               Learn more about how to incorporate DenoStore in your application
-              in our <Link to="/docs">documentation page</Link>.
+              in our <a href="/docs">documentation page</a>.
             </nav>
             <p className="homepage-paragraphs">
               Caching is a necessity at scale, but setting it up for GraphQL can

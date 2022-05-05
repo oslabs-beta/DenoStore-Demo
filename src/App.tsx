@@ -9,7 +9,6 @@ const App: React.FC = () => {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="docs" element={<DocumentationPage />} />
           <Route path="/" element={<Homepage />} />
         </Routes>
       </BrowserRouter>
