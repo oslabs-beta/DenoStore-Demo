@@ -65,7 +65,7 @@ const BarChart: React.FC<ChartPropsData> = ({
         .attr('height', (d) => svgHeight - yScale(d.time) - margin.bottom)
         .attr('x', (d) => xScale(d.queryCountName))
         .attr('y', (d) => yScale(d.time))
-        .attr('fill', '#39A2DB');
+        .attr('fill', '#43d1f4');
     }
   }, [svgRef.current]);
 
@@ -118,7 +118,7 @@ const BarChart: React.FC<ChartPropsData> = ({
         .attr('x', (d) => xScale(d.queryCountName))
         .attr('height', (d) => svgHeight - yScale(d.time) - margin.bottom)
         .attr('y', (d) => yScale(d.time))
-        .attr('fill', '#39A2DB');
+        .attr('fill', '#43d1f4');
 
       rects
         .enter()
@@ -127,14 +127,14 @@ const BarChart: React.FC<ChartPropsData> = ({
         .attr('x', (d) => xScale(d.queryCountName))
         .attr('y', svgHeight - margin.bottom)
         .attr('height', 0)
-        .attr('fill', '#053742')
+        .attr('fill', '#130080')
         .transition()
         .duration(1000)
         .ease(d3.easeExpIn)
         .ease(d3.easeBounce)
         .attr('height', (d) => svgHeight - yScale(d.time) - margin.bottom)
         .attr('y', (d) => yScale(d.time))
-        .attr('fill', '#39A2DB');
+        .attr('fill', '#43d1f4');
     }
   }, [data]);
 

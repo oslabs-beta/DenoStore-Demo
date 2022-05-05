@@ -35,11 +35,6 @@ const DemoContainer: React.FC = () => {
   const [demoExplanationOpen, setDemoExplanationOpen] =
     React.useState<Boolean>(false);
 
-  // onclick function to show DenoStore demonstration paragraph when info icon is clicked
-  const showDemoParagraph = () => {
-    setDemoExplanationOpen(!demoExplanationOpen);
-  };
-
   // Function runs the DenoStore.clear() method in the GraphQL resolver to clear the cache
   const runClearCacheQuery = async (): Promise<void> => {
     await axios
@@ -121,7 +116,10 @@ const DemoContainer: React.FC = () => {
     <div className="demoContainer" id="demo">
       <h1 className="subTitle">Demo</h1>
 
-      <button className="demoExplanationButton" onClick={showDemoParagraph}>
+      <button
+        className="demoExplanationButton"
+        onClick={() => setDemoExplanationOpen(!demoExplanationOpen)}
+      >
         {demoExplanationOpen
           ? 'Hide Demo Explanation'
           : 'Show Demo Explanation'}

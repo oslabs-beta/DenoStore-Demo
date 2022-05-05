@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
           Github
         </a>
         <a
-          href="https://github.com/oslabs-beta/DenoStore"
+          href="https://deno.land/x/denostore"
           target="_blank"
           rel="noreferrer noopener"
           className="footer-link"
@@ -23,13 +23,14 @@ const Footer: React.FC = () => {
           Deno.land
         </a>
         <a
-          href="https://github.com/oslabs-beta/DenoStore"
+          href="https://opensourcelabs.io/"
           target="_blank"
           rel="noreferrer noopener"
           className="footer-link"
         >
           OSLabs
         </a>
+        {/* TODO: ADD MEDIUM ARTICLE LINK */}
         <a
           href="https://github.com/oslabs-beta/DenoStore"
           target="_blank"

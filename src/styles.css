@@ -73,6 +73,7 @@ select {
 .homepage-paragraphs-div {
   width: 60%;
   height: fit-content;
+  min-width: 500px;
 }
 
 .homepage-without-header {
@@ -345,7 +346,8 @@ span {
 .field:hover {
   cursor: pointer;
   font-size: 1.4rem;
-  transition-duration: 30ms;
+  transition: all 0.15s ease;
+  -webkit-transition: all 0.15s ease;
 }
 
 .no-toggle:hover {
@@ -489,16 +491,20 @@ span {
 }
 
 .demoExplanationButton {
-  margin-left: 40%;
   background: none;
   border: none;
+  width: 275px;
+  margin-left: 1.5%;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .demoExplanationButton:hover {
-  background-color: var(--blue);
+  background-color: var(--superlight);
+  margin-left: 2.5%;
   cursor: pointer;
-  color: white;
-  border: 1px solid white;
+  text-decoration: underline;
+  color: var(--blue);
   transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
 }
