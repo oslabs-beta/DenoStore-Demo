@@ -73,6 +73,8 @@ select {
 .homepage-paragraphs-div {
   width: 60%;
   height: fit-content;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .homepage-without-header {
