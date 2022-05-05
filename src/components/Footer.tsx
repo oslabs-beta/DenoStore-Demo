@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
           Deno.land
         </a>
         <a
-          href="https://github.com/oslabs-beta/DenoStore"
+          href="https://opensourcelabs.io/"
           target="_blank"
           rel="noreferrer noopener"
           className="footer-link"
