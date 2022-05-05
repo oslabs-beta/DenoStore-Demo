@@ -37,11 +37,7 @@ const DemoContainer: React.FC = () => {
 
   // onclick function to show DenoStore demonstration paragraph when info icon is clicked
   const showDemoParagraph = () => {
-    if (demoExplanationOpen) {
-      setDemoExplanationOpen(false);
-    } else {
-      setDemoExplanationOpen(true);
-    }
+    setDemoExplanationOpen(!demoExplanationOpen);
   };
 
   // Function runs the DenoStore.clear() method in the GraphQL resolver to clear the cache
