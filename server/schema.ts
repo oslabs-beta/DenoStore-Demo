@@ -1,14 +1,9 @@
-import { gql, Denostore } from './deps.ts';
+import { gql } from './deps.ts';
 
 export const resolvers = {
   Query: {
-    oneRocket: async (
-      _parent: any,
-      args: any,
-      { denostore }: any,
-      info: any
-    ) => {
-      return await denostore.cache({ info }, async () => {
+    oneRocket: async (_parent: any, args: any, { ds }: any, info: any) => {
+      return await ds.cache({ info }, async () => {
         const results = await fetch(
           `https://api.spacexdata.com/v3/rockets/${args.id}`
         ).then((res) => res.json());
@@ -16,13 +11,8 @@ export const resolvers = {
       });
     },
 
-    rockets: async (
-      _parent: any,
-      _args: any,
-      { denostore }: any,
-      info: any
-    ) => {
-      return await (denostore as Denostore).cache({ info }, async () => {
+    rockets: async (_parent: any, _args: any, { ds }: any, info: any) => {
+      return await ds.cache({ info }, async () => {
         const results = await fetch(
           `https://api.spacexdata.com/v3/rockets`
         ).then((res) => res.json());
@@ -33,10 +23,10 @@ export const resolvers = {
     clearCacheQuery: async (
       _parent: any,
       _args: any,
-      { denostore }: any,
+      { ds }: any,
       _info: any
     ) => {
-      await (denostore as Denostore).clear();
+      await ds.clear();
       return 'Cache cleared';
     },
   },
