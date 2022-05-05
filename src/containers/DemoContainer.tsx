@@ -149,11 +149,6 @@ const DemoContainer: React.FC = () => {
               same query (even with differing fields) come back significantly
               faster once cached.
             </p>
-            <p>
-              Note: This demonstration also takes advantage of the default
-              expiration option in DenoStore to only cache any data for 10
-              seconds.
-            </p>
           </div>
         </div>
       )}
@@ -162,8 +157,12 @@ const DemoContainer: React.FC = () => {
         <p id="current-selected-p">
           {possibleQueries[currSelectionIdx].paragraph}
           <br />
-          <br />
         </p>
+        <p>
+          Note: This demonstration also takes advantage of the default
+          expiration option in DenoStore to only cache any data for 10 seconds.
+        </p>
+        <br />
       </div>
 
       {/* this renders the editable field and dropdown on the left of the Demo section */}
