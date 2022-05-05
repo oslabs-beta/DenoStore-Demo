@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    // "noImplicitAny": true,
+    "module": "esnext",
+    "target": "es2017",
+    "jsx": "react",
+    "allowJs": true,
+    "moduleResolution": "Node",
+    "plugins": [{ "name": "typescript-deno-plugin" }]
+  },
+  "include": ["**/*.tsx", "components/bar-chart.js", "src/possibleQueries.ts"],
+  "exclude": ["node_modules"]
+}

@@ -1,0 +1,526 @@
+@font-face {
+  font-family: 'Hurme Geometric Sans No.3';
+  src: local('Hurme Geometric Sans No.3 Bold'),
+    local('Hurme-Geometric-Sans-No.3-Bold'),
+    url('./fonts/HurmeGeometricSans3-Bold.woff2') format('woff2'),
+    url('./fonts/HurmeGeometricSans3-Bold.woff') format('woff'),
+    url('./fonts/HurmeGeometricSans3-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* @font-face {
+  font-family: 'Hurme Geometric Sans No.3 light';
+  src: local('Hurme Geometric Sans No.3'),
+    local('Hurme-Geometric-Sans-No.3-Bold'),
+    url('./fonts/HurmeGeometricSans3-Bold.woff2') format('woff2'),
+    url('./fonts/HurmeGeometricSans3-Bold.woff') format('woff'),
+    url('./fonts/HurmeGeometricSans3-Bold.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+} */
+
+:root {
+  --purpleblue: #130080;
+  --blue: #43d1f4;
+  --lightblue: #adeaec;
+  --superlight: #e7f6fa;
+}
+
+body {
+  box-sizing: border-box;
+  background-color: var(--superlight);
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll;
+}
+
+body::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
+
+pre {
+  margin-left: 2.5%;
+}
+
+button,
+select {
+  font: 20px 'Hurme Geometric Sans No.3';
+  border-radius: 15px;
+  border: none;
+  margin-top: 10px;
+  height: 75px;
+  width: fit-content;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.DenoStore-title {
+  font-family: 'Hurme Geometric Sans No.3';
+  font-size: 6rem;
+  text-align: left;
+  margin-left: 5%;
+  font-weight: bold;
+  background-color: var(--superlight);
+  background-image: linear-gradient(30deg, var(--purpleblue), var(--blue));
+  background-size: 480px;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.homepage-paragraphs-div {
+  width: 60%;
+  height: fit-content;
+  min-width: 500px;
+}
+
+.homepage-without-header {
+  margin-top: 12%;
+}
+
+.graphic {
+  height: 150px;
+  width: 150px;
+  background-color: #bbb;
+  border-radius: 50%;
+  text-align: center;
+  padding: 15px;
+  border: 3px solid #000;
+  font: 16px 'Hurme Geometric Sans No.3';
+}
+
+.demoContainer {
+  min-height: 1000px;
+  height: max-content;
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+}
+
+.subTitle {
+  font: 50px 'Hurme Geometric Sans No.3';
+  text-align: center;
+  color: var(--purpleblue);
+  text-shadow: 0 0 3px var(--blue);
+}
+
+.demoInstructions {
+  font: 16px 'Hurme Geometric Sans No.3';
+  position: absolute;
+  left: 40px;
+  top: 100px;
+}
+
+.queryEditField {
+  height: fit-content;
+  padding-top: 2.5%;
+  padding-bottom: 2.5%;
+  width: 450px;
+  background-color: #ffff;
+  border-radius: 15px;
+}
+
+.demoVisualization {
+  font: 16px 'Hurme Geometric Sans No.3';
+  height: 435px;
+  width: fit-content;
+  border: 3px solid var(--lightblue);
+  border-radius: 15px;
+  margin-bottom: 5%;
+}
+
+.QuerySelectorDropdown {
+  background-color: var(--blue);
+  width: fit-content;
+  text-align: center;
+  border: none;
+  margin-top: 40px;
+}
+
+.QuerySelectorDropdown:hover {
+  color: white;
+  transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+}
+
+.QuerySelectorDropdown:focus {
+  border: 1px solid white;
+  color: white;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+}
+
+.runQuery {
+  background-color: var(--lightblue);
+}
+
+.runQuery:hover {
+  background-color: var(--blue);
+  color: white;
+  border: 1px solid white;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.43s ease;
+}
+
+.clearCache {
+  background-color: white;
+  color: rgb(255, 81, 81);
+}
+
+.clearCache:hover {
+  background-color: rgb(255, 81, 81);
+  color: white;
+  border: 1px solid white;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+}
+
+.team {
+  text-align: justify;
+  min-width: 600px;
+  padding: 15px;
+  margin: 50px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* .teamContainer {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  max-width: 20%;
+} */
+
+.teamContainer {
+  flex-direction: column;
+  justify-content: center;
+  width: 20%;
+}
+
+.teamContainer:nth-child(odd) {
+  margin-top: 5%;
+}
+
+.teamMemberImg {
+  font: 16px 'Hurme Geometric Sans No.3';
+  border-radius: 50%;
+  min-height: 100px;
+  height: 175px;
+  min-width: 100px;
+  width: 175px;
+}
+
+.teamMemberImg:hover {
+  min-height: 110px;
+  height: 180px;
+  min-width: 110px;
+  width: 180px;
+  box-shadow: 0 0 12.5px var(--purpleblue);
+  transition: all 0.25s ease;
+  -webkit-transition: all 0.25s ease;
+}
+
+.in-p-spans {
+  font: 1.2rem 'Hurme Geometric Sans No.3';
+  background-color: white;
+  color: var(--blue);
+  border-radius: 2px;
+  margin-top: 0;
+  margin-left: 0;
+  padding: 0.25rem 0.25rem 0.25rem 0.25rem;
+}
+
+.teamMemberName {
+  font: 20px 'Hurme Geometric Sans No.3';
+  text-align: center;
+}
+
+.teamLinks {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.footerBody {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.header {
+  background-image: linear-gradient(0deg, transparent, white 20%);
+  height: 10vh;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100vw;
+  margin-left: -0.5rem;
+}
+
+.headerBody {
+  margin-top: 4vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+}
+
+/* this is for a background gradient if we want one anywhere
+background: linear-gradient(
+  147deg,
+  var(--blue) 0%,
+  var(--lightblue) 46%,
+  var(--blue) 100%
+); */
+
+.footer {
+  margin-top: 1rem;
+  height: 100px;
+  width: 100vw;
+  margin-left: -1rem;
+  margin-bottom: -1rem;
+  border-top: 1px solid white;
+  background-image: linear-gradient(to top, white, transparent 120%);
+  padding-top: 2rem;
+  z-index: 1;
+}
+
+li,
+.footer-link,
+a {
+  font-family: 'Hurme Geometric Sans No.3';
+  font-size: 1.4rem;
+  font-weight: lighter;
+  color: var(--purpleblue);
+  text-decoration: none;
+  text-shadow: 0 0 5px var(--lightblue);
+}
+
+li:hover,
+.footer-link:hover {
+  cursor: pointer;
+  color: var(--blue);
+  text-decoration: none;
+  font-size: 1.6rem;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+}
+
+a:hover {
+  cursor: pointer;
+  color: var(--blue);
+  text-decoration: none;
+  transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+}
+
+span {
+  font-size: 18px;
+  margin-top: 2rem;
+  margin-left: 2.5%;
+  font-family: 'Hurme Geometric Sans No.3';
+}
+
+.active {
+  opacity: 1;
+  color: var(--purpleblue);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.field-indent {
+  margin-left: 17.5%;
+}
+
+.nested-field-indent {
+  margin-left: 22.5%;
+}
+
+.field {
+  color: var(--blue);
+  font-weight: bold;
+}
+
+.field:hover {
+  cursor: pointer;
+  font-size: 1.4rem;
+  transition: all 0.15s ease;
+  -webkit-transition: all 0.15s ease;
+}
+
+.no-toggle:hover {
+  cursor: default;
+  font-size: 1.2rem;
+}
+
+.queryName {
+  margin-left: 10%;
+  font-family: 'Hurme Geometric Sans No.3';
+}
+
+.inactive,
+#off {
+  opacity: 0.7;
+  color: gray;
+}
+
+.homepage-paragraphs {
+  margin-left: 2.5vw;
+  font-family: 'Hurme Geometric Sans No.3';
+  font-size: 1.5rem;
+}
+
+.demoParagraphs {
+  margin-left: 2.5vw;
+  height: fit-content;
+}
+
+.demoParagraphs p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.3rem;
+  /* font-weight: bolder; */
+}
+
+.main-queries-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-bottom: 2%;
+}
+
+.editable-column,
+.visual-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.buttons-row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.sectionContainer {
+  position: fixed;
+  top: 10px;
+  border: 2px solid blue;
+  width: 20%;
+  margin-left: 78%;
+  text-align: center;
+}
+
+/* .textContainer {
+  width: 75%;
+} */
+
+.clearCacheText {
+  font-family: 'Hurme Geometric Sans No.3';
+  font-size: 1.5rem;
+  margin-top: 5%;
+  margin-left: 15%;
+}
+
+.memberParagraph {
+  text-align: center;
+  font-family: 'Arial';
+  font-weight: 100;
+}
+
+#github {
+  margin-right: 3px;
+}
+
+#linkedin {
+  margin-left: 3px;
+}
+
+#info {
+  animation: open 0.5s ease-in-out;
+}
+
+#demoInfo {
+  margin-left: 49.5%;
+}
+
+#hideInfo {
+  margin-left: 48%;
+}
+
+@keyframes open {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.query-results-container {
+  width: 95%;
+  height: 15vw;
+  overflow-y: scroll;
+  margin-left: 5%;
+  background-color: white;
+  color: var(--purpleblue);
+  border-radius: 15px;
+}
+
+#main-section {
+  display: flex;
+  width: 100vw;
+  height: 400px;
+  justify-content: space-between;
+}
+
+#logo {
+  height: 250px;
+  width: 250px;
+  margin-right: 15%;
+}
+
+#queryToRun {
+  background-color: white;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  border-radius: 0.5rem;
+}
+
+#current-selected-p {
+  margin-top: 20px;
+}
+
+.demoExplanationButton {
+  background: none;
+  border: none;
+  width: 275px;
+  margin-left: 1.5%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.demoExplanationButton:hover {
+  background-color: var(--superlight);
+  margin-left: 2.5%;
+  cursor: pointer;
+  text-decoration: underline;
+  color: var(--blue);
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+}
+
+.infoIcon {
+  color: var(--purpleblue);
+}
+
+.infoIcon:hover {
+  color: var(--blue);
+}
+
+.arrowUpwardIcon {
+  color: var(--purpleblue);
+}
+
+.arrowUpwardIcon:hover {
+  color: var(--blue);
+}
