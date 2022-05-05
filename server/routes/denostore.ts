@@ -1,5 +1,5 @@
 //imports needed to instantiate Denostore
-import { Denostore, connect, parseURL } from '../deps.ts';
+import { DenoStore, connect, parseURL } from '../deps.ts';
 import { typeDefs, resolvers } from './../schema.ts';
 
 // set up redis connection
@@ -18,7 +18,7 @@ const redis = await connect({
 // const redis = await connect(parseURL(String(Deno.env.get('REDIS_URL'))));
 
 //instantiate Denostore
-export const denostore = new Denostore({
+export const denostore = new DenoStore({
   schema: { typeDefs, resolvers },
   usePlayground: true,
   redisClient: redis,
