@@ -1,11 +1,6 @@
 import { gql } from './deps.ts';
-// import { call } from '../utils.ts';
-
-const call = async (fetchCall: Function): Promise<any> => {
-  await new Promise((r) => setTimeout(r, 300));
-  return await fetchCall();
-};
-
+import { call } from '../utils.ts';
+  
 export const resolvers = {
   Query: {
     oneRocket: async (_parent: any, args: any, { ds }: any, info: any) => {
