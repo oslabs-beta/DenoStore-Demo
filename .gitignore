@@ -2,3 +2,4 @@ node_modules
 build
 .env
 dump.rdb
+.DS_Store

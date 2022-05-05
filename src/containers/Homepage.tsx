@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import DemoContainer from './DemoContainer';
-import TeamSection from './TeamSection';
-import Header from './Header';
-import Footer from './Footer';
+import TeamSection from '../components/TeamSection';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 // @ts-ignore
 import logo from '../logo.png';
 
@@ -12,7 +12,9 @@ const Homepage: React.FC = () => {
     <div>
       <Header />
       <div className="homepage-without-header">
-        <h1 className="DenoStore-title">DenoStore</h1>
+        <h1 className="DenoStore-title" id="main">
+          DenoStore
+        </h1>
         <div id="main-section">
           <div className="homepage-paragraphs-div">
             <p className="homepage-paragraphs">

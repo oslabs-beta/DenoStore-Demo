@@ -1,10 +1,10 @@
 import * as React from 'react';
 import axios from 'axios';
-import QuerySelectorDropdown from './QuerySelectorDropdown';
+import QuerySelectorDropdown from '../components/QuerySelectorDropdown';
 import possibleQueries from '../possibleQueries';
 import { ChartPropsData } from '../../types';
-import EditableQueryInput from './EditableQueryInput';
-import BarChart from './BarChart';
+import EditableQueryInput from '../components/EditableQueryInput';
+import BarChart from '../components/BarChart';
 import { queryCombiner, randomKey } from '../../utils';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 
