@@ -2,7 +2,6 @@ import { Context } from '../deps.ts';
 
 export const staticFileMiddleware = async (ctx: Context, next: Function) => {
   try {
-    console.log(ctx.request.url.pathname);
     if (ctx.request.url.pathname === '/docs') {
       ctx.request.url.pathname = '/docs.html ';
     }
