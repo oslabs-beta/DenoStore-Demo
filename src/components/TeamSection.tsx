@@ -25,7 +25,7 @@ const TeamSection: React.FC = () => {
           github="https://github.com/JessicaWachtel"
           linkedin="https://www.linkedin.com/in/jessicawachtel/"
           picture="https://media-exp1.licdn.com/dms/image/C5603AQHH5ZsoCQSBxA/profile-displayphoto-shrink_800_800/0/1648128285264?e=1654732800&v=beta&t=L5C6R0XpZaRQVbFFgjEe_tEJzSlwOhZfP4rO1JiwSqs"
-          teamMemberInfo="To be replaced."
+          teamMemberInfo="Jessica is a multi-passionate full stack software engineer with a focus on building intuitive yet complex frontends and intricate, scalable backends. When she isn't working on code, she loves hiking in upstate New York and traveling with friends."
         />
         <TeamMember
           name="Scott Tatsuno"
