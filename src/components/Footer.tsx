@@ -30,9 +30,8 @@ const Footer: React.FC = () => {
         >
           OSLabs
         </a>
-        {/* TODO: ADD MEDIUM ARTICLE LINK */}
         <a
-          href="https://github.com/oslabs-beta/DenoStore"
+          href="https://medium.com/@vanvorhisjake/welcome-denostore-4b49023332c6"
           target="_blank"
           rel="noreferrer noopener"
           className="footer-link"
