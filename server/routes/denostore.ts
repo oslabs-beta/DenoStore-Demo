@@ -20,7 +20,7 @@ const redis = await connect({
 //instantiate Denostore
 export const denostore = new Denostore({
   schema: { typeDefs, resolvers },
-  usePlayground: true,
+  usePlayground: false,
   redisClient: redis,
   defaultEx: 10,
 });
