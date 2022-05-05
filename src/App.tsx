@@ -7,6 +7,7 @@ const App: React.FC = () => {
   return (
     <div>
       <BrowserRouter>
+        // router no longer neccessary, but left it for future development
         <Routes>
           <Route path="/" element={<Homepage />} />
         </Routes>
