@@ -31,21 +31,16 @@ const DemoContainer: React.FC = () => {
   // conditional rendering of text when "Clear Cache" button is clicked
   const [cacheIsClear, setCacheIsClear] = React.useState<Boolean>(false);
 
-  // conditional rendering of DenoStore demonstration paragraph when info icon is clicked
-  const [demoParagraph, setDemoParagraph] = React.useState<Boolean>(false);
-
-  // state of the button based on whether Demo Explanation is visible or hidden
-  const [demoExplanationClicked, setDemoExplanationClicked] =
+  // conditional rendering of DenoStore demonstration paragraph and the button text when info icon is clicked
+  const [demoExplanationOpen, setDemoExplanationOpen] =
     React.useState<Boolean>(false);
 
   // onclick function to show DenoStore demonstration paragraph when info icon is clicked
   const showDemoParagraph = () => {
-    if (demoParagraph) {
-      setDemoParagraph(false);
-      setDemoExplanationClicked(false);
+    if (demoExplanationOpen) {
+      setDemoExplanationOpen(false);
     } else {
-      setDemoParagraph(true);
-      setDemoExplanationClicked(true);
+      setDemoExplanationOpen(true);
     }
   };
 
@@ -131,13 +126,13 @@ const DemoContainer: React.FC = () => {
       <h1 className="subTitle">Demo</h1>
 
       <button className="demoExplanationButton" onClick={showDemoParagraph}>
-        {demoExplanationClicked
+        {demoExplanationOpen
           ? 'Hide Demo Explanation'
           : 'Show Demo Explanation'}
       </button>
 
       {/* this renders the description of the currently selected query and the state after any user edits */}
-      {demoParagraph && (
+      {demoExplanationOpen && (
         <div className="demoParagraphs" id="info">
           <div>
             <p>
