@@ -40,8 +40,8 @@ const Homepage: React.FC = () => {
         </div>
         <DemoContainer />
         <TeamSection />
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 };
