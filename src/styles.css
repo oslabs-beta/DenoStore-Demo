@@ -33,7 +33,7 @@ body {
   -ms-overflow-style: none; /* for Internet Explorer, Edge */
   scrollbar-width: none; /* for Firefox */
   overflow-y: scroll;
-  width: 100%;
+  /* margin-left: 0%; */
 }
 
 body::-webkit-scrollbar {
@@ -54,6 +54,89 @@ select {
   width: fit-content;
   padding-left: 5%;
   padding-right: 5%;
+}
+
+@media screen and (max-width: 600px) {
+  .DenoStore-title {
+    font-size: 4rem !important;
+    min-width: 351px !important;
+    margin-right: 5%;
+  }
+  a {
+    font-size: small !important;
+  }
+
+  .headerBody {
+    padding-left: 0% !important;
+  }
+  .homepage-paragraphs {
+    font-size: small !important;
+  }
+  .homepage-paragraphs-div {
+    width: 95vw !important;
+    min-width: 0px !important;
+  }
+  #main-section {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  #logo {
+    margin-right: 0% !important;
+    padding-top: 15px;
+    align-self: center;
+  }
+  .demoContainer {
+    align-items: center !important;
+  }
+  .demoParagraphs p {
+    font-size: small !important;
+  }
+  .in-p-spans {
+    font-size: small !important;
+    padding: 0.1rem 0.1rem 0.1rem 0.1rem !important;
+  }
+  .subTitle {
+    margin-bottom: 0% !important;
+  }
+  .demoExplanationButton {
+    margin-top: 0% !important;
+    height: 40px !important;
+  }
+  .main-queries-row {
+    flex-direction: column !important;
+  }
+  .editable-column,
+  .visual-column {
+    align-self: center !important;
+  }
+  .queryEditField {
+    width: 80vw !important;
+    min-width: 339.19px !important;
+  }
+  .buttons-row {
+    flex-direction: column;
+    justify-content: unset !important;
+    align-self: center;
+  }
+  .runQuery,
+  .clearCache {
+    align-self: center;
+  }
+  .team {
+    width: 88.5vw !important;
+    min-width: unset !important;
+    flex-direction: column !important;
+    margin-left: 0% !important;
+    margin-right: 0% !important;
+    margin-bottom: 0% !important;
+    /* justify-content: center !important; */
+    /* align-items: center !important; */
+  }
+  .teamContainer {
+    width: 50vw !important;
+    align-self: center !important;
+    margin-top: 5% !important;
+  }
 }
 
 .DenoStore-title {
@@ -79,7 +162,7 @@ select {
 }
 
 .homepage-without-header {
-  margin-top: 12%;
+  margin-top: max(95px, 12%);
 }
 
 .graphic {
@@ -254,11 +337,11 @@ select {
 .header {
   background-image: linear-gradient(0deg, transparent, white 20%);
   height: 10vh;
-  min-height: 95px;
+  min-height: 98.4px;
   position: fixed;
   top: 0;
   z-index: 1;
-  width: 100%;
+  width: 100vw;
   margin-left: -0.5rem;
 }
 
