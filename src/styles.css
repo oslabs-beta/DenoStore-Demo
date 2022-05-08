@@ -57,6 +57,9 @@ select {
 }
 
 @media screen and (max-width: 600px) {
+  body {
+    /* margin: 0 !important; */
+  }
   .DenoStore-title {
     font-size: 4rem !important;
     min-width: 351px !important;
@@ -79,11 +82,12 @@ select {
   #main-section {
     display: flex !important;
     flex-direction: column !important;
+    max-width: 374px !important;
   }
   #logo {
     margin-right: 0% !important;
-    padding-top: 15px;
-    align-self: center;
+    padding-top: 15px !important;
+    align-self: center !important;
   }
   .demoContainer {
     align-items: center !important;

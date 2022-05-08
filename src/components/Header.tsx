@@ -23,18 +23,18 @@ const Header: React.FC = () => {
         </li>
         <li>
           {window.innerWidth <= 600 ? (
-            <Link to="demo" spy={true} smooth={true} offset={-43}>
+            <Link to="demo" spy={true} smooth={true} offset={-56}>
               Demo
             </Link>
           ) : (
-            <Link to="demo" spy={true} smooth={true} offset={-100}>
+            <Link to="demo" spy={true} smooth={true} offset={-70}>
               Demo
             </Link>
           )}
         </li>
         <li>
           {window.innerWidth <= 600 ? (
-            <Link to="team" spy={true} smooth={true} offset={-260}>
+            <Link to="team" spy={true} smooth={true} offset={-270}>
               About
             </Link>
           ) : (
