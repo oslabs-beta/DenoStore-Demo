@@ -19,7 +19,6 @@ const BarChart: React.FC<ChartPropsData> = ({
   } else {
     width = 600;
   }
-  console.log(width);
 
   const svgWidth = width + margin.left + margin.right;
   const svgHeight = height + margin.top + margin.bottom;
