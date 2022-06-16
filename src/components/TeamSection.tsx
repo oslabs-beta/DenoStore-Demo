@@ -10,21 +10,21 @@ const TeamSection: React.FC = () => {
           name="Jake Van Vorhis"
           github="https://github.com/jakedoublev/"
           linkedin="https://www.linkedin.com/in/jakedoublev/"
-          picture="https://media-exp1.licdn.com/dms/image/C4E03AQHyl3AaR70Qvw/profile-displayphoto-shrink_800_800/0/1539889311460?e=1654732800&v=beta&t=2hZw6h2B3QVqtdOdHcbgCG3sHWh_9NSGVY79EvWxXzY"
+          picture="https://media-exp2.licdn.com/dms/image/C4E03AQHyl3AaR70Qvw/profile-displayphoto-shrink_800_800/0/1539889311460?e=1660780800&v=beta&t=S2DjVbbdOkgtu34KxVSlERq1qB8fIJ9-Ei7eTpNt9jE"
           teamMemberInfo="Jake is a software engineer with a bias for working across the stack to render beautiful, featureful frontends connected to optimized, performant backends. Having previously co-founded and grown a startup, he codes with sincere empathy for the end user and with mechanics of the business always in mind."
         />
         <TeamMember
           name="James Kim"
           github="https://github.com/jamesmjkim/"
           linkedin="https://www.linkedin.com/in/jamesmjkim/"
-          picture="https://media-exp1.licdn.com/dms/image/C5603AQFmC3J19RX5jQ/profile-displayphoto-shrink_800_800/0/1517274087744?e=1654732800&v=beta&t=ghiRolasL91ByItaTS07cQfafGyEwmOWSysB-Xyfuok"
+          picture="https://media-exp2.licdn.com/dms/image/C5603AQFmC3J19RX5jQ/profile-displayphoto-shrink_800_800/0/1517274087744?e=1660780800&v=beta&t=F5sMva1iLdjSJxBWyJtAaULK3hPLexE9G5UCfe_EzL0"
           teamMemberInfo="James is a full stack software engineer, leaning towards building complex backends. He has a keen interest in distributed systems, containerization, and building scalable applications. Aside from software engineering, he loves to be active (swinging a golf club, playing basketball, hiking trails, etc.) and build exclusive LEGO sets."
         />
         <TeamMember
           name="Jessica Wachtel"
           github="https://github.com/JessicaWachtel"
           linkedin="https://www.linkedin.com/in/jessicawachtel/"
-          picture="https://media-exp1.licdn.com/dms/image/C5603AQHH5ZsoCQSBxA/profile-displayphoto-shrink_800_800/0/1648128285264?e=1654732800&v=beta&t=L5C6R0XpZaRQVbFFgjEe_tEJzSlwOhZfP4rO1JiwSqs"
+          picture="https://media-exp2.licdn.com/dms/image/C5603AQHH5ZsoCQSBxA/profile-displayphoto-shrink_800_800/0/1648128285264?e=1660780800&v=beta&t=QQC9YCyIWbZxSJ2UpPSTNczZa9szII9ad2AXio5dGzY"
           teamMemberInfo="Jessica is a multi-passionate full stack software engineer with a focus on building intuitive yet complex frontends and intricate, scalable backends. When she isn't working on code, she loves hiking in upstate New York and traveling with friends."
         />
         <TeamMember
