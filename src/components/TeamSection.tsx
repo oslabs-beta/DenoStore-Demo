@@ -38,7 +38,7 @@ const TeamSection: React.FC = () => {
           name="Ting Xian Ho"
           github="https://github.com/lawauditswe"
           linkedin="https://www.linkedin.com/in/sa201034/"
-          picture="https://media-exp1.licdn.com/dms/image/C4D03AQF0jRg_RDMG-A/profile-displayphoto-shrink_800_800/0/1650416608025?e=1655942400&v=beta&t=dKxnghFOA-IvUhuHO9FQxz9wipLpmeBdn68YdZxj8PQ"
+          picture="https://media-exp1.licdn.com/dms/image/C4D03AQF0jRg_RDMG-A/profile-displayphoto-shrink_800_800/0/1650416608025?e=1664409600&v=beta&t=Sl0jjpv2Mt8wTFYfThvVAdu4qmuIqBngI74N-m1kKgY"
           teamMemberInfo="Ting Xian is a full stack software developer who is passionate about building visually appealing and user-friendly webpages. In his free time, when he’s not contributing to a variety of open source projects, you will likely see him playing competitive Pokemon or singing Taylor Swift at the karaoke bar."
         />
       </div>
