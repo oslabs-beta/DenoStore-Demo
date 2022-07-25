@@ -22,14 +22,26 @@ const Header: React.FC = () => {
           <a href="/docs">Documentation</a>
         </li>
         <li>
-          <Link to="demo" spy={true} smooth={true} offset={-100}>
-            Demo
-          </Link>
+          {window.innerWidth <= 600 ? (
+            <Link to="demo" spy={true} smooth={true} offset={-56}>
+              Demo
+            </Link>
+          ) : (
+            <Link to="demo" spy={true} smooth={true} offset={-70}>
+              Demo
+            </Link>
+          )}
         </li>
         <li>
-          <Link to="team" spy={true} smooth={true}>
-            About
-          </Link>
+          {window.innerWidth <= 600 ? (
+            <Link to="team" spy={true} smooth={true} offset={-270}>
+              About
+            </Link>
+          ) : (
+            <Link to="team" spy={true} smooth={true}>
+              About
+            </Link>
+          )}
         </li>
       </ul>
     </div>

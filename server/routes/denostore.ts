@@ -15,7 +15,7 @@ import { typeDefs, resolvers } from './../schema.ts';
 // });
 
 // for heroku deployment
-const redis = await connect(parseURL(String(Deno.env.get('REDIS_URL'))));
+const redis = await connect(parseURL(String(Deno.env.get('REDISCLOUD_URL'))));
 
 //instantiate Denostore
 export const denostore = new DenoStore({

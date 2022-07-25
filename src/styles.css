@@ -33,6 +33,7 @@ body {
   -ms-overflow-style: none; /* for Internet Explorer, Edge */
   scrollbar-width: none; /* for Firefox */
   overflow-y: scroll;
+  /* margin-left: 0%; */
 }
 
 body::-webkit-scrollbar {
@@ -61,6 +62,7 @@ select {
   text-align: left;
   margin-left: 5%;
   font-weight: bold;
+  min-width: 530px;
   background-color: var(--superlight);
   background-image: linear-gradient(30deg, var(--purpleblue), var(--blue));
   background-size: 480px;
@@ -77,7 +79,7 @@ select {
 }
 
 .homepage-without-header {
-  margin-top: 12%;
+  margin-top: max(95px, 12%);
 }
 
 .graphic {
@@ -252,6 +254,7 @@ select {
 .header {
   background-image: linear-gradient(0deg, transparent, white 20%);
   height: 10vh;
+  min-height: 98.4px;
   position: fixed;
   top: 0;
   z-index: 1;
@@ -279,12 +282,13 @@ background: linear-gradient(
   margin-top: 1rem;
   height: 100px;
   width: 100vw;
-  margin-left: -1rem;
+  /* margin-left: -1rem; */
   margin-bottom: -1rem;
   border-top: 1px solid white;
   background-image: linear-gradient(to top, white, transparent 120%);
   padding-top: 2rem;
   z-index: 1;
+  border-top: 0;
 }
 
 li,
@@ -523,4 +527,86 @@ span {
 
 .arrowUpwardIcon:hover {
   color: var(--blue);
+}
+
+@media screen and (max-width: 600px) {
+  .DenoStore-title {
+    font-size: 4rem;
+    min-width: 351px;
+    margin-right: 5%;
+  }
+  a {
+    font-size: small !important;
+  }
+
+  .headerBody {
+    padding-left: 0%;
+  }
+  .homepage-paragraphs {
+    font-size: small;
+  }
+  .homepage-paragraphs-div {
+    width: 95vw;
+    min-width: 0px;
+  }
+  #main-section {
+    display: flex;
+    flex-direction: column;
+    max-width: 374px;
+  }
+  #logo {
+    margin-right: 0%;
+    padding-top: 15px;
+    align-self: center;
+  }
+  .demoContainer {
+    align-items: center;
+  }
+  .demoParagraphs p {
+    font-size: small;
+  }
+  .in-p-spans {
+    font-size: small;
+    padding: 0.1rem 0.1rem 0.1rem 0.1rem;
+  }
+  .subTitle {
+    margin-bottom: 0%;
+  }
+  .demoExplanationButton {
+    margin-top: 0%;
+    height: 40px;
+  }
+  .main-queries-row {
+    flex-direction: column;
+  }
+  .editable-column,
+  .visual-column {
+    align-self: center;
+  }
+  .queryEditField {
+    width: 80vw;
+    min-width: 339.19px;
+  }
+  .buttons-row {
+    flex-direction: column;
+    justify-content: unset;
+    align-self: center;
+  }
+  .runQuery,
+  .clearCache {
+    align-self: center;
+  }
+  .team {
+    width: 88.5vw;
+    min-width: unset;
+    flex-direction: column;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-bottom: 0%;
+  }
+  .teamContainer {
+    width: 50vw;
+    align-self: center;
+    margin-top: 5%;
+  }
 }
